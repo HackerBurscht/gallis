@@ -27,7 +27,7 @@ body, html {
     height: 100vh;
     height: 100svh;
     background-color: var(--bg-color-intro);
-    background-image: url("bg_img_intro.gif");
+    background-image: url("bg_img_intro.png");
     color: var(--p-color-light);
     
     display: flex;
