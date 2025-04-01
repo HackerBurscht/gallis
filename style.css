@@ -54,6 +54,8 @@ body, html {
     height: 50svh;
     background-color: var(--bg-color-slogan);
     color: var(--p-color-dark);
+    display: flex;
+    margin: 2em 4em 2em 4em;
 }
 
 .aboutus {
