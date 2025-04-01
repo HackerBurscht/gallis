@@ -24,7 +24,16 @@ body, html {
     height: 100vh;
     height: 100svh;
     background-color: var(--bg-color-intro);
+    background-image: url("bg_img_intro.gif");
+    
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
 }
+
 
 .slogan {
     height: 50vh;
