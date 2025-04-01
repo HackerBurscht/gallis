@@ -1,10 +1,21 @@
+:root {
+    /* variables for colors */
+    /* light theme */
+    --bg-color: #FFFFFF;
+    --bg-color-intro: #0B132B;
+    --bg-color-slogan: #ECDCBB;
+    --bg-color-aboutus: #ECDCBB;
+    --bg-color-offer: #0B132B;
+    --bg-color-footer: #FFFFFF;
+}
+
 /*global styling*/
 body, html {
     margin: 0;
     padding: 0;
     height: 100%;
     /*font-family: 'InriaSerif-Regular';*/
-    /*background-color: var(--bg-color);*/
+    background-color: var(--bg-color);
     overflow-x: hidden;
     scroll-behavior: smooth;
     }
@@ -12,16 +23,19 @@ body, html {
 .intro {
     height: 100vh;
     height: 100svh;
+    background-color: var(--bg-color-intro);
 }
 
 .slogan {
     height: 50vh;
     height: 50svh;
+    background-color: var(--bg-color-slogan);
 }
 
 .aboutus {
     height: 75vh;
     height: 75svh;
+    background-color: var(--bg-color-aboutus);
 }
 
 .gallery {
@@ -32,9 +46,11 @@ body, html {
 .offer {
     height: 50vh;
     height: 50svh;
+    background-color: var(--bg-color-offer);
 }
 
 .footer {
     height: 50vh;
     height: 50svh;
+    background-color: var(--bg-color-footer);
 }
