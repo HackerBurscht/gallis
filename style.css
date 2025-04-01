@@ -7,7 +7,11 @@
     --bg-color-aboutus: #ECDCBB;
     --bg-color-offer: #0B132B;
     --bg-color-footer: #FFFFFF;
+    --p--color-light:  #EBEAE8;
+    --p--color-dark:  #0B132B;
+    --p--color-footer:  #000000;
 }
+0B132B
 
 /*global styling*/
 body, html {
@@ -25,6 +29,7 @@ body, html {
     height: 100svh;
     background-color: var(--bg-color-intro);
     background-image: url("bg_img_intro.gif");
+    color: var(--p-color-light);
     
     display: flex;
     flex-direction: column;
@@ -43,12 +48,14 @@ body, html {
     height: 50vh;
     height: 50svh;
     background-color: var(--bg-color-slogan);
+    color: var(--p-color-dark);
 }
 
 .aboutus {
     height: 75vh;
     height: 75svh;
     background-color: var(--bg-color-aboutus);
+    color: var(--p-color-dark);
 }
 
 .gallery {
@@ -64,10 +71,12 @@ body, html {
     height: 75vh;
     height: 75svh;
     background-color: var(--bg-color-offer);
+    color: var(--p-color-light);
 }
 
 .footer {
     height: 75vh;
     height: 75svh;
     background-color: var(--bg-color-footer);
+    color: var(--p-color-footer);
 }
