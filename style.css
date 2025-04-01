@@ -34,6 +34,10 @@ body, html {
     align-content: center;
 }
 
+.intro_adjectiv{
+    display: inline-block;
+}
+
 
 .slogan {
     height: 50vh;
