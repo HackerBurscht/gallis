@@ -1,1 +1,15 @@
+/*global styling*/
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    /*font-family: 'InriaSerif-Regular';*/
+    /*background-color: var(--bg-color);*/
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    }
 
+.intro {
+    height: 100vh;
+    height: 100svh;
+}
