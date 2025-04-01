@@ -1,5 +1,5 @@
+/* variables for colors */
 :root {
-    /* variables for colors */
     /* light theme */
     --bg-color: #FFFFFF;
     --bg-color-intro: #0B132B;
@@ -7,11 +7,10 @@
     --bg-color-aboutus: #ECDCBB;
     --bg-color-offer: #0B132B;
     --bg-color-footer: #FFFFFF;
-    --p--color-light:  #EBEAE8;
-    --p--color-dark:  #0B132B;
-    --p--color-footer:  #000000;
+    --p-color-light:  #EBEAE8;
+    --p-color-dark:  #0B132B;
+    --p-color-footer:  #000000;
 }
-0B132B
 
 /*global styling*/
 body, html {
