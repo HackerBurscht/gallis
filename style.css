@@ -51,15 +51,19 @@ body, html {
     height: 75vh;
     height: 75svh;
 }
+.gallery_img {
+    max-height: 75vh;
+    max-height: 75svh;
+}
 
 .offer {
-    height: 50vh;
-    height: 50svh;
+    height: 75vh;
+    height: 75svh;
     background-color: var(--bg-color-offer);
 }
 
 .footer {
-    height: 50vh;
-    height: 50svh;
+    height: 75vh;
+    height: 75svh;
     background-color: var(--bg-color-footer);
 }
