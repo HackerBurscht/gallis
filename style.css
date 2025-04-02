@@ -151,27 +151,28 @@ a
 }
 
 .offer_text {
-    font-family: "Lato";
-    line-height: 180%;
+		font-family: "Lato";
+		line-height: 180%;
 }
 
 .offer_button {
-	margin-top: 2em;
-	text-align: center;
-	color: var(--bg-color-slogan);
+		margin-top: 2em;
+		text-align: center;
+		color: var(--bg-color-slogan);
 }
 
 .footer {
-    height: 75vh;
-    height: 75svh;
-    background-color: var(--bg-color-footer);
-    color: var(--p-color-footer);
+		height: 75vh;
+		height: 75svh;
+		background-color: var(--bg-color-footer);
+		color: var(--p-color-footer);
 }
 
 .footer_text_contents{
-	display:flex;
-	align-items: center;
-	margin:	1em 2em 1em 2em;
+		margin: 1em 2em 1em 2em;
+	  display: grid;
+	  grid-auto-flow: column;
+	  grid-auto-columns: 1fr;
 }
 
 .footer_text {
