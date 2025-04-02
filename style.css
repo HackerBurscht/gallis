@@ -21,8 +21,33 @@ body, html {
     background-color: var(--bg-color);
     overflow-x: hidden;
     scroll-behavior: smooth;
+    font-family: "Quattrocento";
     }
 
+/*font-fams*/    
+/* Define regular font style */
+@font-face {
+    font-family: 'Quattrocento';
+    src: url('./fonts/Quattrocento-Bold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Quattrocento';
+    src: url('./fonts/Quattrocento-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('./fonts/Lato-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/*Customizing*/
 .intro {
     height: 100vh;
     height: 100svh;
@@ -74,6 +99,10 @@ body, html {
     color: var(--p-color-dark);
 }
 
+.aboutus_header, .aboutus_text {
+    font-family: "Lato";
+}
+
 .gallery {
     height: 75vh;
     height: 75svh;
@@ -90,9 +119,17 @@ body, html {
     color: var(--p-color-light);
 }
 
+.offer_text {
+    font-family: "Lato";
+}
+
 .footer {
     height: 75vh;
     height: 75svh;
     background-color: var(--bg-color-footer);
     color: var(--p-color-footer);
+}
+
+.footer_text {
+    font-family: "Lato";
 }
