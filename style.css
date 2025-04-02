@@ -43,6 +43,7 @@ body, html {
     flex-wrap: wrap;
     gap: 8em;
     margin-top: 3em;
+    border-bottom: 2px solid var(--p-color-light);
 }
 
 .adress_intro {
@@ -55,12 +56,13 @@ body, html {
     height: 50svh;
     background-color: var(--bg-color-slogan);
     color: var(--p-color-dark);
-    display: flex; 
+    display: flex;
+    flex-direction: row;
 }
 
 .slogan_text{
     margin-left: 2em;
-    margin-riht: 2em;
+    margin-right: 2em;
     font-size: 5em;
 }
 
