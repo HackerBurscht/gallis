@@ -135,6 +135,11 @@ body, html {
     height: 75svh;
     background-color: var(--bg-color-offer);
     color: var(--p-color-light);
+    display: flex;
+}
+
+.offer_left, .offer_right{
+    margin: 1em, 1em, 1em, 1em;
 }
 
 .offer_text {
