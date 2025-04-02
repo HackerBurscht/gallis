@@ -103,6 +103,7 @@ body, html {
 
 .aboutus_texts{
     margin-left: 2em;
+    margin-right: 2em;
 }
 .aboutus_title{
     font-size: 2em;
@@ -122,12 +123,14 @@ body, html {
 }
 
 .gallery {
-    height: 75vh;
-    height: 75svh;
+    height: 85vh;
+    height: 85svh;
+    font-size: 0;
+    
 }
 .gallery_img {
-    max-height: 75vh;
-    max-height: 75svh;
+    height: 85vh;
+    height: 85svh;
 }
 
 .offer {
