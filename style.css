@@ -67,17 +67,14 @@ body, html {
     display: flex;
     flex-wrap: wrap;
     gap: 8em;
-    margin-top: 3em;
+    margin-top: 3em 0 2em;
     border-bottom: 2px solid var(--p-color-light);
 }
 
-.adress_intro {
-    margin-top: 2em;
-}
-
-.adress_intro >p {
+.intro_adress_text{
     text-align: center;
 }
+
 .slogan {
     height: 50vh;
     height: 50svh;
