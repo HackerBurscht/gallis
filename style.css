@@ -92,8 +92,8 @@ body, html {
 
 
 .aboutus {
-    height: 75vh;
-    height: 75svh;
+    height: 100vh;
+    height: 100svh;
     padding: 2em, 0, 2em, 0;
     background-color: var(--bg-color-aboutus);
     color: var(--p-color-dark);
@@ -101,17 +101,24 @@ body, html {
     flex-direction: row;
 }
 
+.aboutus_texts{
+    margin-left: 2em;
+}
 .aboutus_title{
     font-size: 2em;
 }
 
-.aboutus_header, .aboutus_text {
+.aboutus_header {
     font-family: "Lato";
     font-weight: 700;
+    font-size: 1.6em;
+    margin-top: 2em;
 }
 
 .aboutus_text {
     font-family: "Lato";
+    font-size: 1.6em;
+    margin-top: 2em;
 }
 
 .gallery {
