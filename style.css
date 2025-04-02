@@ -168,8 +168,13 @@ a
 		color: var(--p-color-footer);
 }
 
+.footer_logo{
+    margin: auto;
+    margin-top: 2em;
+}
+
 .footer_text_contents{
-		margin: 1em 2em 1em 2em;
+	  margin: 1em 2em 1em 2em;
 	  display: grid;
 	  grid-auto-flow: column;
 	  grid-auto-columns: 1fr;
