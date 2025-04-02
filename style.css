@@ -27,7 +27,7 @@ body, html {
     height: 100vh;
     height: 100svh;
     background-color: var(--bg-color-intro);
-    background-image: url("/images/bg_img_intro.png");
+    background-image: url("./images/bg_img_intro.png");
     color: var(--p-color-light);
     
     display: flex;
@@ -46,6 +46,7 @@ body, html {
 }
 
 .adress_intro {
+    text-align: center;
     margin-top: 2em;
 }
 
@@ -54,9 +55,15 @@ body, html {
     height: 50svh;
     background-color: var(--bg-color-slogan);
     color: var(--p-color-dark);
-    display: flex;
-    margin: 2em 4em 2em 4em;
+    display: flex; 
 }
+
+.slogan_text{
+    margin-left: 2em;
+    margin-riht: 2em;
+    font-size: 5em;
+}
+
 
 .aboutus {
     height: 75vh;
