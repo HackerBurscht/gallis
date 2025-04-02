@@ -67,7 +67,7 @@ body, html {
     display: flex;
     flex-wrap: wrap;
     gap: 8em;
-    margin-top: 3em 0 2em;
+    margin-top: 3em 0 3em 0;
     border-bottom: 2px solid var(--p-color-light);
 }
 
@@ -100,8 +100,8 @@ body, html {
 }
 
 .aboutus_texts{
-    margin-left: 2em;
-    margin-right: 2em;
+    margin-left: 3em;
+    margin-right: 3em;
 }
 .aboutus_title{
     font-size: 3em;
@@ -113,7 +113,7 @@ body, html {
     font-size: 1.6em;
     margin-top: 2em;
 }
-
+a
 .aboutus_text {
     font-family: "Lato";
     font-size: 1.6em;
