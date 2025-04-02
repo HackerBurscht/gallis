@@ -72,10 +72,12 @@ body, html {
 }
 
 .adress_intro {
-    text-align: center;
     margin-top: 2em;
 }
 
+.adress_intro >p {
+    text-align: center;
+}
 .slogan {
     height: 50vh;
     height: 50svh;
