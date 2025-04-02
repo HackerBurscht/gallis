@@ -82,7 +82,6 @@ body, html {
     background-color: var(--bg-color-slogan);
     color: var(--p-color-dark);
     display: flex;
-    flex-direction: row;
 }
 
 .slogan_text{
@@ -95,11 +94,23 @@ body, html {
 .aboutus {
     height: 75vh;
     height: 75svh;
+    padding: 2em, 0, 2em, 0;
     background-color: var(--bg-color-aboutus);
     color: var(--p-color-dark);
+    display: flex;
+    flex-direction: row;
+}
+
+.aboutus_title{
+    font-size: 2em;
 }
 
 .aboutus_header, .aboutus_text {
+    font-family: "Lato";
+    font-weight: 700;
+}
+
+.aboutus_text {
     font-family: "Lato";
 }
 
