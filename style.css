@@ -168,6 +168,10 @@ a
     color: var(--p-color-footer);
 }
 
+.footer_text_contents{
+	display:flex;
+}
+
 .footer_text {
     font-family: "Lato";
 }
