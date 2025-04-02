@@ -170,6 +170,8 @@ a
 
 .footer_text_contents{
 	display:flex;
+	align-items: center;
+	margin:	1em 2em 1em 2em;
 }
 
 .footer_text {
