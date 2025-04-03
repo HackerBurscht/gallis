@@ -100,8 +100,8 @@ body, html {
 }
 
 .aboutus_texts{
-    margin-left: 4em;
-    margin-right: 4em;
+    margin-left: 6em;
+    margin-right: 12em;
 }
 .aboutus_title{
     font-size: 3em;
@@ -109,7 +109,7 @@ body, html {
 
 .aboutus_header {
     font-family: "Lato";
-    font-weight: 700;
+    font-weight: 500;
     font-size: 1.6em;
     margin-top: 2em;
 }
@@ -142,12 +142,13 @@ a
 }
 
 .offer_left, .offer_right{
-    margin: 8em 8em 8em 8em;
+    margin: 12em 12em 12em 12em;
 }
 
 .offer_title{
     font-size: 2em;
 		margin-bottom: 4em;
+		text-align: center;
 }
 
 .offer_text {
@@ -171,7 +172,7 @@ a
 .footer_logo{
 		display: block;
     margin: auto;
-    margin-top: 2em;
+    margin-top: 4em;
 }
 
 .footer_title {
@@ -179,10 +180,10 @@ a
 }
 
 .footer_text_contents{
-	  margin: 2em 6em 2em 6em;
+	  margin: 2em 12em 2em 12em;
 	  display: grid;
 	  grid-auto-flow: column;
-	  grid-auto-columns: 1fr;
+		grid-template-columns: 2fr 1fr 1fr;
 }
 
 .footer_text {
