@@ -22,6 +22,7 @@ body, html {
     overflow-x: hidden;
     scroll-behavior: smooth;
     font-family: "Quattrocento";
+		font-size: 1.25em;
     }
 
 /*font-fams*/    
@@ -147,7 +148,7 @@ a
 
 .offer_title{
     font-size: 2em;
-		margin-bottom: 4em;
+		margin-bottom: 3em;
 		text-align: center;
 }
 
@@ -157,7 +158,7 @@ a
 }
 
 .offer_button {
-		margin-top: 2em;
+		margin-top: 3em;
 		text-align: center;
 		color: var(--bg-color-slogan);
 }
@@ -195,5 +196,11 @@ a
 	display: flex;
   justify-content: space-between;
   flex-direction: row;
+	margin: 0 10em 4em 10em;
+}
+
+.footer_links_text{
+display: flex;
+gap: 4em;
 }
 
