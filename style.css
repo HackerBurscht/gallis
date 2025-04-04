@@ -168,7 +168,7 @@ content: "";
 }
 
 .offer_Title > a{
-margin-top: 0;
+	margin: 0;
 }
 .offer_text {
 		font-family: "Lato";
