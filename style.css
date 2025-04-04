@@ -240,17 +240,17 @@ content: "";
   content: "";
   position: absolute;
   top: 50%;                  /* vertikal mittig ausrichten */
-  width: 30%;               /* Breite der Linie (Anpassen nach Bedarf) */
+  width: 20%;               /* Breite der Linie (Anpassen nach Bedarf) */
   height: 1px;
   background-color: var(--p-color-dark);   /* Farbe der Linie */
 }
 
 .footer_logo_container::before {
-  left: 0;                  /* Linie links */
+  left: 10em;                  /* Linie links */
 }
 
 .footer_logo_container::after {
-  right: 0;                 /* Linie rechts */
+  right: 10em;                 /* Linie rechts */
 }
 
 
