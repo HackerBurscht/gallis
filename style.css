@@ -99,6 +99,7 @@ background-size: 100% 100%;
     color: var(--p-color-dark);
     display: flex;
     flex-direction: row;
+align-items: end;
 }
 
 .aboutus_texts{
@@ -108,12 +109,13 @@ background-size: 100% 100%;
 
 .aboutus_title{
     font-size: 3em;
+	text-wrap: nowrap
 }
 
 .aboutus_header {
     font-family: "Lato";
     font-weight: 500;
-    font-size: 1.6em;
+    font-size: 1.4em;
     margin-top: 2em;
 }
 
