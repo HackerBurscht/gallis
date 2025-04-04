@@ -125,9 +125,10 @@ a
 }
 
 .gallery {
-    min-height: 85vh;
-    min-height: 85svh;
-    font-size: 0;
+  position: relative; /* Notwendig für das ::after-Pseudo-Element */
+  min-height: 85vh;
+  min-height: 85svh;
+  font-size: 0;
 }
 
 .gallery::after{
