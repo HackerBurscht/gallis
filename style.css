@@ -228,10 +228,35 @@ content: "";
 	text-decoration: none; 
 }
 
+.footer_logo_container {
+  position: relative;
+  display: flex;
+  justify-content: center;  /* Logo zentrieren */
+  margin-top: 4em;
+}
+
+.footer_logo_container::before,
+.footer_logo_container::after {
+  content: "";
+  position: absolute;
+  top: 50%;                  /* vertikal mittig ausrichten */
+  width: 30%;               /* Breite der Linie (Anpassen nach Bedarf) */
+  height: 1px;
+  background-color: var(--p-color-dark);   /* Farbe der Linie */
+}
+
+.footer_logo_container::before {
+  left: 0;                  /* Linie links */
+}
+
+.footer_logo_container::after {
+  right: 0;                 /* Linie rechts */
+}
+
+
 .footer_logo{
 	display: block;
     margin: auto;
-    margin-top: 4em;
 }
 
 .footer_logo::after{
