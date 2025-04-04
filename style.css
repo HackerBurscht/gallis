@@ -167,6 +167,9 @@ content: "";
 		text-align: center;
 }
 
+.offer_Title > a{
+margin-top: 0;
+}
 .offer_text {
 		font-family: "Lato";
 		line-height: 180%;
