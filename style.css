@@ -105,6 +105,7 @@ background-size: 100% 100%;
     margin-left: 6em;
     margin-right: 12em;
 }
+
 .aboutus_title{
     font-size: 3em;
 }
@@ -118,7 +119,7 @@ background-size: 100% 100%;
 
 .aboutus_text {
     font-family: "Lato";
-    font-size: 1.6em;
+    font-size: 1em;
     margin-top: 2em;
     margin-bottom: 2em;
     line-height: 180%;
@@ -183,14 +184,13 @@ content: "";
 }
 
 
-.offer_button a:link, a:visited, a:active{
+.offer_button > a:link, a:visited, a:active{
 	color: var(--bg-color-slogan);
 	text-decoration: none; 
 }
 
-.offer_button  a:hover{
-	color: var(--bg-color-slogan);
-	text-decoration: none; 
+.offer_button > a:hover{
+	color: var(--bg-color-slogan); 
 }
 
 .offer_button::before {
@@ -203,6 +203,7 @@ content: "";
        border-radius: 4px;
        background-color: var(--bg-color-slogan);
 	margin-right: 0.5em;
+	margin-bottom: 4px;
 }	
 .offer_button::after {
        content: '';
@@ -214,6 +215,7 @@ content: "";
        border-radius: 4px;
        background-color: var(--bg-color-slogan);
 	margin-left: 0.5em;
+	margin-bottom: 4px;
 }	
 
 .footer {
@@ -223,7 +225,15 @@ content: "";
 	color: var(--p-color-footer);
 }
 
-.footer a:link, a:visited, a:active{
+.footer > a:link{
+	color: var(--p-color-dark);
+	text-decoration: none; 
+}
+.footer > a:visited{
+	color: var(--p-color-dark);
+	text-decoration: none; 
+}
+.footer > a:active{
 	color: var(--p-color-dark);
 	text-decoration: none; 
 }
@@ -246,11 +256,11 @@ content: "";
 }
 
 .footer_logo_container::before {
-  left: 10em;                  /* Linie links */
+  left: 12em;                  /* Linie links */
 }
 
 .footer_logo_container::after {
-  right: 10em;                 /* Linie rechts */
+  right: 12em;                 /* Linie rechts */
 }
 
 
@@ -289,11 +299,23 @@ content: "";
 	display: flex;
   justify-content: space-between;
   flex-direction: row;
-	margin: 0 10em 4em 10em;
+	margin: 0 12em 4em 12em;
+}
+
+.footer_icon{
+	transition: all .2s ease-in-out;
+}
+
+.footer_icon::hover {
+	transform: scale(1.5);
 }
 
 .footer_links_text{
 display: flex;
 gap: 4em;
+}
+
+.footer_links_text::hover{
+	font-weight: 500;
 }
 
