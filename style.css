@@ -241,7 +241,7 @@ content: "";
 .footer_logo_container {
   position: relative;
   display: flex;
-  justify-content: center;  /* Logo zentrieren */
+  justify-content: center;
   margin-top: 4em;
 }
 
@@ -249,18 +249,18 @@ content: "";
 .footer_logo_container::after {
   content: "";
   position: absolute;
-  top: 50%;                  /* vertikal mittig ausrichten */
-  width: 20%;               /* Breite der Linie (Anpassen nach Bedarf) */
+  top: 50%;               
+  width: 25%;             
   height: 1px;
-  background-color: var(--p-color-dark);   /* Farbe der Linie */
+  background-color: var(--p-color-dark);  
 }
 
 .footer_logo_container::before {
-  left: 12em;                  /* Linie links */
+  left: 12em;                 
 }
 
 .footer_logo_container::after {
-  right: 12em;                 /* Linie rechts */
+  right: 12em;  
 }
 
 
@@ -315,7 +315,8 @@ display: flex;
 gap: 4em;
 }
 
-.footer_links_text::hover{
+.footer_link::hover{
 	font-weight: 500;
+	color: var(--bg-color-aboutus)
 }
 
