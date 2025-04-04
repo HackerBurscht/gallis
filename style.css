@@ -312,7 +312,7 @@ content: "";
 }
 
 .footer_icon:hover {
-	transform: scale(1.1);
+  transform: scale(1.2);
 }
 
 .footer_links_text{
@@ -320,11 +320,11 @@ display: flex;
 gap: 4em;
 }
 
-.footer_links{
+.footer_link {
 	color: var(--p-color-dark);
 }
 
-.footer_link:hover{
+.footer_link:hover {
 	font-weight: 500;
 	color: var(--bg-color-aboutus);
 }
