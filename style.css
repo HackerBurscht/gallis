@@ -158,25 +158,53 @@ a
 }
 
 .offer_button {
-		margin-top: 3em;
-		text-align: center;
-		color: var(--bg-color-slogan);
+	margin-top: 3em;
+	text-align: center;
+	color: var(--bg-color-slogan);
+	text-decoration: none; 
 }
 
 
-.offer_button a:visited, a:link, a:active{
-		color: var(--bg-color-slogan);
+.offer_button  a:link,, a:visited, a:active{
+	color: var(--bg-color-slogan);
+	text-decoration: none; 
 }
+
+.offer_button  a:hover{
+	color: var(--bg-color-slogan);
+	text-decoration: none; 
+}
+
+.offer_button::befor {
+       content: '';
+       display: inline-block;
+       width: 15px;
+       height: 15px;
+       -moz-border-radius: 7.5px;
+       -webkit-border-radius: 7.5px;
+       border-radius: 7.5px;
+       background-color: var(--bg-color-slogan);
+}	
+.offer_button::after {
+       content: '';
+       display: inline-block;
+       width: 15px;
+       height: 15px;
+       -moz-border-radius: 7.5px;
+       -webkit-border-radius: 7.5px;
+       border-radius: 7.5px;
+       background-color: var(--bg-color-slogan);
+}	
 
 .footer {
-		height: 75vh;
-		height: 75svh;
-		background-color: var(--bg-color-footer);
-		color: var(--p-color-footer);
+	height: 75vh;
+	height: 75svh;
+	background-color: var(--bg-color-footer);
+	color: var(--p-color-footer);
 }
 
 .footer_logo{
-		display: block;
+	display: block;
     margin: auto;
     margin-top: 4em;
 }
