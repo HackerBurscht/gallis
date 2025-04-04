@@ -50,8 +50,8 @@ body, html {
 
 /*Customizing*/
 .intro {
-    height: 100vh;
-    height: 100svh;
+    min-height: 100vh;
+    min-height: 100svh;
     background-color: var(--bg-color-intro);
     background-image: url("./images/bg_img_intro.png");
     color: var(--p-color-light);
@@ -77,8 +77,8 @@ body, html {
 }
 
 .slogan {
-    height: 50vh;
-    height: 50svh;
+    min-height: 50vh;
+    min-height: 50svh;
     background-color: var(--bg-color-slogan);
     color: var(--p-color-dark);
     display: flex;
@@ -91,8 +91,8 @@ body, html {
 }
 
 .aboutus {
-    height: 80vh;
-    height: 80svh;
+    min-height: 80vh;
+    min-height: 80svh;
     padding: 2em 0 2em 0;
     background-color: var(--bg-color-aboutus);
     color: var(--p-color-dark);
@@ -124,26 +124,26 @@ a
 }
 
 .gallery {
-    height: 85vh;
-    height: 85svh;
+    min-height: 85vh;
+    min-height: 85svh;
     font-size: 0;
     
 }
 .gallery_img {
-    height: 85vh;
-    height: 85svh;
+    min-height: 85vh;
+    min-height: 85svh;
 }
 
 .offer {
-    height: 75vh;
-    height: 75svh;
+    min-height: 75vh;
+    min-height: 75svh;
     background-color: var(--bg-color-offer);
     color: var(--p-color-light);
     display: flex;
 }
 
 .offer_left, .offer_right{
-    margin: 12em 12em 12em 12em;
+    margin: 4em 12em 12em 12em;
 }
 
 .offer_title{
@@ -160,6 +160,11 @@ a
 .offer_button {
 		margin-top: 3em;
 		text-align: center;
+		color: var(--bg-color-slogan);
+}
+
+
+.offer_button a:visited, a:link, a:active{
 		color: var(--bg-color-slogan);
 }
 
