@@ -88,7 +88,7 @@ background-size: 100% 100%;
 .slogan_text{
     margin-left: 2em;
     margin-right: 2em;
-    font-size: 5em;
+    font-size: 3.5em;
 }
 
 .aboutus {
@@ -158,14 +158,17 @@ content: "";
     display: flex;
 }
 
-.offer_left, .offer_right{
-    margin: 0em 12em 12em 12em;
+.offer_right {
+    margin: 0em 12em 12em 8em;
+}
+.offer_left {
+    margin: 0em 8em 12em 12em;
 }
 
 .offer_title{
     font-size: 2em;
-		margin-bottom: 3em;
-		text-align: center;
+	margin-bottom: 3em;
+	text-wrap: nowrap;
 }
 
 .offer_Title > p{
@@ -174,10 +177,11 @@ content: "";
 .offer_text {
 		font-family: "Lato";
 		line-height: 180%;
+	text-wrap: balance;
 }
 
 .offer_button {
-	margin-top: 3em;
+	margin-top: 4em;
 	text-align: center;
 	color: var(--bg-color-slogan);
 	text-decoration: none; 
@@ -225,15 +229,15 @@ content: "";
 	color: var(--p-color-footer);
 }
 
-.footer > a:link{
+.footer a:link{
 	color: var(--p-color-dark);
 	text-decoration: none; 
 }
-.footer > a:visited{
+.footer a:visited{
 	color: var(--p-color-dark);
 	text-decoration: none; 
 }
-.footer > a:active{
+.footer a:active{
 	color: var(--p-color-dark);
 	text-decoration: none; 
 }
@@ -313,6 +317,10 @@ content: "";
 .footer_links_text{
 display: flex;
 gap: 4em;
+}
+
+.footer_links{
+	color: var(--p-color-dark);
 }
 
 .footer_link::hover{
