@@ -137,6 +137,7 @@ align-items: end;
   overflow: hidden;
   transition: 1s all ease;
 	width: 4em;
+	z-index: 1;
 }
 
 .aboutus_button::before{
