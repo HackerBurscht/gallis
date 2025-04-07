@@ -127,6 +127,22 @@ align-items: end;
     line-height: 180%;
 }
 
+.aboutus_button{
+     width: 200px;
+     height: 50px;
+     color: #FEFDFD;
+     background: #0B132B;
+     border: none;
+     border-radius: 8px;
+     transition: all 0.25s ease;
+}
+
+.aboutus_button:hover {
+     color: var(--p-color-dark);
+     background: var(--bg-color-slogan);
+} 
+	
+
 .gallery {
   position: relative; /* Notwendig für das ::after-Pseudo-Element */
   min-height: 85vh;
@@ -322,12 +338,15 @@ display: flex;
 gap: 4em;
 }
 
-.footer_link {
+.footer_link a{
 	color: var(--p-color-dark);
 }
 
-.footer_link:hover {
+.footer_link a:hover {
 	font-weight: 500;
 	color: var(--bg-color-aboutus);
 }
 
+.footer_link a:visited {
+	color: var(--p-color-dark);
+}
