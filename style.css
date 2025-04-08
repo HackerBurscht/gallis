@@ -159,8 +159,18 @@ width: 0%;
 	color: var(--p-color-light);
 }
 
+.aboutus_button a {
+	color: var(--p-color-dark);
+}
+.aboutus_button a:hover {
+	color: var(--p-color-light);
+}
+.aboutus_button a:visited {
+	color: var(--p-color-dark);
+}
+
 .gallery {
-  position: relative; /* Notwendig für das ::after-Pseudo-Element */
+  position: relative; 
   min-height: 85vh;
   min-height: 85svh;
   font-size: 0;
