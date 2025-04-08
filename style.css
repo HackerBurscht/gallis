@@ -12,17 +12,25 @@
     --p-color-footer:  #000000;
 }
 
+/*Font sizes*/
+--fs-sm: clamp(0.8rem, 0.17vi + 0.76rem, 0.89rem);
+--fs-base: clamp(1rem, 0.34vi + 0.91rem, 1.19rem);
+--fs-md: clamp(1.25rem, 0.61vi + 1.1rem, 1.58rem);
+--fs-lg: clamp(1.56rem, 1vi + 1.31rem, 2.11rem);
+--fs-xl: clamp(1.95rem, 1.56vi + 1.56rem, 2.81rem);
+--fs-xxl: clamp(2.44rem, 2.38vi + 1.85rem, 3.75rem);
+--fs-xxxl: clamp(3.05rem, 3.54vi + 2.17rem, 5rem);
+
 /*global styling*/
 body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    /*font-family: 'InriaSerif-Regular';*/
     background-color: var(--bg-color);
     overflow-x: hidden;
     scroll-behavior: smooth;
     font-family: "Quattrocento";
-font-size: 1.25em;
+font-size: var(--fs-base);
     }
 
 /*font-fams*/    
@@ -88,7 +96,7 @@ background-size: 100% 100%;
 .slogan_text{
     margin-left: 2em;
     margin-right: 2em;
-    font-size: 3.5em;
+    font-size: var(--fs-xxl);
 }
 
 .aboutus {
@@ -108,20 +116,20 @@ align-items: end;
 }
 
 .aboutus_title{
-    font-size: 3em;
+    font-size: var(--fs-xl);
 	text-wrap: nowrap
 }
 
 .aboutus_header {
     font-family: "Lato";
     font-weight: 500;
-    font-size: 1.4em;
+    font-size: var(--fs-md);
     margin-top: 2em;
 }
 
 .aboutus_text {
     font-family: "Lato";
-    font-size: 1em;
+    font-size: var(--fs-base);
     margin-top: 2em;
     margin-bottom: 2em;
     line-height: 180%;
@@ -130,13 +138,13 @@ align-items: end;
 .aboutus_button {
   position: relative;
   display: block;
-  margin: 30px 0;
+  margin: 2em;
   border: 2px solid var(--bg-color-intro);
-  padding: 14px 60px;
+  padding: 0.5em 1em 0.5em 1em;
   overflow: hidden;
   transition: 1s all ease;
   z-index: 1;
-  width: fit-content; /* Neu */
+  width: fit-content; 
 }
 
 .aboutus_button::before {
@@ -164,7 +172,7 @@ align-items: end;
 }
 
 .aboutus_button:hover a {
-  color: var(--p-color-light); /* Wichtig */
+  color: var(--p-color-light); 
 }
 
 
@@ -209,7 +217,7 @@ content: "";
 }
 
 .offer_title{
-    font-size: 2em;
+    font-size: var(--fs-md);
 	margin-bottom: 3em;
 	text-wrap: nowrap;
 }
@@ -228,11 +236,11 @@ content: "";
 	text-align: center;
 	color: var(--bg-color-slogan);
 	text-decoration: none; 
-	text-size: 1.2em;
+	text-size: var(--fs-base);
 }
 
 
-.offer_button a:link, a:visited, a:active{
+.offer_button a:link, .offer_button a:visited, .offer_button a:active{
 	color: var(--bg-color-slogan);
 	text-decoration: none; 
 }
