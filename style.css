@@ -139,7 +139,7 @@ align-items: end;
 .aboutus_button {
   position: relative;
   display: block;
-  margin: 2em;
+  margin: 2em 0 0 0;
   border: 2px solid var(--bg-color-intro);
   padding: 0.5em 1em 0.5em 1em;
   overflow: hidden;
@@ -281,7 +281,9 @@ content: "";
 	background-color: var(--bg-color-footer);
 	color: var(--p-color-footer);
 }
-
+#fb1{
+margin-right: 4em;
+}	
 .footer a:link{
 	color: var(--p-color-dark);
 	text-decoration: none; 
