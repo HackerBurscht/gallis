@@ -60,18 +60,17 @@ font-size: var(--fs-base);
 /*Customizing*/
 
 .nav_button{
-    position:fixed;
+    position: fixed;
     top: 1em;
-    right: 1em; 
+    right: 2em; 
     z-index: 999; 
-border: 1px solid var(--p-color-light);
-	 border-radius: 0.25em;
-height: 0.5em;
+	border: 1px solid var(--p-color-light);
+	border-radius: 0.25em;
+	height: 0.5em;
 	width: 4em;
 	text-align: center;
 	line-height: 0.5em;
-	
-
+	color: var(--p-color-light);
 }
 
 
