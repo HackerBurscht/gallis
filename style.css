@@ -65,11 +65,11 @@ font-size: var(--fs-base);
     right: 2em; 
     z-index: 999; 
 	border: 1px solid var(--p-color-light);
-	border-radius: 0.25em;
-	height: 0.5em;
-	width: 4em;
+	border-radius: 1em;
+	height: 2em;
+	width: 4.5em;
 	text-align: center;
-	line-height: 0.5em;
+	line-height: 2em;
 	color: var(--p-color-light);
 }
 
@@ -299,7 +299,7 @@ content: "";
 	color: var(--p-color-footer);
 }
 #fb1{
-margin-right: 4em;
+	margin-right: 4em;
 }	
 .footer a:link{
 	color: var(--p-color-dark);
@@ -367,6 +367,9 @@ margin-right: 4em;
 .footer_text {
     font-family: "Lato";
 		line-height: 180%;
+}
+.footer_times{
+	text-wrap: nowrap;
 }
 
 .footer_small_links {
