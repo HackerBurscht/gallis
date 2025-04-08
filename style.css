@@ -92,6 +92,7 @@ background-size: 100% 100%;
     background-color: var(--bg-color-slogan);
     color: var(--p-color-dark);
     display: flex;
+	align-items: center;
 }
 
 .slogan_text{
@@ -108,7 +109,7 @@ background-size: 100% 100%;
     color: var(--p-color-dark);
     display: flex;
     flex-direction: row;
-align-items: end;
+align-items: center;
 }
 
 .aboutus_texts{
