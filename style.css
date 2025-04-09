@@ -381,6 +381,11 @@ content: "";
 	margin: 0 12em 4em 12em;
 }
 
+.icon_group{
+	display: flex;
+	gap: 1em;
+}
+
 .footer_icon {
 	transition: all .2s ease-in-out;
 }
