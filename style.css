@@ -65,12 +65,12 @@ font-size: var(--fs-base);
     right: 2em; 
     z-index: 999; 
 	border: 1px solid var(--p-color-light);
-	border-radius: 1em;
-	height: 2em;
-	width: 4.5em;
+	border-radius: 1.5em;
+	height: 3em;
+	width: 6em;
 	text-align: center;
-	line-height: 2em;
 	color: var(--p-color-light);
+	background-color: transparent;
 }
 
 
