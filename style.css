@@ -35,7 +35,7 @@ font-size: var(--fs-base);
   width: 100%;
   max-width: 1920px; /* maximale Breite (z.B. 1920px als Beispiel für einen großen Bildschirm) */
   margin: 0 auto;   /* sorgt für Zentrierung */
-  padding: 0 1rem;  /* optional: Innenabstand links/rechts */
+  padding: 0;  /* optional: Innenabstand links/rechts */
 }
 
 /*font-fams*/    
@@ -65,8 +65,8 @@ font-size: var(--fs-base);
 
 .nav_button{
     position: fixed;
-    top: 1em;
-    right: 2em; 
+    top: 3em;
+    right: 5em; 
     z-index: 999; 
 	border: 1px solid var(--p-color-light);
 	border-radius: 1.5em;
