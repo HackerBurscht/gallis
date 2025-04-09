@@ -83,7 +83,9 @@ font-size: var(--fs-base);
     min-height: 100svh;
     background-color: var(--bg-color-intro);
     background-image: url("./images/bg_img_intro.png");
-background-size: 100% 100%;
+background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
     color: var(--p-color-light);
     
     display: flex;
@@ -415,3 +417,14 @@ gap: 4em;
 .footer_link a:visited {
 	color: var(--p-color-dark);
 }
+
+
+
+
+/*Mobile querries*/
+@media screen and (max-width: 768px) {
+  .no_mobile {
+    display: none !important;
+  }
+}
+
