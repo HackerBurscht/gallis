@@ -95,7 +95,11 @@ background-size: cover;
     align-items: center;
     align-content: center;
 }
-
+.logo_intro{
+	width: 100%;
+  height: auto;
+	max-width: 500px;
+}
 .intro_adjectives{
     display: flex;
     flex-wrap: wrap;
@@ -426,5 +430,8 @@ gap: 4em;
   .no_mobile {
     display: none !important;
   }
+	.logo_intro{
+	max-width: 350px;
+	}
 }
 
