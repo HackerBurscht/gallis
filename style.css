@@ -445,11 +445,36 @@ gap: 4em;
 		flex-direction: column;
 	}
 	.aboutus_img{
-		max-widht: 100%;
+		max-width: 100%;
 		height: auto;
 	}
 	.aboutus_texts{
 		margin: 1em;
+	}
+	.offer{
+		flex-direction: column;
+	}
+	.offer_right, .offer_left {
+		margin: 2em;
+	}
+	.footer_logo{
+		width: 60vw;
+	}
+	.footer_logo::after, .footer_logo::before{
+		display: none;
+	}
+
+	.footer_text_contents{
+		display: flex;
+		flex-direction: column;
+		margin: 2em
+	}
+	.footer_small_links {
+		margin: 2em;
+	}
+
+	.footer_links_text{
+		gap: 1em;
 	}
 }
 
