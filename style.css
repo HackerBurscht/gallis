@@ -199,13 +199,22 @@ align-items: center;
   color: var(--p-color-light); 
 }
 
+.gallery_wrapper {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
 
 .gallery {
   position: relative; 
   min-height: 85vh;
   min-height: 85svh;
   font-size: 0;
+	 display: flex;
+	animation: scrollGallery 30s linear infinite;
 }
+
+
 
 .gallery::after{
 content: "";
@@ -223,7 +232,21 @@ content: "";
 .gallery_img {
     min-height: 85vh;
     min-height: 85svh;
+ 		flex-shrink: 0;
+ 		object-fit: cover;
 }
+
+
+
+@keyframes scrollGallery {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 
 .offer {
     min-height: 75vh;
