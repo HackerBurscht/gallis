@@ -444,7 +444,7 @@ gap: 4em;
 	.aboutus{
 		flex-direction: column;
 	}
-	.aboutus img{
+	.aboutus_img{
 		max-widht: 100%;
 		height: auto;
 	}
