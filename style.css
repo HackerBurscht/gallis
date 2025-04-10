@@ -122,8 +122,7 @@ background-size: cover;
 }
 
 .slogan_text{
-    margin-left: 2em;
-    margin-right: 2em;
+	margin: 0 2em 0 2em;
     font-size: var(--fs-xxl);
 }
 
@@ -158,8 +157,7 @@ align-items: center;
 .aboutus_text {
     font-family: "Lato";
     font-size: var(--fs-base);
-    margin-top: 2em;
-    margin-bottom: 2em;
+	margin: 2em 0 2em 0;
     line-height: 180%;
 }
 
@@ -431,7 +429,27 @@ gap: 4em;
     display: none !important;
   }
 	.logo_intro{
-	max-width: 350px;
+	max-width: 60vw;
+	}
+	.intro_adjectives{
+	gap: 1em;
+	}
+	.sloga{
+		max-height: fit-content;
+	}
+	.slogan_text{
+		margin: 1em;
+		text-wrap: balance;
+	}
+	.aboutus{
+		flex-direction: column;
+	}
+	.aboutus img{
+		max-widht: 100%;
+		height: auto;
+	}
+	.aboutus_texts{
+		margin: 1em;
 	}
 }
 
