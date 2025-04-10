@@ -214,8 +214,6 @@ align-items: center;
 	animation: scrollGallery 30s linear infinite;
 }
 
-
-
 .gallery::after{
 content: "";
   position: absolute;
@@ -235,8 +233,6 @@ content: "";
  		flex-shrink: 0;
  		object-fit: cover;
 }
-
-
 
 @keyframes scrollGallery {
   0% {
