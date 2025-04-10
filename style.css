@@ -446,10 +446,11 @@ gap: 4em;
 		text-wrap: balance;
 		font-size: var(--fs-md);
 	}
-	.half_circle_container{
+	.half_cirlce_container{
 		background-color: var(--bg-color-slogan);
 		height: 3em;
 	}
+	
 	.half_circle{
 		  position: relative;
 		  left: -10%;
