@@ -225,7 +225,9 @@ content: "";
   border-top-left-radius: 95% 100%;
   border-top-right-radius: 95% 100%;
   z-index: 2;
+pointer-events: none;
 }
+
 
 .gallery_img {
     min-height: 85vh;
