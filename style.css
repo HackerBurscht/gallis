@@ -226,6 +226,19 @@ content: "";
     min-height: 85vh;
     min-height: 85svh;
 }
+.half_circle_container{
+	background-color: var(--bg-color-aboutus);
+  height: 3em;
+}
+.half_circle{
+  position: relative;
+  left: -10%;
+  width: 120%;
+  height: 100%;
+  background-color: var(--bg-color-offer);
+  border-top-left-radius: 95% 100%;
+  border-top-right-radius: 95% 100%;
+}
 
 .offer {
     min-height: 75vh;
@@ -438,12 +451,26 @@ gap: 4em;
 		gap: 1em;
 	}
 	.slogan{
+		min-height: unset;
 		max-height: fit-content;
 	}
 	.slogan_text{
 		margin: 1em;
 		text-wrap: balance;
 		font-size: var(--fs-md);
+	}
+	.half_circle_container{
+		background-color: var(--bg-color-aboutus);
+		height: 3em;
+	}
+	.half_circle{
+		  position: relative;
+		  left: -10%;
+		  width: 120%;
+		  height: 100%;
+		  background-color: var(--bg-color-offer);
+		  border-top-left-radius: 95% 100%;
+		  border-top-right-radius: 95% 100%;
 	}
 	.aboutus{
 		flex-direction: column;
@@ -456,6 +483,9 @@ gap: 4em;
 	}
 	.aboutus_texts{
 		margin: 1em;
+	}
+	.aboutus_button{
+		margin: auto;
 	}
 	.offer{
 		flex-direction: column;
