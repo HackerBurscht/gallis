@@ -214,7 +214,7 @@ align-items: center;
 	animation: scrollGallery 30s linear infinite;
 }
 
-.gallery::after{
+.gallery_wrapper::after{
 content: "";
   position: absolute;
   bottom: 0;
