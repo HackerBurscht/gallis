@@ -281,7 +281,7 @@ pointer-events: none;
   position: relative;
   display: block;
   margin: 2em 0 0 0;
-  border: 2px solid var(--bg-color-intro);
+  border: 2px solid var(--bg-color-slogan);
   padding: 0.5em 1em 0.5em 1em;
   overflow: hidden;
   transition: 1s all ease;
@@ -290,7 +290,7 @@ pointer-events: none;
 }
 
 .offer_button::before {
-  background: var(--bg-color-intro);
+  background: var(--bg-color-slogan);
   content: "";
   position: absolute;
   top: 50%;
@@ -307,14 +307,14 @@ pointer-events: none;
 }
 
 .offer_button a {
-  color: var(--p-color-dark);
+  color: var(--p-color-light);
   text-decoration: none;
   position: relative;
   z-index: 2;
 }
 
 .offer_button:hover a {
-  color: var(--p-color-light); 
+  color: var(--p-color-dark); 
 }
 
 /*.offer_button {
