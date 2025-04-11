@@ -445,12 +445,29 @@ pointer-events: none;
 }
 
 .footer_small_links {
-	border-top: 1px solid #1C0F14;
+	position: relative;
+	/*border-top: 1px solid #1C0F14;*/
 	padding-top: 1em;
 	display: flex;
   justify-content: space-between;
   flex-direction: row;
 	margin: 0 12em 4em 12em;
+}
+
+.footer_small_links::after {
+  content: "";
+  position: absolute;
+  top: 0;               /* Linie oben innerhalb des Containers */
+  left: 50%;
+  height: 1px;          /* Linie entspricht bisheriger border-top-Dicke */
+  width: 0;             /* Startbreite 0 */
+  background-color: #1C0F14;
+  transform: translateX(-50%); /* Zentrale Ausrichtung */
+  transition: width 1s ease-out; /* Übergangseffekt */
+}
+
+.footer_small_links.animate::after {
+  width: 100%;
 }
 
 .icon_group{
