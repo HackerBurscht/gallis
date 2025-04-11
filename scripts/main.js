@@ -3,41 +3,22 @@ const gallery = document.querySelector('.gallery');
 gallery.innerHTML += gallery.innerHTML;
 
 //Footer animation
-// Selektiere den Bereich, in dem die animierte Linie enthalten ist
-const footerSmallLinks = document.querySelector('.footer_small_links');
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Elemente, die animiert werden sollen:
+    const targets = document.querySelectorAll('.footer_logo_container, .footer_small_links');
 
-// Erstelle den Intersection Observer
-const observer = new IntersectionObserver(
-  (entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        // Klasse hinzufügen, damit das ::after-Element animiert
-        footerSmallLinks.classList.add('animate');
-        // Falls die Animation nur einmal erfolgen soll:
-        observer.disconnect();
-      }
-    });
-  },
-  { threshold: 0.5 } // z. B. 50 % sichtbar
-);
-
-// Beobachte den ausgewählten Container
-observer.observe(footerSmallLinks);
-  // Selektiere den Logo-Container
-  const logoContainer = document.querySelector('.footer_logo_container');
-
-  // Intersection Observer erstellen, der auslöst, wenn der Container zur Hälfte sichtbar ist
-  const observerLogo = new IntersectionObserver(
-    (entries, observer) => {
+    const observer = new IntersectionObserver((entries, observer) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
-          logoContainer.classList.add('animate');
-          observer.disconnect(); // Optional: nur einmal auslösen
+          entry.target.classList.add('animate');
+          // Unobserve, wenn du die Animation nur einmal starten möchtest:
+          observer.unobserve(entry.target);
         }
       });
-    },
-    { threshold: 0.5 } // 50 % Sichtbarkeit
-  );
+    }, { threshold: 0.2 }); // 20% Sichtbarkeit als Trigger
 
-  observerLogo.observe(logoContainer);
+    targets.forEach(target => observer.observe(target));
+  });
+</script>
 
