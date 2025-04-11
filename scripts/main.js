@@ -3,7 +3,6 @@ const gallery = document.querySelector('.gallery');
 gallery.innerHTML += gallery.innerHTML;
 
 //Footer animation
-<script>
   document.addEventListener('DOMContentLoaded', () => {
     // Elemente, die animiert werden sollen:
     const targets = document.querySelectorAll('.footer_logo_container, .footer_small_links');
@@ -20,5 +19,4 @@ gallery.innerHTML += gallery.innerHTML;
 
     targets.forEach(target => observer.observe(target));
   });
-</script>
 
