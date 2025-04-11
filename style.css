@@ -226,8 +226,12 @@ content: "";
   border-top-right-radius: 95% 100%;
   z-index: 2;
 pointer-events: none;
+	cursor: pointer;
 }
 
+.gallery-wrapper:hover .gallery {
+  animation-play-state: paused;
+}
 
 .gallery_img {
     min-height: 85vh;
