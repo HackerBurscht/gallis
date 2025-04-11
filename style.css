@@ -229,7 +229,7 @@ pointer-events: none;
 	cursor: pointer;
 }
 
-.gallery-wrapper:hover .gallery {
+.gallery-wrapper:hover {
   animation-play-state: paused;
 }
 
