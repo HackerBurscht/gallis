@@ -562,7 +562,6 @@ gap: 4em;
 		background-color: var(--bg-color-slogan);
 		height: 3em;
 	}
-	
 	.half_circle{
 		  position: relative;
 		  left: -10%;
@@ -599,7 +598,6 @@ gap: 4em;
 	.footer_logo_container::after, .footer_logo_container::before{
 		content: none;
 	}
-
 	.footer_text_contents{
 		display: flex;
 		flex-direction: column;
@@ -608,7 +606,6 @@ gap: 4em;
 	.footer_small_links {
 		margin: 2em;
 	}
-
 	.footer_links_text{
 		gap: 1em;
 	}
@@ -617,7 +614,6 @@ gap: 4em;
 	  .no_tablet {
 	    display: none !important;
 	  }
-	
 	.aboutus_img{
 		max-width: 50vw;
 		height: auto;
@@ -631,7 +627,6 @@ gap: 4em;
 	.footer_logo_container::after, .footer_logo_container::before{
 	content: none;
 	}
-
 	.footer_text_contents {
   	margin: 2em 5em 2em 5em;
 	}
