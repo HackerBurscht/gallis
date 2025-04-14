@@ -614,7 +614,7 @@ gap: 4em;
 	}
 }
 @media (min-width:851px) and (max-width:1400px) {
-	  .no_mobile {
+	  .no_tablet {
 	    display: none !important;
 	  }
 	
