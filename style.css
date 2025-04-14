@@ -31,9 +31,8 @@ body, html {
 	    font-family: "Quattrocento";
 			font-size: var(--fs-base);
 		  width: 100%;
-	 	 	max-width: 1920px; /* maximale Breite (z.B. 1920px als Beispiel für einen großen Bildschirm) */
-	 		margin: 0 auto;   /* sorgt für Zentrierung */
-	 	 padding: 0;  /* optional: Innenabstand links/rechts */
+	 		margin: 0 auto;
+	 	 padding: 0; 
     }
 
 /*font-fams*/    
