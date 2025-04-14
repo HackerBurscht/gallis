@@ -613,7 +613,7 @@ gap: 4em;
 		gap: 1em;
 	}
 }
-@media screen and (max-width: 1400px) {
+@media (min-width:851) and (max-width:1400px) {
 	  .no_mobile {
 	    display: none !important;
 	  }
