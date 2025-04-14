@@ -100,12 +100,34 @@ background-size: cover;
 	max-width: 500px;
 }
 .intro_adjectives{
+	position: relative;
     display: flex;
     flex-wrap: wrap;
     gap: 8em;
     margin: 3em 0 3em 0;
     border-bottom: 2px solid var(--p-color-light);
 }
+
+
+
+.intro_adjectives::after {
+  content: "";
+  position: absolute;
+  top: 0;               /* Linie oben innerhalb des Containers */
+  left: 50%;
+  height: 1px;          /* Linie entspricht bisheriger border-top-Dicke */
+  width: 0;             /* Startbreite 0 */
+  background-color: var(--p-color-light);
+  transform: translateX(-50%); /* Zentrale Ausrichtung */
+  transition: width 2.5s ease-out; /* Übergangseffekt */
+}
+
+.intro_adjectives.animate::after {
+  width: 100%;
+}
+
+
+
 
 .intro_adress_text{
     text-align: center;
@@ -163,7 +185,7 @@ align-items: center;
 .aboutus_button {
   position: relative;
   display: block;
-  margin: 2em 0 0 0;
+  margin: 4em 0 0 0;
   border: 2px solid var(--bg-color-intro);
   padding: 0.5em 1em 0.5em 1em;
   overflow: hidden;
