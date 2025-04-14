@@ -19,3 +19,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   targets.forEach(target => observer.observe(target));
 });
+
+// intro animation
+document.addEventListener('DOMContentLoaded', () => {
+  // Elemente, die animiert werden sollen:
+  const targets = document.querySelectorAll('.intro_adjectives');
+
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+        // Unobserve, wenn du die Animation nur einmal starten möchtest:
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.8 }); // 80% Sichtbarkeit als Trigger
+
+  targets.forEach(target => observer.observe(target));
+});
