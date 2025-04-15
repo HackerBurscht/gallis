@@ -62,17 +62,12 @@ body, html {
 
 .nav_button{
 	display: None;
-    position: fixed;
-    top: 3em;
-    right: 5em; 
-    z-index: 999; 
-	border: 1px solid var(--p-color-light);
-	border-radius: 1.5em;
-	height: 3em;
-	width: 6em;
-	text-align: center;
-	color: var(--p-color-light);
-	background-color: transparent;
+}
+
+.logo_intro,
+.intro_adjectives,
+.adress_intro {
+  opacity: 0;
 }
 
 
@@ -97,6 +92,10 @@ background-size: cover;
 	width: 100%;
   height: auto;
 	max-width: 500px;
+	  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 1s; /* Startet nach 1 Sekunde */
+	  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0s;
 }
 .intro_adjectives{
 	position: relative;
@@ -106,8 +105,6 @@ background-size: cover;
     margin: 3em 0 3em 0;
     /*border-bottom: 2px solid var(--p-color-light);*/
 }
-
-
 
 .intro_adjectives::after {
   content: "";
@@ -125,12 +122,23 @@ background-size: cover;
   width: 100%;
 }
 
-
-
-
 .intro_adress_text{
+	  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 2s; /* Startet nach 2 Sekunden */
     text-align: center;
 }
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px); /* leicht nach unten verschoben */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 .slogan {
     min-height: 50vh;
@@ -565,6 +573,13 @@ gap: 4em;
 	}
 	.offer_right, .offer_left {
 		margin: 2em;
+	}
+	.flower_crop {
+	  height: 10%;
+	  width: auto;
+	  position: absolute;
+	  bottom: -2em;
+	  right: 1em;
 	}
 	.footer_logo{
 		width: 60vw;
