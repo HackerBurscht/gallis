@@ -37,20 +37,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
   targets.forEach(target => observer.observe(target));
 });
+
+
 // scroll effect on img
 document.addEventListener('DOMContentLoaded', () => {
   const image = document.querySelector('.aboutus_img');
+  let ticking = false;
 
-  window.addEventListener('scroll', () => {
+  function updateImagePosition() {
     const rect = image.getBoundingClientRect();
     const windowHeight = window.innerHeight;
 
+    // Prüfen, ob das Bild im Viewport ist
     if (rect.top < windowHeight && rect.bottom > 0) {
-      // Sichtbarer Anteil berechnen (0 = unten, 1 = oben voll sichtbar)
-      const scrollPercent = 1 - rect.top / windowHeight;
-      const offset = scrollPercent * 500; // Maximal 50px nach oben
-
+      // progress: 0 wenn Bild gerade am unteren Rand ist, bis 1 wenn es vollständig im Sichtbereich (oben) ist.
+      const progress = 1 - rect.top / windowHeight;
+      const maxOffset = 100; // max. Verschiebung in Pixeln, anpassen bei Bedarf
+      const offset = progress * maxOffset;
+      
+      // Debug-Ausgabe: Entferne diese Zeile, sobald der Effekt stimmt.
+      console.log('progress:', progress, 'offset:', offset);
+      
       image.style.transform = `translateY(-${offset}px)`;
+    }
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateImagePosition);
+      ticking = true;
     }
   });
 });
