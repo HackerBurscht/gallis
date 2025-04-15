@@ -279,6 +279,7 @@ pointer-events: none;
     background-color: var(--bg-color-offer);
     color: var(--p-color-light);
     display: flex;
+	position: relative;
 }
 
 .offer_right {
@@ -343,48 +344,13 @@ pointer-events: none;
   color: var(--p-color-dark); 
 }
 
-/*.offer_button {
-	margin-top: 4.5em;
-	text-align: center;
-	color: var(--bg-color-slogan);
-	text-decoration: none; 
-	text-size: var(--fs-base);
+.flower_crop{
+	height: auto;
+	  width: auto;
+	  position: absolute;
+	  bottom: 0;
+	  right: 5em;
 }
-
-
-.offer_button a:link, .offer_button a:visited, .offer_button a:active{
-	color: var(--bg-color-slogan);
-	text-decoration: none; 
-}
-
-.offer_button a:hover{
-	text-decoration: underline;
-}
-
-.offer_button::before {
-       content: '';
-       display: inline-block;
-       width: 8px;
-       height: 8px;
-       -moz-border-radius: 4px;
-       -webkit-border-radius: 4px;
-       border-radius: 4px;
-       background-color: var(--bg-color-slogan);
-	margin-right: 0.5em;
-	margin-bottom: 4px;
-}	
-.offer_button::after {
-       content: '';
-       display: inline-block;
-       width: 8px;
-       height: 8px;
-       -moz-border-radius: 4px;
-       -webkit-border-radius: 4px;
-       border-radius: 4px;
-       background-color: var(--bg-color-slogan);
-	margin-left: 0.5em;
-	margin-bottom: 4px;
-}	*/
 
 .footer {
 	height: 75vh;
