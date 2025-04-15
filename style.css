@@ -92,8 +92,6 @@ background-size: cover;
 	width: 100%;
   height: auto;
 	max-width: 500px;
-	  animation: fadeInUp 0.5s ease-out forwards;
-  animation-delay: 0s;
 }
 .intro_adjectives{
 	position: relative;
@@ -120,20 +118,44 @@ background-size: cover;
 }
 
 .adress_intro{
-	  animation: fadeInUp 0.8s ease-out forwards;
-  animation-delay: 2s; /* Startet nach 2 Sekunden */
     text-align: center;
 }
 
+/* Keyframes für das Einblenden mit leichter Aufwärtsbewegung */
 @keyframes fadeInUp {
   0% {
     opacity: 0;
-    transform: translateY(20px); /* leicht nach unten verschoben */
+    transform: translateY(20px);
   }
   100% {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Anfangszustand: Inhalte unsichtbar */
+.logo_intro,
+.intro_adjectives,
+.adress_intro {
+  opacity: 0;
+}
+
+/* Animation für das Logo */
+.logo_intro {
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 0s;
+}
+
+/* Animation für die Adjektive */
+.intro_adjectives {
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 1s;
+}
+
+/* Animation für die Adresse */
+.adress_intro {
+  animation: fadeInUp 0.8s ease-out forwards;
+  animation-delay: 2s;
 }
 
 
