@@ -497,6 +497,11 @@ gap: 4em;
 	color: var(--p-color-dark);
 }
 
+.footer_contacts a{
+	color: var(--p-color-dark);
+  line-height: 180%;
+  text-decoration-color: --bg-color-offer;
+}
 
 
 
