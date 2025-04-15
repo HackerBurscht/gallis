@@ -92,9 +92,7 @@ background-size: cover;
 	width: 100%;
   height: auto;
 	max-width: 500px;
-	  animation: fadeInUp 0.8s ease-out forwards;
-  animation-delay: 1s; /* Startet nach 1 Sekunde */
-	  animation: fadeInUp 0.8s ease-out forwards;
+	  animation: fadeInUp 0.5s ease-out forwards;
   animation-delay: 0s;
 }
 .intro_adjectives{
@@ -103,7 +101,6 @@ background-size: cover;
     flex-wrap: wrap;
     gap: 8em;
     margin: 3em 0 3em 0;
-    /*border-bottom: 2px solid var(--p-color-light);*/
 }
 
 .intro_adjectives::after {
@@ -122,7 +119,7 @@ background-size: cover;
   width: 100%;
 }
 
-.intro_adress_text{
+.adress_intro{
 	  animation: fadeInUp 0.8s ease-out forwards;
   animation-delay: 2s; /* Startet nach 2 Sekunden */
     text-align: center;
