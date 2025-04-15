@@ -85,6 +85,7 @@ background-size: cover;
 	width: 100%;
   height: auto;
 	max-width: 500px;
+	
 }
 .intro_adjectives{
 	position: relative;
@@ -97,13 +98,13 @@ background-size: cover;
 .intro_adjectives::after {
   content: "";
   position: absolute;
-  bottom: 0;               /* Linie oben innerhalb des Containers */
+  bottom: 0;               
   left: 50%;
-  height: 1px;          /* Linie entspricht bisheriger border-top-Dicke */
-  width: 0;             /* Startbreite 0 */
+  height: 1px;          
+  width: 0;             
   background-color: var(--p-color-light);
-  transform: translateX(-50%); /* Zentrale Ausrichtung */
-  transition: width 1.5s ease-out; /* Übergangseffekt */
+  transform: translateX(-50%); 
+  transition: width 1.5s ease-out; 
 }
 
 .intro_adjectives.animate::after {
@@ -139,6 +140,12 @@ background-size: cover;
     flex-direction: row;
 align-items: center;
 }
+
+.aboutus_img {
+  transition: transform 0.1s linear;
+  will-change: transform;
+}
+
 
 .aboutus_texts{
     margin-left: 6em;
