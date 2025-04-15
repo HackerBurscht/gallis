@@ -233,7 +233,7 @@ align-items: center;
   min-height: 85svh;
   font-size: 0;
 	 display: flex;
-	animation: scrollGallery 20s linear infinite;
+	animation: scrollGallery 10s linear infinite;
 }
 
 .gallery_wrapper::after{
@@ -260,7 +260,7 @@ pointer-events: none;
     min-height: 85svh;
  		flex-shrink: 0;
  		object-fit: cover;
-	max-width: 25%
+	max-width: 40%
 }
 
 @keyframes scrollGallery {
