@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   targets.forEach(target => observer.observe(target));
 });
-
+// scroll effect on img
 document.addEventListener('DOMContentLoaded', () => {
   const image = document.querySelector('.aboutus_img');
 
