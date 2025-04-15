@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (rect.top < windowHeight && rect.bottom > 0) {
       // Sichtbarer Anteil berechnen (0 = unten, 1 = oben voll sichtbar)
       const scrollPercent = 1 - rect.top / windowHeight;
-      const offset = scrollPercent * 50; // Maximal 50px nach oben
+      const offset = scrollPercent * 500; // Maximal 50px nach oben
 
       image.style.transform = `translateY(-${offset}px)`;
     }
