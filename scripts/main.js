@@ -42,23 +42,31 @@ document.addEventListener('DOMContentLoaded', () => {
 // scroll effect on img
 document.addEventListener('DOMContentLoaded', () => {
   const image = document.querySelector('.aboutus_img');
+  if (!image) {
+    console.error('Kein Element mit der Klasse "aboutus_img" gefunden.');
+    return;
+  } else {
+    console.log('aboutus_img gefunden');
+  }
+
   let ticking = false;
 
   function updateImagePosition() {
     const rect = image.getBoundingClientRect();
     const windowHeight = window.innerHeight;
-
+    
+    // Debug-Ausgabe: Zeige aktuelle Werte in der Konsole
+    console.log('rect.top:', rect.top, 'rect.bottom:', rect.bottom, 'windowHeight:', windowHeight);
+    
     // Prüfen, ob das Bild im Viewport ist
     if (rect.top < windowHeight && rect.bottom > 0) {
-      // progress: 0 wenn Bild gerade am unteren Rand ist, bis 1 wenn es vollständig im Sichtbereich (oben) ist.
+      // progress: 0, wenn Bild gerade noch unten ist, bis 1, wenn es oben vollständig sichtbar ist
       const progress = 1 - rect.top / windowHeight;
-      const maxOffset = 100; // max. Verschiebung in Pixeln, anpassen bei Bedarf
+      const maxOffset = 50; // maximale Verschiebung in Pixeln (hier ca. 50 Pixel)
       const offset = progress * maxOffset;
       
-      // Debug-Ausgabe: Entferne diese Zeile, sobald der Effekt stimmt.
-      console.log('progress:', progress, 'offset:', offset);
-      
       image.style.transform = `translateY(-${offset}px)`;
+      console.log('progress:', progress, 'offset:', offset);
     }
     ticking = false;
   }
