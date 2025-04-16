@@ -55,28 +55,28 @@ document.addEventListener('DOMContentLoaded', () => {
     const rect = image.getBoundingClientRect();
     const windowHeight = window.innerHeight;
     
-    // Debug-Ausgabe: Zeige aktuelle Werte in der Konsole
-    console.log('rect.top:', rect.top, 'rect.bottom:', rect.bottom, 'windowHeight:', windowHeight);
+    // Debug-Ausgabe: Gesamte BoundingClientRect-Info
+    console.log('rect:', rect);
     
-    // Prüfen, ob das Bild im Viewport ist
-    if (rect.top < windowHeight && rect.bottom > 0) {
-      // progress: 0, wenn Bild gerade noch unten ist, bis 1, wenn es oben vollständig sichtbar ist
-      const progress = 1 - rect.top / windowHeight;
-      const maxOffset = 50; // maximale Verschiebung in Pixeln (hier ca. 50 Pixel)
-      const offset = progress * maxOffset;
-      
-      image.style.transform = `translateY(-${offset}px)`;
-      console.log('progress:', progress, 'offset:', offset);
-    }
+    // Berechne progress – egal ob das Bild aktuell ganz im Viewport ist oder nicht
+    const progress = 1 - rect.top / windowHeight;
+    const maxOffset = 50; // Maximale Verschiebung (50px)
+    const offset = progress * maxOffset;
+
+    image.style.transform = `translateY(-${offset}px)`;
+
+    console.log('progress:', progress, 'offset:', offset);
     ticking = false;
   }
 
   window.addEventListener('scroll', () => {
+    console.log('Scroll-Event ausgelöst');
     if (!ticking) {
       window.requestAnimationFrame(updateImagePosition);
       ticking = true;
     }
   });
 });
+
 
 
