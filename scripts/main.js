@@ -41,6 +41,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // scroll effect on img
 document.addEventListener('DOMContentLoaded', () => {
+  // Test: Registriere einen einfachen Scroll-Listener, der scrollY loggt.
+  window.addEventListener('scroll', () => {
+    console.log('Window scrollY:', window.scrollY);
+  });
+
   const image = document.querySelector('.aboutus_img');
   if (!image) {
     console.error('Kein Element mit der Klasse "aboutus_img" gefunden.');
@@ -54,29 +59,28 @@ document.addEventListener('DOMContentLoaded', () => {
   function updateImagePosition() {
     const rect = image.getBoundingClientRect();
     const windowHeight = window.innerHeight;
+
+    // Logge alle Werte, damit wir wissen, was ankommt
+    console.log('updateImagePosition - rect.top:', rect.top, 'rect.bottom:', rect.bottom, 'windowHeight:', windowHeight);
     
-    // Debug-Ausgabe: Gesamte BoundingClientRect-Info
-    console.log('rect:', rect);
-    
-    // Berechne progress – egal ob das Bild aktuell ganz im Viewport ist oder nicht
+    // Berechne den progress-Wert, auch wenn das Bild eventuell nicht ganz im Viewport ist
     const progress = 1 - rect.top / windowHeight;
-    const maxOffset = 50; // Maximale Verschiebung (50px)
+    const maxOffset = 100; // maximale Verschiebung in Pixeln
     const offset = progress * maxOffset;
 
     image.style.transform = `translateY(-${offset}px)`;
-
-    console.log('progress:', progress, 'offset:', offset);
+    console.log('Calculated offset:', offset);
     ticking = false;
   }
 
   window.addEventListener('scroll', () => {
-    console.log('Scroll-Event ausgelöst');
     if (!ticking) {
       window.requestAnimationFrame(updateImagePosition);
       ticking = true;
     }
   });
 });
+
 
 
 
