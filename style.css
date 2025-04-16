@@ -80,6 +80,7 @@ background-size: cover;
     justify-content: center;
     align-items: center;
     align-content: center;
+	background-attachment: fixed;
 }
 .logo_intro{
 	width: 100%;
