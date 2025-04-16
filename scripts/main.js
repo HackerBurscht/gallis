@@ -39,37 +39,5 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-// scroll effect on img
-document.addEventListener('DOMContentLoaded', () => {
-  const image = document.querySelector('.aboutus_img');
-  if (!image) {
-    console.error('Kein Element mit der Klasse "aboutus_img" gefunden.');
-    return;
-  }
-  console.log('aboutus_img gefunden');
-
-  // Jeder Scroll löst updateImagePosition aus
-  window.addEventListener('scroll', () => {
-    updateImagePosition();
-  });
-
-  function updateImagePosition() {
-    const rect = image.getBoundingClientRect();
-    const windowHeight = window.innerHeight;
-    
-    // Logge aktuelle Werte
-    console.log('updateImagePosition - rect.top:', rect.top, 'windowHeight:', windowHeight);
-    
-    // Berechne den progress-Wert: 
-    // Wenn das Bild oben im Viewport ist (rect.top = 0), dann progress = 1
-    const progress = 1 - rect.top / windowHeight;
-    const maxOffset = 50; // Maximale Verschiebung (50px)
-    const offset = progress * maxOffset;
-    
-    console.log('Calculated offset:', offset);
-    image.style.transform = `translateY(-${offset}px)`;
-  }
-});
-
 
 
