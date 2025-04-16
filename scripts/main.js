@@ -41,46 +41,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // scroll effect on img
 document.addEventListener('DOMContentLoaded', () => {
-  // Test: Registriere einen einfachen Scroll-Listener, der scrollY loggt.
-  window.addEventListener('scroll', () => {
-    console.log('Window scrollY:', window.scrollY);
-  });
-
   const image = document.querySelector('.aboutus_img');
   if (!image) {
     console.error('Kein Element mit der Klasse "aboutus_img" gefunden.');
     return;
-  } else {
-    console.log('aboutus_img gefunden');
   }
+  console.log('aboutus_img gefunden');
 
-  let ticking = false;
+  // Jeder Scroll löst updateImagePosition aus
+  window.addEventListener('scroll', () => {
+    updateImagePosition();
+  });
 
   function updateImagePosition() {
     const rect = image.getBoundingClientRect();
     const windowHeight = window.innerHeight;
-
-    // Logge alle Werte, damit wir wissen, was ankommt
-    console.log('updateImagePosition - rect.top:', rect.top, 'rect.bottom:', rect.bottom, 'windowHeight:', windowHeight);
     
-    // Berechne den progress-Wert, auch wenn das Bild eventuell nicht ganz im Viewport ist
+    // Logge aktuelle Werte
+    console.log('updateImagePosition - rect.top:', rect.top, 'windowHeight:', windowHeight);
+    
+    // Berechne den progress-Wert: 
+    // Wenn das Bild oben im Viewport ist (rect.top = 0), dann progress = 1
     const progress = 1 - rect.top / windowHeight;
-    const maxOffset = 100; // maximale Verschiebung in Pixeln
+    const maxOffset = 50; // Maximale Verschiebung (50px)
     const offset = progress * maxOffset;
-
-    image.style.transform = `translateY(-${offset}px)`;
+    
     console.log('Calculated offset:', offset);
-    ticking = false;
+    image.style.transform = `translateY(-${offset}px)`;
   }
-
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      window.requestAnimationFrame(updateImagePosition);
-      ticking = true;
-    }
-  });
 });
-
 
 
 
