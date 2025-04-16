@@ -143,20 +143,20 @@ align-items: center;
 }
 
 .aboutus_img_container {
-	height: 25em;
-	width: 100%;
-	overflow: hidden;
+  height: 25em;
+  width: 100%;
+  overflow: hidden;
 }
 
 .aboutus_img_container img {
-  transition: transform .8s ease-in-out;
+  transition: transform 0.8s ease-in-out;
   transform: scale(1.2);
   transform-origin: 0 0;
 }
 
-.aboutus_img_container img:hover {
+/*.aboutus_img_container img:hover {
   transform: scale(1.2) translateY(-15%);
-}
+}*/
 
 
 
