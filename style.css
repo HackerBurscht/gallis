@@ -143,8 +143,13 @@ align-items: center;
 }
 
 .aboutus_img {
-  transition: transform 0.1s linear;
-  will-change: transform;
+  transition: transform .5s ease-in-out;
+  transform: scale(1);
+  transform-origin: 0 0;
+}
+
+.aboutus_img:hover img {
+  transform: scale(1.25) translateY(-30%);
 }
 
 
