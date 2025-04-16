@@ -39,5 +39,53 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+document.addEventListener('DOMContentLoaded', () => {
+  // Selektiere den Container der Bildgruppe und das Bild selbst
+  const container = document.querySelector('.aboutus_img_container');
+  const image = container ? container.querySelector('.aboutus_img') : null;
+  
+  if (!container || !image) {
+    console.error('Container oder Bild nicht gefunden');
+    return;
+  }
+  
+  let ticking = false;
+  
+  function updateParallax() {
+    // Hole die Position des Containers im Viewport
+    const rect = container.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+    
+    // Berechne einen progress-Wert:
+    // progress = 0: Container noch nicht (oder kaum) in Sicht, 
+    // progress = 1: Container voll (oder zum gewünschten Grad) sichtbar
+    // Hier wird als Beispiel (windowHeight - rect.top) geteilt durch (windowHeight + rect.height) genutzt,
+    // und anschließend zwischen 0 und 1 geklammert.
+    const progress = Math.min(Math.max((windowHeight - rect.top) / (windowHeight + rect.height), 0), 1);
+    
+    // Maximum translation: 15% der Container-Höhe (anpassbar)
+    const maxOffset = container.clientHeight * 0.15;
+    
+    // Berechne den aktuellen Offset anhand des progress-Werts
+    const offset = progress * maxOffset;
+    
+    // Setze den transform-Wert des Bildes: Hier bleibt das scale(1.2) erhalten, 
+    // und translateY wird dynamisch angepasst (negativer Wert, um nach oben zu verschieben)
+    image.style.transform = `scale(1.2) translateY(-${offset}px)`;
+    
+    ticking = false;
+  }
+  
+  // Verwende requestAnimationFrame, um die Performance zu optimieren
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  });
+  
+  // Optional: Führe die Funktion einmal beim Laden aus, falls der Container schon im Viewport ist.
+  updateParallax();
+});
 
 
