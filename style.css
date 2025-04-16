@@ -148,7 +148,7 @@ align-items: center;
   transform-origin: 0 0;
 }
 
-.aboutus_img:hover img {
+.aboutus_img:hover {
   transform: scale(1.25) translateY(-30%);
 }
 
