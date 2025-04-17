@@ -510,7 +510,6 @@ gap: 4em;
     min-height: 100vh;
     min-height: 100svh;
     background-color: var(--bg-color-footer);	
-	margin-left:20em;
 }
 
 .i_logo_container{
