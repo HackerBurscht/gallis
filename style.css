@@ -510,11 +510,31 @@ gap: 4em;
     min-height: 100vh;
     min-height: 100svh;
     background-color: var(--bg-color-footer);	
+	margin-left:20em;
 }
 
 .i_logo_container{
-	margin-top: 4em 0 4em 0;
-	
+	margin-top: 4em;
+}
+.i_logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: auto;
+}
+
+.i_title{
+	margin-top: 1em;
+	font-size: var(--fs-xl);
+}
+
+.i_subtitle{
+font-weight: bold;
+	margin: 1em 0 0.5em 0;
+}
+
+.text{
+	line-height: 150%
 }
 
 /*Mobile querries*/
