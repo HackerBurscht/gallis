@@ -506,11 +506,6 @@ gap: 4em;
 
 
 /*impressum*/
-.back_button{
-	position: sticky;
-	top: 1em;
-	left: 1em;
-}
 .impressum{
     min-height: 100vh;
     min-height: 100svh;
