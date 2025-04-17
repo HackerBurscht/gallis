@@ -509,7 +509,11 @@ gap: 4em;
 .impressum{
     min-height: 100vh;
     min-height: 100svh;
-    background-color: var(--bg-color-footer);	
+    background-color: var(--bg-color-footer);
+	margin-left: 15vw;
+  margin-right: 15vw;
+	display: flex;
+  flex-direction: column;
 }
 
 .i_logo_container{
@@ -534,6 +538,14 @@ font-weight: bold;
 
 .text{
 	line-height: 150%
+}
+.i_footer_small_links {
+	border-top: 1px solid #1C0F14;
+	padding-top: 1em;
+	display: flex;
+	  justify-content: space-between;
+	  flex-direction: row;
+	margin: 0 12em 4em 12em;
 }
 
 /*Mobile querries*/
