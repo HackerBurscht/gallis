@@ -506,6 +506,11 @@ gap: 4em;
 
 
 /*impressum*/
+.back_button{
+	position: sticky;
+	top: 1em;
+	left: 1em;
+}
 .impressum{
     min-height: 100vh;
     min-height: 100svh;
@@ -514,6 +519,46 @@ gap: 4em;
   margin-right: 15vw;
 	display: flex;
   flex-direction: column;
+}
+
+.back_button {
+  position: relative;
+  display: block;
+  margin: 4em 0 0 0;
+  border: 2px solid var(--bg-color-intro);
+  padding: 0.5em 1em 0.5em 1em;
+  overflow: hidden;
+  transition: 1s all ease;
+  z-index: 1;
+  width: fit-content; 
+}
+
+.back_button::before {
+  background: var(--bg-color-intro);
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  transition: all 0.6s ease;
+  width: 0%;
+  height: 100%;
+}
+
+.back_button:hover::before {
+  width: 100%;
+}
+
+.back_button a {
+  color: var(--p-color-dark);
+  text-decoration: none;
+  position: relative;
+  z-index: 2;
+}
+
+.back_button:hover a {
+  color: var(--p-color-light); 
 }
 
 .i_logo_container{
@@ -545,7 +590,7 @@ font-weight: bold;
 	display: flex;
 	  justify-content: space-between;
 	  flex-direction: row;
-	margin: 0 12em 4em 12em;
+	margin: 1em 12em 4em 12em;
 }
 
 /*Mobile querries*/
