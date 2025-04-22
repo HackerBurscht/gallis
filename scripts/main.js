@@ -117,29 +117,40 @@ function preventScroll(e) {
   e.preventDefault();
 }
 
-// Bei Modal‑Open: Event‑Listener hinzufügen
-function openLightbox() {
-  document.documentElement.classList.add('modal-open');
-  document.body.classList.add('modal-open');
+let savedScrollY = 0;
 
-  // blockiere alle Mausrad‑ und Touchmove‑Events
+function openLightbox() {
+  // 1) Scroll-Position merken
+  savedScrollY = window.pageYOffset || document.documentElement.scrollTop;
+  // 2) Body fixieren und top setzen
+  document.body.classList.add('modal-open');
+  document.body.style.top = `-${savedScrollY}px`;
+
+  // 3) Scroll- und Touch-Events blockieren
   window.addEventListener('wheel', preventScroll, { passive: false });
   window.addEventListener('touchmove', preventScroll, { passive: false });
 
+  // 4) Lightbox anzeigen
   lightbox.classList.remove('hidden');
   showImage(currentIndex);
 }
 
-// Bei Modal‑Close: Event‑Listener wieder entfernen
 function closeLightbox() {
+  // 1) Lightbox verstecken
   lightbox.classList.add('hidden');
 
-  document.documentElement.classList.remove('modal-open');
-  document.body.classList.remove('modal-open');
-
+  // 2) Scroll- und Touch-Events wieder zulassen
   window.removeEventListener('wheel', preventScroll, { passive: false });
   window.removeEventListener('touchmove', preventScroll, { passive: false });
+
+  // 3) Body-Positionierung zurücksetzen
+  document.body.classList.remove('modal-open');
+  document.body.style.top = '';
+
+  // 4) Genaue Scroll-Position wiederherstellen
+  window.scrollTo(0, savedScrollY);
 }
+
 
 
 
