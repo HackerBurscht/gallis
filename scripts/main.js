@@ -220,8 +220,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobEllipse   = mobContainer?.querySelector('.half_circle');
   if (!mobContainer || !mobEllipse) return;
 
-  const ryStart = 100; // Start‑Ry in Prozent
-  const ryEnd   = 30;  // End‑Ry in Prozent (stark abgeflacht)
+  const ryStart = 1000; // Start‑Ry in Prozent
+  const ryEnd   = 35;  // End‑Ry in Prozent (stark abgeflacht)
 
   let ticking = false;
   function updateMobileEllipse() {
