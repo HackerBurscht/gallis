@@ -683,11 +683,11 @@ font-weight: bold;
 
 /* Lightbox base styles */
 
-html.modal-open,
 body.modal-open {
-  overflow: hidden;
-  height: 100%;
+  position: fixed;
+  width: 100%;
 }
+
 
 .lightbox {
   position: fixed;
