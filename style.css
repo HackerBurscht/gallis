@@ -207,14 +207,14 @@ background-size: cover;
   width: 100%;
 }
 
-.aboutus_button a {
+.aboutus_button p {
   color: var(--p-color-dark);
   text-decoration: none;
   position: relative;
   z-index: 2;
 }
 
-.aboutus_button:hover a {
+.aboutus_button:hover p {
   color: var(--p-color-light); 
 }
 
