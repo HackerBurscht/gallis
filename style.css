@@ -20,8 +20,6 @@
 --fs-xxxl: clamp(3.05rem, 3.54vi + 2.17rem, 5rem);
 }
 
-
-
 /*global styling*/
 body, html {
 	    /*height: 100%;*/
@@ -58,11 +56,7 @@ body, html {
     font-style: normal;
 }
 
-/*Customizing*/
-
-.nav_button{
-	display: None;
-}
+/*Customizing index.html*/
 
 .intro {
     min-height: 100vh;
@@ -118,28 +112,33 @@ background-size: cover;
 }
 
 .slogan {
-    min-height: 50vh;
-    min-height: 50svh;
-    background-color: var(--bg-color-slogan);
-    color: var(--p-color-dark);
-    display: flex;
+	min-height: 40vh;
+	min-height: 40svh;
+	background-color: var(--bg-color-slogan);
+	color: var(--p-color-dark);
+	display: flex;
 	align-items: center;
+	position: relative;
 }
 
 .slogan_text{
 	margin: 0 2em 0 2em;
-    font-size: var(--fs-xxl);
+	font-size: var(--fs-xxl);
+}
+.slogan_text a{
+	position: absolute;
+	top: 25%;
 }
 
 .aboutus {
-    min-height: 80vh;
-    min-height: 80svh;
-    padding: 2em 0 2em 0;
-    background-color: var(--bg-color-aboutus);
-    color: var(--p-color-dark);
-    display: flex;
-    flex-direction: row;
-align-items: center;
+	min-height: 80vh;
+	min-height: 80svh;
+	/*padding: 2em 0 2em 0;*/
+	background-color: var(--bg-color-aboutus);
+	color: var(--p-color-dark);
+	display: flex;
+	flex-direction: row;
+	align-items: center;
 }
 
 .aboutus_img_container {
@@ -269,7 +268,6 @@ pointer-events: none;
   }
 }
 
-
 .offer {
     min-height: 75vh;
     min-height: 75svh;
@@ -287,7 +285,7 @@ pointer-events: none;
 }
 
 .offer_title{
-    font-size: var(--fs-xl);
+	font-size: var(--fs-xl);
 	margin-bottom: 2em;
 	text-wrap: nowrap;
 }
@@ -296,8 +294,8 @@ pointer-events: none;
 	margin: 0;
 }
 .offer_text {
-		font-family: "Lato";
-		line-height: 180%;
+	font-family: "Lato";
+	line-height: 180%;
 	text-wrap: balance;
 }
 
@@ -342,16 +340,12 @@ pointer-events: none;
 }
 
 .flower_crop{
-	height: auto;
-	  width: auto;
-	  position: absolute;
-	  bottom: 0;
-	  right: 5em;
+height: auto;
+  width: auto;
+  position: absolute;
+  bottom: 0;
+  right: 5em;
 }
-
-
-
-
 
 .footer {
 	height: 75vh;
@@ -359,17 +353,21 @@ pointer-events: none;
 	background-color: var(--bg-color-footer);
 	color: var(--p-color-footer);
 }
+
 #fb1{
 	margin-right: 4em;
 }	
+
 .footer a:link{
 	color: var(--p-color-dark);
 	text-decoration: none; 
 }
+
 .footer a:visited{
 	color: var(--p-color-dark);
 	text-decoration: none; 
 }
+
 .footer a:active{
 	color: var(--p-color-dark);
 	text-decoration: none; 
@@ -454,13 +452,13 @@ transform: scaleX(0);
 .footer_small_links::after {
   content: "";
   position: absolute;
-  top: 0;               /* Linie oben innerhalb des Containers */
+  top: 0;               
   left: 50%;
-  height: 1px;          /* Linie entspricht bisheriger border-top-Dicke */
-  width: 0;             /* Startbreite 0 */
+  height: 1px;
+  width: 0;
   background-color: #1C0F14;
-  transform: translateX(-50%); /* Zentrale Ausrichtung */
-  transition: width 2.5s ease-out; /* Übergangseffekt */
+  transform: translateX(-50%);
+  transition: width 2.5s ease-out; 
 }
 
 .footer_small_links.animate::after {
@@ -561,9 +559,7 @@ font-weight: bold;
 	display: flex;
 	  justify-content: space-between;
 	  flex-direction: row;
-	margin-top: 1em;
-	margin-left: 15vw;
-  	margin-right: 15vw
+	margin: 1em 15vw 15vw 1em;
 }
 
 /*Mobile querries*/
@@ -613,6 +609,7 @@ font-weight: bold;
 	}
 	.aboutus_img_container img {
 	transition: none !important;
+	height: auto;
 	}
 	.aboutus_texts{
 		margin: 1em;
