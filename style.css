@@ -212,6 +212,8 @@ background-size: cover;
   text-decoration: none;
   position: relative;
   z-index: 2;
+	margin: 0.25em 0 0.25em 0;
+	  cursor: pointer;
 }
 
 .aboutus_button:hover p {
@@ -223,7 +225,7 @@ background-size: cover;
   width: 100%;
   position: relative;
 }
-
+/*
 .gallery {
   position: relative; 
   min-height: 85vh;
@@ -246,7 +248,34 @@ content: "";
   z-index: 2;
 pointer-events: none;
 	cursor: pointer;
+}*/
+
+.gallery_wrapper {
+  --ellipse-rx: 95%;
+  --ellipse-ry: 100%;
+  position: relative;
+  overflow: hidden;
 }
+
+/* ersetze deine bisherigen Radiuseinstellungen… */
+.gallery_wrapper::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: -10%;
+  width: 120%;
+  height: 25%;
+  background-color: var(--bg-color-offer);
+  /* hier nun die Variablen verwenden */
+  border-top-left-radius: var(--ellipse-rx) var(--ellipse-ry);
+  border-top-right-radius: var(--ellipse-rx) var(--ellipse-ry);
+  z-index: 2;
+  pointer-events: none;
+  cursor: pointer;
+  /* Optional: sanfte Übergänge */
+  transition: border-radius 0.3s ease-out;
+}
+
 
 .gallery-wrapper:hover {
   animation-play-state: paused;
