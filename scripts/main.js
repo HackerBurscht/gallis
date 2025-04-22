@@ -214,4 +214,38 @@ document.addEventListener('DOMContentLoaded', () => {
   updateEllipse();
 });
 
+// Eplise mobile
+document.addEventListener('DOMContentLoaded', () => {
+  const mobContainer = document.querySelector('.half_cirlce_container');
+  const mobEllipse   = mobContainer?.querySelector('.half_circle');
+  if (!mobContainer || !mobEllipse) return;
+
+  const ryStart = 100; // Start‑Ry in Prozent
+  const ryEnd   = 30;  // End‑Ry in Prozent (stark abgeflacht)
+
+  let ticking = false;
+  function updateMobileEllipse() {
+    const rect = mobContainer.getBoundingClientRect();
+    const winH = window.innerHeight;
+
+    // progress: 0 (unten) → 1 (oben)
+    let progress = 1 - (rect.top / winH);
+    progress = Math.min(Math.max(progress, 0), 1);
+
+    const ry = ryStart - (ryStart - ryEnd) * progress;
+    mobEllipse.style.setProperty('--ellipse-ry', ry + '%');
+
+    ticking = false;
+  }
+
+  function onScroll() {
+    if (!ticking) {
+      window.requestAnimationFrame(updateMobileEllipse);
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', onScroll);
+  updateMobileEllipse(); // einmal initial aufrufen
+});
 
