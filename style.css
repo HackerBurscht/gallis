@@ -775,6 +775,7 @@ body.modal-open {
 .lightbox_thumbs img.active {
   border-color: #333;
   opacity: 1;
+	filter: brightness(0.75);
 }
 
 .lightbox_thumbs img:hover {
