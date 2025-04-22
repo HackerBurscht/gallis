@@ -138,20 +138,21 @@
 		</div>
 	</div> 
     </footer>
-	<div id="lightbox-modal" class="lightbox-hidden">
-	  <div class="lightbox-overlay"></div>
-	  <div class="lightbox-content">
-	    <button class="lightbox-close" aria-label="Close gallery">×</button>
-	    <button class="lightbox-prev" aria-label="Previous image">‹</button>
-	    <div class="lightbox-main">
-	      <img id="lightbox-main-img" src="" alt="Gallery image">
+
+	<div id="lightbox" class="lightbox hidden">
+	  <div class="lightbox_overlay"></div>
+	  <div class="lightbox_content">
+	    <button class="lightbox_close">×</button>
+	    <img class="lightbox_main" src="" alt="Galeriebild">
+	    <div class="lightbox_nav">
+	      <button class="lightbox_prev">‹</button>
+	      <button class="lightbox_next">›</button>
 	    </div>
-	    <button class="lightbox-next" aria-label="Next image">›</button>
-	    <div class="lightbox-thumbs">
-	      <!-- Thumbnails inserted by JS -->
-	    </div>
+	    <div class="lightbox_thumbs"></div>
 	  </div>
 	</div>
+
+	  
     <script src="scripts/main.js"></script>
   </body>
 </html>
