@@ -179,3 +179,39 @@ function closeLightbox() {
   nextBtn.addEventListener("click", showNext);
 });
 
+
+// Elipse
+document.addEventListener('DOMContentLoaded', () => {
+  const wrapper = document.querySelector('.gallery_wrapper');
+  if (!wrapper) return;
+
+  const ryStart = 100; // initial 100%
+  const ryEnd   = 30;  // abgeflacht auf 30% (anpassbar)
+
+  let ticking = false;
+  function onScroll() {
+    if (!ticking) {
+      window.requestAnimationFrame(updateEllipse);
+      ticking = true;
+    }
+  }
+
+  function updateEllipse() {
+    const rect = wrapper.getBoundingClientRect();
+    const winH = window.innerHeight;
+
+    // progress: 0 wenn noch unten, 1 wenn der obere Rand am oberen Viewport ist
+    let progress = 1 - (rect.top / winH);
+    progress = Math.min(Math.max(progress, 0), 1);
+
+    // neuer ry‑Wert zwischen ryStart und ryEnd
+    const ry = ryStart - (ryStart - ryEnd) * progress;
+    wrapper.style.setProperty('--ellipse-ry', ry + '%');
+
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', onScroll);
+  updateEllipse(); // initial einmal aufrufen
+});
+
