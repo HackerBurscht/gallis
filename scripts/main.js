@@ -113,14 +113,17 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  function openLightbox() {
-    lightbox.classList.remove("hidden");
-    showImage(currentIndex);
-  }
+function openLightbox() {
+  document.body.classList.add('modal-open');  // Scrollen sperren
+  lightbox.classList.remove('hidden');
+  showImage(currentIndex);
+}
 
-  function closeLightbox() {
-    lightbox.classList.add("hidden");
-  }
+function closeLightbox() {
+  lightbox.classList.add('hidden');
+  document.body.classList.remove('modal-open');  // Scrollen wieder zulassen
+}
+
 
   function showPrev() {
     currentIndex = (currentIndex - 1 + images.length) % images.length;
