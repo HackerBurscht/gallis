@@ -683,9 +683,10 @@ font-weight: bold;
 
 /* Lightbox base styles */
 
+html.modal-open,
 body.modal-open {
   overflow: hidden;
-  touch-action: none; /* für Mobile */
+  height: 100%;
 }
 
 .lightbox {
