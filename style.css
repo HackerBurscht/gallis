@@ -703,7 +703,7 @@ body.modal-open {
 }
 
 .lightbox_content {
-  position: relative;
+  /*position: relative;*/
   max-width: 80%;
   max-height: 90%;
   text-align: center;
@@ -733,6 +733,7 @@ body.modal-open {
 .lightbox_nav button,
 .lightbox_close {
   transition: color 0.2s ease;
+	padding: 1em;
 }
 
 .lightbox_nav button:hover,
@@ -783,7 +784,7 @@ body.modal-open {
 }
 
 /* Linker Pfeil */
-.lightbox_prev {
+/*.lightbox_prev {
   position: absolute;
   left: 1rem;
   top: 50%;
@@ -793,10 +794,11 @@ body.modal-open {
   border: none;
   cursor: pointer;
   color: var(--p-color-light);
-}
+	margin-left: 1em;
+}*/
 
 /* Rechter Pfeil */
-.lightbox_next {
+/*.lightbox_next {
   position: absolute;
   right: 1rem;
   top: 50%;
@@ -806,4 +808,5 @@ body.modal-open {
   border: none;
   cursor: pointer;
   color: var(--p-color-light);
-}
+	margin-right: 1em;
+}*/
