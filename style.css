@@ -691,7 +691,7 @@ body.modal-open {
 .lightbox {
   position: fixed;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(0, 0, 0, 0.95);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -699,7 +699,7 @@ body.modal-open {
 }
 
 .lightbox.hidden {
-  display: none;
+  /*display: none;*/
 }
 
 .lightbox_content {
@@ -711,10 +711,11 @@ body.modal-open {
 }
 
 .lightbox_main {
-  max-width: 100%;
-  max-height: 60svh;
-	max-height: 60sh;
+  width: 100%;
+  height: 60svh;
+	height: 60svh;
   object-fit: contain;
+  object-position: center;
 }
 
 .lightbox_nav {
@@ -760,10 +761,15 @@ body.modal-open {
 }
 
 .lightbox_thumbs img {
-  height: 8em;
   cursor: pointer;
 	filter: brightness(0.5);      /* dunkler */
   transition: filter 0.2s ease; /* sanfter Übergang */
+
+  width: 8em;            /* deine Wunsch‑Größe */
+  height: 6em;
+  object-fit: cover;
+  object-position: center;
+	
 }
 
 .lightbox_thumbs img.active {
@@ -772,7 +778,7 @@ body.modal-open {
 }
 
 .lightbox_thumbs img:hover {
-  filter: brightness(1);        /* Aufhellen */
+  filter: brightness(1);
 }
 
 /* Linker Pfeil */
