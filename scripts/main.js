@@ -86,59 +86,64 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // lightbox gallery
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", function () {
   const images = [
-    'images/modal_gallery/gallis_drone.png',
-    'images/modal_gallery/gallis_eröffnung_1.jpg',
-    'images/modal_gallery/gallis_eröffnung_2.jpg',
-    'images/modal_gallery/gallis_schild.png',
-    'images/modal_gallery/gallis_winter.jpeg'
+    "gallis_drone.png",
+    "gallis_eröffnung_1.jpg",
+    "gallis_eröffnung_2.jpg",
+    "gallis_schild.png",
+    "gallis_winter.jpeg"
   ];
+  const basePath = "/images/modal_gallery/";
 
-  const modal = document.getElementById('lightbox-modal');
-  const mainImg = document.getElementById('lightbox-main-img');
-  const thumbsContainer = modal.querySelector('.lightbox-thumbs');
+  const lightbox = document.getElementById("lightbox");
+  const mainImg = document.querySelector(".lightbox_main");
+  const thumbsContainer = document.querySelector(".lightbox_thumbs");
+  const closeBtn = document.querySelector(".lightbox_close");
+  const prevBtn = document.querySelector(".lightbox_prev");
+  const nextBtn = document.querySelector(".lightbox_next");
+
   let currentIndex = 0;
 
-  // Build thumbnails
-  images.forEach((src, idx) => {
-    const thumb = document.createElement('img');
-    thumb.src = src;
-    thumb.alt = `Thumbnail ${idx+1}`;
-    thumb.addEventListener('click', () => showImage(idx));
+  function showImage(index) {
+    currentIndex = index;
+    mainImg.src = basePath + images[index];
+    document.querySelectorAll(".lightbox_thumbs img").forEach((thumb, i) => {
+      thumb.classList.toggle("active", i === index);
+    });
+  }
+
+  function openLightbox() {
+    lightbox.classList.remove("hidden");
+    showImage(currentIndex);
+  }
+
+  function closeLightbox() {
+    lightbox.classList.add("hidden");
+  }
+
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    showImage(currentIndex);
+  }
+
+  function showNext() {
+    currentIndex = (currentIndex + 1) % images.length;
+    showImage(currentIndex);
+  }
+
+  // Thumbnails erstellen
+  images.forEach((img, index) => {
+    const thumb = document.createElement("img");
+    thumb.src = basePath + img;
+    thumb.addEventListener("click", () => showImage(index));
     thumbsContainer.appendChild(thumb);
   });
 
-  const thumbs = thumbsContainer.querySelectorAll('img');
-
-  function showImage(idx) {
-    currentIndex = idx;
-    mainImg.src = images[idx];
-    thumbs.forEach((t, i) => t.classList.toggle('active', i === idx));
-  }
-
-  // Navigation
-  modal.querySelector('.lightbox-prev').addEventListener('click', () => {
-    showImage((currentIndex - 1 + images.length) % images.length);
-  });
-  modal.querySelector('.lightbox-next').addEventListener('click', () => {
-    showImage((currentIndex + 1) % images.length);
-  });
-
-  // Open lightbox
-  document.querySelector('.aboutus_button a').addEventListener('click', (e) => {
-    e.preventDefault();
-    modal.classList.remove('lightbox-hidden');
-    showImage(0);
-  });
-
-  // Close lightbox
-  modal.querySelector('.lightbox-close').addEventListener('click', () => {
-    modal.classList.add('lightbox-hidden');
-  });
-
-  // Close on overlay click
-  modal.querySelector('.lightbox-overlay').addEventListener('click', () => {
-    modal.classList.add('lightbox-hidden');
-  });
+  // Events
+  document.querySelector(".aboutus_button").addEventListener("click", openLightbox);
+  closeBtn.addEventListener("click", closeLightbox);
+  prevBtn.addEventListener("click", showPrev);
+  nextBtn.addEventListener("click", showNext);
 });
+
