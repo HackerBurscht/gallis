@@ -255,8 +255,7 @@ content: "";
   overflow: hidden;
 }
 
-/* ersetze deine bisherigen Radiuseinstellungen… */
-.gallery_wrapper::after {
+/*.gallery_wrapper::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -272,6 +271,21 @@ content: "";
   cursor: pointer;
   /* Optional: sanfte Übergänge */
   transition: border-radius 0.3s ease-out;
+}*/
+
+.gallery_ellipse {
+  position: absolute;
+  bottom: 0;
+  left: -10%;
+  width: 120%;
+  height: 25%;
+  background-color: var(--bg-color-offer);
+  pointer-events: none;
+  /* runde obere Ecken via CSS‑Variablen */
+  border-top-left-radius: var(--ellipse-rx) var(--ellipse-ry);
+  border-top-right-radius: var(--ellipse-rx) var(--ellipse-ry);
+  transition: border-radius 0.3s ease-out;
+  z-index: 2;
 }
 
 
