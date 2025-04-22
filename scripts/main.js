@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
     "gallis_schild.png",
     "gallis_winter.jpeg"
   ];
-  const basePath = "/images/modal_gallery/";
+  const basePath = "images/modal_gallery/";
 
   const lightbox = document.getElementById("lightbox");
   const mainImg = document.querySelector(".lightbox_main");
