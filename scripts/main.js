@@ -185,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const wrapper = document.querySelector('.gallery_wrapper');
   if (!wrapper) return;
 
-  const ryStart = 100; // initial 100%
+  const ryStart = 200; // initial 100%
   const ryEnd   = 30;  // abgeflacht auf 30% (anpassbar)
 
   let ticking = false;
