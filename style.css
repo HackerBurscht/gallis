@@ -255,24 +255,6 @@ content: "";
   overflow: hidden;
 }
 
-/*.gallery_wrapper::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: -10%;
-  width: 120%;
-  height: 25%;
-  background-color: var(--bg-color-offer);
-  /* hier nun die Variablen verwenden */
-  border-top-left-radius: var(--ellipse-rx) var(--ellipse-ry);
-  border-top-right-radius: var(--ellipse-rx) var(--ellipse-ry);
-  z-index: 2;
-  pointer-events: none;
-  cursor: pointer;
-  /* Optional: sanfte Übergänge */
-  transition: border-radius 0.3s ease-out;
-}*/
-
 .gallery_ellipse {
   position: absolute;
   bottom: 0;
