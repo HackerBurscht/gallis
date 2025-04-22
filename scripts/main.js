@@ -186,8 +186,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const ellipse = document.querySelector('.gallery_ellipse');
   if (!wrapper || !ellipse) return;
 
-  const ryStart = 100; // 100%
-  const ryEnd   = 30;  // abgeflacht auf 30%
+  const ryStart = 1000;
+  const ryEnd   = 20;
 
   let ticking = false;
   function updateEllipse() {
