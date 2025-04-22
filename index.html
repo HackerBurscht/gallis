@@ -12,16 +12,9 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-<!-- Wrapper Container -->
-
- <nav class="navbar">
-	 <button class="nav_button">Menu</button>
- </nav>
     <main>
-      
       <section class="intro" id="se1">
         <img class="logo_intro" src="images/logo_intro.png" alt="Das Logo vom Restaurant gross dargestellt. Es zeigt den Schriftzug Restaurant Gallis.">
-
         <div class="intro_adjectives">
         <div class="intro_adjectiv"><p>REGIONAL</p> </div>
         <div class="intro_adjectiv"><p>HERZHAFT</p> </div>
@@ -33,13 +26,11 @@
           <div class="intro_adress_text"><p>restaurant@gallis.ch</p></div>
         </div>
       </section>
-
       <section class="slogan" id="se2">
       <div class="slogan_text">
         <p>"Ein Ort für feine Speisen, gemütliches Beisammensein und gesellige Veranstaltungen."</p>
       </div>
       </section>
-
       <section class="aboutus" id="se3">
 	      <div class="aboutus_img_container">
         <img class="aboutus_img" src="images/new_house_garden.png" alt="Ein Bild das den Garten des Restaurants im Sommer zeigt.">
@@ -50,10 +41,7 @@
             <div class="aboutus_text"><p>Gelegen im Herzen von Untervaz bieten wir Raum für gesellige Abendessen, erfrischende Getränke und freie Tische für alle, die dem Alltagsstress entfliehen wollen. Dabei trifft unsere Geschichte auf modernen Flair.</p></div>
 	    <div class="aboutus_button"><a href="#">Eindrücke</a></div>
 	</div>
-      
       </section>
-
-
       <section class="gallery_wrapper no_mobile no_tablet" id="se4">
 	      <div class="gallery">
 		      <img class="gallery_img" src="images/old_house_front.png" alt="Ein Vintage-Bild. Es zeigt das alte Gebäude des Restaurants.">
@@ -65,7 +53,6 @@
 		      <img class="gallery_img" src="images/old_people_2.png" alt="Ein Vintagebild. Es zeigt eine Gruppe von Menschen vor dem alten Gebäude des Restaurants.">
 	      </div>
       </section>
-
       <section class="offer" id="se5">
 	      <div class="half_cirlce_container"><div class="half_circle"></div></div>
         <div class="offer_left">
@@ -80,20 +67,17 @@
         </div>
       <img class="flower_crop" src="images/flower_crop.png" alt="Eine im Comic-Stil gehaltene Blume.">
       </section>
-
     </main>
     <footer>
 		<div class="footer_logo_container">
 			<img class="footer_logo" src="images/logo_footer.png" alt="Das Logo vom Restaurant mittelgross dargestellt. Es zeigt den Schriftzug Restaurant Gallis.">
 		</div>
-
 			<div class="footer_text_contents">
 				<div class="footer_box" id="fb1">
 		      <div class="footer_title no_mobile"><p>Neugierig?</p></div>
 		     	<div class="footer_text no_mobile"><p>Dann schau doch bei uns vorbei – auf einen feinen Znacht, einen gemütlichen Apéro oder einfach ein kühles Bier in Gesellschaft. Ob du spontan reinschaust oder einen besonderen Anlass planst: Wir freuen uns auf deinen Besuch.
 			<br> Liebe Grüsse, das Team des Restaurants,<br>♥️ Nati & Mary.</p></div>
 	     </div>
-	
 				<div class="footer_box" id="fb2">
 		      <div class="footer_title"><p>Adresse</p></div>
 		    	<div class="footer_adress">
@@ -107,7 +91,6 @@
 				 <a class="footer_call" href="tel:+41 81 322 70 59">081 322 70 59</a>
 		     </div>
 			 </div>
-	
 			<div class="footer_box" id="fb3">
 		    <div class="footer_title">
 		       <p>Öffnungszeiten</p>
@@ -118,7 +101,6 @@
 		    </div>
 			</div>
 		</div>
-     
 	<div class="footer_small_links">
 		<div class="icon_group">
 		<div class="footer_icon">
@@ -137,7 +119,6 @@
 			</svg>
 			</a>
 		</div>
-
 		<div class="footer_icon">
 			<a href="https://www.facebook.com/RestaurantGallis/">
 			<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -152,16 +133,25 @@
 			</svg>
 		</div>
 		</div>	
-		
 		<div class="footer_links_text">
 			<div class="footer_link"><a href="impressum.html">Impressum</a></div>
-
 		</div>
 	</div> 
-
-			
     </footer>
-
+	<div id="lightbox-modal" class="lightbox-hidden">
+	  <div class="lightbox-overlay"></div>
+	  <div class="lightbox-content">
+	    <button class="lightbox-close" aria-label="Close gallery">×</button>
+	    <button class="lightbox-prev" aria-label="Previous image">‹</button>
+	    <div class="lightbox-main">
+	      <img id="lightbox-main-img" src="" alt="Gallery image">
+	    </div>
+	    <button class="lightbox-next" aria-label="Next image">›</button>
+	    <div class="lightbox-thumbs">
+	      <!-- Thumbnails inserted by JS -->
+	    </div>
+	  </div>
+	</div>
     <script src="scripts/main.js"></script>
   </body>
 </html>
