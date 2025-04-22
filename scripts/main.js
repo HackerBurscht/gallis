@@ -183,12 +183,26 @@ function closeLightbox() {
 // Elipse
 document.addEventListener('DOMContentLoaded', () => {
   const wrapper = document.querySelector('.gallery_wrapper');
-  if (!wrapper) return;
+  const ellipse = document.querySelector('.gallery_ellipse');
+  if (!wrapper || !ellipse) return;
 
-  const ryStart = 800; 
-  const ryEnd   = 20;  // abgeflacht auf 30% (anpassbar)
+  const ryStart = 100; // 100%
+  const ryEnd   = 30;  // abgeflacht auf 30%
 
   let ticking = false;
+  function updateEllipse() {
+    const rect = wrapper.getBoundingClientRect();
+    const winH = window.innerHeight;
+
+    let progress = 1 - (rect.top / winH);
+    progress = Math.min(Math.max(progress, 0), 1);
+
+    const ry = ryStart - (ryStart - ryEnd) * progress;
+    ellipse.style.setProperty('--ellipse-ry', ry + '%');
+
+    ticking = false;
+  }
+
   function onScroll() {
     if (!ticking) {
       window.requestAnimationFrame(updateEllipse);
@@ -196,22 +210,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  function updateEllipse() {
-    const rect = wrapper.getBoundingClientRect();
-    const winH = window.innerHeight;
-
-    // progress: 0 wenn noch unten, 1 wenn der obere Rand am oberen Viewport ist
-    let progress = 1 - (rect.top / winH);
-    progress = Math.min(Math.max(progress, 0), 1);
-
-    // neuer ry‑Wert zwischen ryStart und ryEnd
-    const ry = ryStart - (ryStart - ryEnd) * progress;
-    wrapper.style.setProperty('--ellipse-ry', ry + '%');
-
-    ticking = false;
-  }
-
   window.addEventListener('scroll', onScroll);
-  updateEllipse(); // initial einmal aufrufen
+  updateEllipse();
 });
+
 
