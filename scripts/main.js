@@ -85,3 +85,60 @@ document.addEventListener('DOMContentLoaded', () => {
   targets.forEach(target => observer.observe(target));
 });
 
+// lightbox gallery
+document.addEventListener('DOMContentLoaded', () => {
+  const images = [
+    'images/modal_gallery/gallis_drone.png',
+    'images/modal_gallery/gallis_eröffnung_1.jpg',
+    'images/modal_gallery/gallis_eröffnung_2.jpg',
+    'images/modal_gallery/gallis_schild.png',
+    'images/modal_gallery/gallis_winter.jpeg'
+  ];
+
+  const modal = document.getElementById('lightbox-modal');
+  const mainImg = document.getElementById('lightbox-main-img');
+  const thumbsContainer = modal.querySelector('.lightbox-thumbs');
+  let currentIndex = 0;
+
+  // Build thumbnails
+  images.forEach((src, idx) => {
+    const thumb = document.createElement('img');
+    thumb.src = src;
+    thumb.alt = `Thumbnail ${idx+1}`;
+    thumb.addEventListener('click', () => showImage(idx));
+    thumbsContainer.appendChild(thumb);
+  });
+
+  const thumbs = thumbsContainer.querySelectorAll('img');
+
+  function showImage(idx) {
+    currentIndex = idx;
+    mainImg.src = images[idx];
+    thumbs.forEach((t, i) => t.classList.toggle('active', i === idx));
+  }
+
+  // Navigation
+  modal.querySelector('.lightbox-prev').addEventListener('click', () => {
+    showImage((currentIndex - 1 + images.length) % images.length);
+  });
+  modal.querySelector('.lightbox-next').addEventListener('click', () => {
+    showImage((currentIndex + 1) % images.length);
+  });
+
+  // Open lightbox
+  document.querySelector('.aboutus_button a').addEventListener('click', (e) => {
+    e.preventDefault();
+    modal.classList.remove('lightbox-hidden');
+    showImage(0);
+  });
+
+  // Close lightbox
+  modal.querySelector('.lightbox-close').addEventListener('click', () => {
+    modal.classList.add('lightbox-hidden');
+  });
+
+  // Close on overlay click
+  modal.querySelector('.lightbox-overlay').addEventListener('click', () => {
+    modal.classList.add('lightbox-hidden');
+  });
+});
