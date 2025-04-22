@@ -124,16 +124,17 @@ background-size: cover;
 .slogan_text{
 	margin: 0 2em 0 2em;
 	font-size: var(--fs-xxl);
+	position: absolute;
+	top: 20%;
 }
 .slogan_text a{
-	position: absolute;
-	top: 25%;
+
 }
 
 .aboutus {
 	min-height: 80vh;
 	min-height: 80svh;
-	/*padding: 2em 0 2em 0;*/
+	padding: 0 0 2em 0;
 	background-color: var(--bg-color-aboutus);
 	color: var(--p-color-dark);
 	display: flex;
@@ -607,6 +608,10 @@ font-weight: bold;
 		max-width: 100%;
 		height: auto;
 	}
+	.aboutus_img_container {
+	height: auto;
+	}
+	
 	.aboutus_img_container img {
 	transition: none !important;
 	height: auto;
