@@ -225,7 +225,7 @@ background-size: cover;
   width: 100%;
   position: relative;
 }
-/*
+
 .gallery {
   position: relative; 
   min-height: 85vh;
@@ -234,7 +234,7 @@ background-size: cover;
 	 display: flex;
 	animation: scrollGallery 10s linear infinite;
 }
-
+/*
 .gallery_wrapper::after{
 content: "";
   position: absolute;
@@ -246,8 +246,6 @@ content: "";
   border-top-left-radius: 95% 100%;
   border-top-right-radius: 95% 100%;
   z-index: 2;
-pointer-events: none;
-	cursor: pointer;
 }*/
 
 .gallery_wrapper {
