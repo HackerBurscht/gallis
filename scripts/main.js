@@ -112,17 +112,35 @@ document.addEventListener("DOMContentLoaded", function () {
       thumb.classList.toggle("active", i === index);
     });
   }
+// Helfer zum Verhindern von Scroll‑ und Touch‑Events
+function preventScroll(e) {
+  e.preventDefault();
+}
 
+// Bei Modal‑Open: Event‑Listener hinzufügen
 function openLightbox() {
-  document.body.classList.add('modal-open');  // Scrollen sperren
+  document.documentElement.classList.add('modal-open');
+  document.body.classList.add('modal-open');
+
+  // blockiere alle Mausrad‑ und Touchmove‑Events
+  window.addEventListener('wheel', preventScroll, { passive: false });
+  window.addEventListener('touchmove', preventScroll, { passive: false });
+
   lightbox.classList.remove('hidden');
   showImage(currentIndex);
 }
 
+// Bei Modal‑Close: Event‑Listener wieder entfernen
 function closeLightbox() {
   lightbox.classList.add('hidden');
-  document.body.classList.remove('modal-open');  // Scrollen wieder zulassen
+
+  document.documentElement.classList.remove('modal-open');
+  document.body.classList.remove('modal-open');
+
+  window.removeEventListener('wheel', preventScroll, { passive: false });
+  window.removeEventListener('touchmove', preventScroll, { passive: false });
 }
+
 
 
   function showPrev() {
