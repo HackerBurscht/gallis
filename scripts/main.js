@@ -257,3 +257,24 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', onScroll);
   updateMobileEllipse(); // einmal initial aufrufen
 });
+
+
+//Footer
+document.addEventListener('DOMContentLoaded', () => {
+  // Beobachte sowohl das Logo-Container als auch die Footer-Links
+  const targets = document.querySelectorAll('.footer_logo_container, .footer_small_links');
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.2  // startet, sobald 20% des Elements sichtbar sind
+  });
+
+  targets.forEach(el => observer.observe(el));
+});
+
