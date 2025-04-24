@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+/*document.addEventListener('DOMContentLoaded', () => {
   const container = document.querySelector('.aboutus_img_container');
   const image = container ? container.querySelector('.aboutus_img') : null;
 
@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Einmal beim Laden ausführen
   updateParallax();
 });
-
+*/
 
 
 // Infinity Slider Gallery
@@ -77,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
+/*
 // intro animation
 document.addEventListener('DOMContentLoaded', () => {
   // Elemente, die animiert werden sollen:
@@ -95,6 +95,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   targets.forEach(target => observer.observe(target));
 });
+
+*/
+
 
 // lightbox gallery
 document.addEventListener("DOMContentLoaded", function () {
@@ -161,10 +164,7 @@ function closeLightbox() {
   // 4) Genaue Scroll-Position wiederherstellen
   window.scrollTo(0, savedScrollY);
 }
-
-
-
-
+  
   function showPrev() {
     currentIndex = (currentIndex - 1 + images.length) % images.length;
     showImage(currentIndex);
@@ -190,7 +190,7 @@ function closeLightbox() {
   nextBtn.addEventListener("click", showNext);
 });
 
-
+/*
 // Elipse
 document.addEventListener('DOMContentLoaded', () => {
   const wrapper = document.querySelector('.gallery_wrapper');
@@ -260,3 +260,4 @@ document.addEventListener('DOMContentLoaded', () => {
   updateMobileEllipse(); // einmal initial aufrufen
 });
 
+*/
