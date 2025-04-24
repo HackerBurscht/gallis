@@ -41,33 +41,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // Infinity Slider Gallery
-document.addEventListener("DOMContentLoaded", () => {
-  const gallery = document.querySelector(".gallery");
-  if (!gallery) return;
+  document.addEventListener("DOMContentLoaded", () => {
+    const gallery = document.querySelector(".gallery");
+    if (!gallery) return;
 
-  // 1. Inhalt duplizieren
-  const clone = gallery.innerHTML;
-  gallery.innerHTML += clone;
+    // 1) Inhalte duplizieren
+    gallery.innerHTML += gallery.innerHTML;
 
-  // 2. Maße berechnen
-  const fullWidth    = gallery.scrollWidth;    // nach Duplizieren
-  const singleWidth  = fullWidth / 2;          // Breite eines Sets
-  const speed        = 50;                     // Pixel pro Sekunde
-  const duration     = singleWidth / speed;    // Zeit in Sek.
-
-  // 3. Nahtlose Loop-Animation
-  const { animate } = Motion;
-  animate(
-    gallery,
-    { x: [0, -singleWidth] },
-    {
-      duration:    duration,
-      easing:      "linear",
-      repeat:      Infinity,
-      repeatType:  "loop"   // <<< hier die unsichtbare Rücksetzung
-    }
-  );
-});
+    // 2) Animation mit Prozent-Keyframes
+    const { animate } = Motion;
+    animate(
+      gallery,
+      { x: ["0%", "-50%"] },
+      {
+        duration: 20,      // passe an: je größer, desto langsamer
+        easing: "linear",
+        repeat: Infinity,
+        repeatType: "loop"
+      }
+    );
+  });
 
 
 
