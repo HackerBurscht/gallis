@@ -43,37 +43,32 @@ document.addEventListener('DOMContentLoaded', () => {
 // Infinity Slider Gallery
 document.addEventListener("DOMContentLoaded", () => {
   const gallery = document.querySelector(".gallery");
+  if (!gallery) return;
 
-  if (gallery) {
-    // Galerie duplizieren
-    const clone = gallery.innerHTML;
-    gallery.innerHTML += clone;
+  // 1. Inhalt duplizieren
+  const clone = gallery.innerHTML;
+  gallery.innerHTML += clone;
 
-    // Animationsparameter berechnen
-    const galleryWidth = gallery.scrollWidth / 2;
-    const speed = 50; // px pro Sekunde
-    const duration = galleryWidth / speed;
+  // 2. Maße berechnen
+  const fullWidth    = gallery.scrollWidth;    // nach Duplizieren
+  const singleWidth  = fullWidth / 2;          // Breite eines Sets
+  const speed        = 50;                     // Pixel pro Sekunde
+  const duration     = singleWidth / speed;    // Zeit in Sek.
 
-    // Endloser Loop mit Reset
-    function loop() {
-      Motion.animate(
-        gallery,
-        { x: [0, -galleryWidth] },
-        {
-          duration: duration,
-          easing: "linear",
-          onComplete: () => {
-            // Zurücksetzen ohne sichtbaren Sprung
-            Motion.set(gallery, { x: 0 });
-            loop(); // Restart
-          },
-        }
-      );
+  // 3. Nahtlose Loop-Animation
+  const { animate } = Motion;
+  animate(
+    gallery,
+    { x: [0, -singleWidth] },
+    {
+      duration:    duration,
+      easing:      "linear",
+      repeat:      Infinity,
+      repeatType:  "loop"   // <<< hier die unsichtbare Rücksetzung
     }
-
-    loop();
-  }
+  );
 });
+
 
 
 
