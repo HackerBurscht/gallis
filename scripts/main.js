@@ -45,26 +45,36 @@ document.addEventListener("DOMContentLoaded", () => {
   const gallery = document.querySelector(".gallery");
 
   if (gallery) {
-    // Inhalt klonen und anhängen
+    // Galerie duplizieren
     const clone = gallery.innerHTML;
     gallery.innerHTML += clone;
 
-    // Gesamte Breite nach dem Duplizieren
-    const galleryWidth = gallery.scrollWidth / 2; // halbe Breite, da doppelt
-    const duration = galleryWidth / 50; // Geschwindigkeit (anpassbar)
+    // Animationsparameter berechnen
+    const galleryWidth = gallery.scrollWidth / 2;
+    const speed = 50; // px pro Sekunde
+    const duration = galleryWidth / speed;
 
-    // Start der Animation
-    Motion.animate(
-      gallery,
-      { x: [0, -galleryWidth] },
-      {
-        duration: duration,
-        easing: "linear",
-        repeat: Infinity,
-      }
-    );
+    // Endloser Loop mit Reset
+    function loop() {
+      Motion.animate(
+        gallery,
+        { x: [0, -galleryWidth] },
+        {
+          duration: duration,
+          easing: "linear",
+          onComplete: () => {
+            // Zurücksetzen ohne sichtbaren Sprung
+            Motion.set(gallery, { x: 0 });
+            loop(); // Restart
+          },
+        }
+      );
+    }
+
+    loop();
   }
 });
+
 
 
 // intro animation
