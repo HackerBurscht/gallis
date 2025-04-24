@@ -42,25 +42,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Infinity Slider Gallery
   document.addEventListener("DOMContentLoaded", () => {
-    const gallery = document.querySelector(".gallery");
-    if (!gallery) return;
+    const gallery = document.querySelector('.gallery');
+    const images = Array.from(gallery.children);
 
-    // 1) Inhalte duplizieren
-    gallery.innerHTML += gallery.innerHTML;
+    // Dupliziere die Bilder
+    images.forEach(img => {
+      const clone = img.cloneNode(true);
+      gallery.appendChild(clone);
+    });
 
-    // 2) Animation mit Prozent-Keyframes
-    const { animate } = Motion;
-    animate(
-      gallery,
-      { x: ["0%", "-50%"] },
-      {
-        duration: 20,      // passe an: je größer, desto langsamer
-        easing: "linear",
-        repeat: Infinity,
-        repeatType: "loop"
-      }
-    );
+    // Breite berechnen
+    const totalWidth = gallery.scrollWidth / 1;
+
+    // Animation starten
+    animate(gallery, { x: [`0`, `-${totalWidth}px`] }, {
+      duration: 20,
+      easing: 'linear',
+      repeat: Infinity
+    });
   });
+
+
 
 
 
