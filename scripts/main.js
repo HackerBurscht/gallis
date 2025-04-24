@@ -41,26 +41,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // Infinity Slider Gallery
-  document.addEventListener("DOMContentLoaded", () => {
-    const gallery = document.querySelector('.gallery');
-    const images = Array.from(gallery.children);
+document.addEventListener("DOMContentLoaded", () => {
+  const gallery = document.querySelector("#gallery");
+  const images = Array.from(gallery.children);
 
-    // Dupliziere die Bilder
-    images.forEach(img => {
-      const clone = img.cloneNode(true);
-      gallery.appendChild(clone);
-    });
-
-    // Breite berechnen
-    const totalWidth = gallery.scrollWidth / 1;
-
-    // Animation starten
-    animate(gallery, { x: [`0`, `-${totalWidth}px`] }, {
-      duration: 20,
-      easing: 'linear',
-      repeat: Infinity
-    });
+  // Dupliziere alle Bilder für den Loop-Effekt
+  images.forEach(img => {
+    const clone = img.cloneNode(true);
+    gallery.appendChild(clone);
   });
+
+  let position = 0;
+  const speed = 0.5; // px pro Frame
+
+  function animate() {
+    position -= speed;
+
+    // Wenn die Breite der Originalbilder durchlaufen ist, reset
+    const totalWidth = images.reduce((sum, img) => sum + img.offsetWidth + 32, 0); // 32px = angenommenes Gap
+    if (Math.abs(position) >= totalWidth) {
+      position = 0;
+    }
+
+    gallery.style.transform = `translateX(${position}px)`;
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+});
+
 
 
 
