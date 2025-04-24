@@ -235,10 +235,10 @@ background-size: cover;
 }
 
 .gallery_img {
-		object-fit: cover;
-		flex-shrink: 0;
-	  min-width: 750px;
-	  height: 85vh;
+	object-fit: cover;
+	flex-shrink: 0;
+	width: 750px;
+	height: 85svh;
 }
 .gallery_ellipse {
   position: absolute;
