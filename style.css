@@ -238,7 +238,7 @@ background-size: cover;
 		object-fit: cover;
 		flex-shrink: 0;
 	  min-width: 750px;
-	  height: auto;
+	  height: 85vh;
 }
 .gallery_ellipse {
   position: absolute;
