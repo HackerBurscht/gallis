@@ -1,4 +1,4 @@
-/*document.addEventListener('DOMContentLoaded', () => {
+*document.addEventListener('DOMContentLoaded', () => {
   const container = document.querySelector('.aboutus_img_container');
   const image = container ? container.querySelector('.aboutus_img') : null;
 
@@ -37,7 +37,6 @@
   // Einmal beim Laden ausführen
   updateParallax();
 });
-*/
 
 
 // Infinity Slider Gallery
@@ -77,7 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-/*
 // intro animation
 document.addEventListener('DOMContentLoaded', () => {
   // Elemente, die animiert werden sollen:
@@ -96,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
   targets.forEach(target => observer.observe(target));
 });
 
-*/
+
 
 
 // lightbox gallery
@@ -190,7 +188,7 @@ function closeLightbox() {
   nextBtn.addEventListener("click", showNext);
 });
 
-/*
+
 // Elipse
 document.addEventListener('DOMContentLoaded', () => {
   const wrapper = document.querySelector('.gallery_wrapper');
@@ -259,5 +257,3 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', onScroll);
   updateMobileEllipse(); // einmal initial aufrufen
 });
-
-*/
