@@ -1,9 +1,10 @@
-  document.addEventListener("DOMContentLoaded", () => {
-    const box = document.querySelector(".test-box");
-    if (box) {
-      motion.animate(box, { x: 200, rotate: 360 }, { duration: 1.5 });
-    }
-  });
+document.addEventListener("DOMContentLoaded", () => {
+  const box = document.querySelector(".test-box");
+  if (box) {
+    animate(box, { x: 200, rotate: 360 }, { duration: 1.5 });
+  }
+});
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.querySelector('.aboutus_img_container');
