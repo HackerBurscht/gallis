@@ -52,13 +52,14 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   let position = 0;
-  const speed = 0.5; // px pro Frame
+  const speed = 2; // px pro Frame
+
+  // Gesamte Breite der Originalbilder berechnen (ohne Gap)
+  const totalWidth = images.reduce((sum, img) => sum + img.offsetWidth, 0);
 
   function animate() {
     position -= speed;
 
-    // Wenn die Breite der Originalbilder durchlaufen ist, reset
-    const totalWidth = images.reduce((sum, img) => sum + img.offsetWidth + 32, 0); // 32px = angenommenes Gap
     if (Math.abs(position) >= totalWidth) {
       position = 0;
     }
@@ -69,6 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   animate();
 });
+
 
 
 
