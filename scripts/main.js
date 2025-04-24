@@ -2,11 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const container = document.querySelector('.aboutus_img_container');
   const image = container ? container.querySelector('.aboutus_img') : null;
 
-  if (!container || !image) {
-    console.error('Container oder Bild nicht gefunden.');
-    return;
-  }
-
   // Funktion: Berechnet den Fortschritt und setzt den Transform-Style
   function updateParallax() {
     const rect = container.getBoundingClientRect();
@@ -46,26 +41,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // Infinity Slider Gallery
-const gallery = document.querySelector('.gallery');
-gallery.innerHTML += gallery.innerHTML;
+document.addEventListener("DOMContentLoaded", () => {
+  const gallery = document.querySelector(".gallery");
 
-// Footer animation
-document.addEventListener('DOMContentLoaded', () => {
-  // Elemente, die animiert werden sollen:
-  const targets = document.querySelectorAll('.footer_logo_container, .footer_small_links');
+  if (gallery) {
+    // Inhalt klonen und anhängen
+    const clone = gallery.innerHTML;
+    gallery.innerHTML += clone;
 
-  const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate');
-        // Unobserve, wenn du die Animation nur einmal starten möchtest:
-        observer.unobserve(entry.target);
+    // Gesamte Breite nach dem Duplizieren
+    const galleryWidth = gallery.scrollWidth / 2; // halbe Breite, da doppelt
+    const duration = galleryWidth / 50; // Geschwindigkeit (anpassbar)
+
+    // Start der Animation
+    Motion.animate(
+      gallery,
+      { x: [0, -galleryWidth] },
+      {
+        duration: duration,
+        easing: "linear",
+        repeat: Infinity,
       }
-    });
-  }, { threshold: 0.2 }); // 20% Sichtbarkeit als Trigger
-
-  targets.forEach(target => observer.observe(target));
+    );
+  }
 });
+
 
 // intro animation
 document.addEventListener('DOMContentLoaded', () => {
