@@ -299,3 +299,24 @@ document.addEventListener('DOMContentLoaded', () => {
   targets.forEach(el => observer.observe(el));
 });
 
+// Testscript Slogan
+document.addEventListener("DOMContentLoaded", () => {
+  const { animate, scroll } = Motion;
+  const parts = document.querySelectorAll(".slogan-part");
+  const count = parts.length; // hier 3
+
+  // wie im Beispiel: von translateX(0) bis translateX(- (count-1) * 100vw )
+  scroll(
+    animate(".slogan-group", {
+      transform: [
+        "translateX(0vw)",
+        `translateX(-${(count - 1) * 100}vw)`
+      ]
+    }),
+    {
+      target: document.querySelector(".slogan-group-container")
+    }
+  );
+});
+
+
