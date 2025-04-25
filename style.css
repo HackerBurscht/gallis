@@ -243,7 +243,8 @@ background-size: cover;
 .gallery_ellipse {
   position: absolute;
   bottom: -5em;
-  width: 100%;
+	left: -10%;
+  width: 120%%;
   height: 30vh;
   background-color: var(--bg-color-offer);
   border-top-left-radius: var(--ellipse-rx) var(--ellipse-ry);
@@ -259,6 +260,17 @@ background-size: cover;
     color: var(--p-color-light);
     display: flex;
 	position: relative;
+}
+
+.offer_left, .offer_right {
+	opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.offer_left.visible, .offer_right.visible{
+	opacity: 1;
+  transform: translateY(0);
 }
 
 .offer_right {
