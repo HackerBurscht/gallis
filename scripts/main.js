@@ -299,33 +299,5 @@ document.addEventListener('DOMContentLoaded', () => {
   targets.forEach(el => observer.observe(el));
 });
 
-// Testscript Slogan
-document.addEventListener("DOMContentLoaded", () => {
-  const { animate, scroll } = Motion;
-
-  // 1) Ermittel die Anzahl Slides
-  const parts = document.querySelectorAll(".slogan-part");
-  const count = parts.length;                // z.B. 3
-
-  // 2) Berechne die Verschiebungsdistanz in vw
-  const distance = (count - 1) * 100;        // 2 * 100 = 200vw bei 3 Slides
-
-  // 3) Starte die Scroll-Animation auf die gesamte Gruppe
-  scroll(
-    animate(
-      ".slogan-group",
-      { transform: [`translateX(0vw)`, `translateX(-${distance}vw)`] },
-      {
-        duration: count * 5,   // z.B. 15s für 3 Slides (anpassbar)
-        easing: "linear",
-        fill: "forwards"
-      }
-    ),
-    {
-      target: document.querySelector(".slogan-group-container")
-    }
-  );
-});
-
 
 
