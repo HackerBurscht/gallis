@@ -615,6 +615,7 @@ font-weight: bold;
 	}
 	.aboutus_img_container {
 	height: auto;
+		width: auto;
 	}
 	
 	.aboutus_img_container img {
@@ -622,7 +623,8 @@ font-weight: bold;
 	height: auto;
 	}
 	.aboutus_texts{
-		margin: 1em;
+		width: auto;
+
 	}
 	.aboutus_button{
 		margin: auto;
