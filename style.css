@@ -820,3 +820,54 @@ body.modal-open {
   color: var(--p-color-light);
 	margin-right: 1em;
 }*/
+
+
+.slogan-wrapper {
+  width: 100vw;
+}
+
+/* Header: bleibt 100vh hoch, sticky oben */
+.slogan-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  background: var(--bg-color-slogan);
+  font-size: var(--fs-xxl);
+}
+
+/* Container sorgt für 300vh Scroll-Länge (3 Slides) */
+.slogan-group-container {
+  height: 300vh;
+  position: relative;
+}
+
+/* Innerer Wrapper sticky + overflow hidden */
+.slogan-group-container > div {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Gruppe gleich aufgebaut wie .img-group */
+.slogan-group {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Einzel-Part je 100vw breit, zentriert */
+.slogan-part {
+  flex: 0 0 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-xxl);
+  transform: translateX(100%); /* Start rechts außerhalb */
+}
+
