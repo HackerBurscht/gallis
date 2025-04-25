@@ -302,17 +302,27 @@ document.addEventListener('DOMContentLoaded', () => {
 // Testscript Slogan
 document.addEventListener("DOMContentLoaded", () => {
   const { animate, scroll } = Motion;
-  const parts = document.querySelectorAll(".slogan-part");
-  const count = parts.length; // hier 3
 
-  // wie im Beispiel: von translateX(0) bis translateX(- (count-1) * 100vw )
+  // Anzahl der Slides
+  const count = document.querySelectorAll(".slogan-part").length; // → 3
+
+  // Motion-Animation: verschiebe die gesamte .slogan-group von 0 bis -((count-1)*100)vw
   scroll(
-    animate(".slogan-group", {
-      transform: [
-        "translateX(0vw)",
-        `translateX(-${(count - 1) * 100}vw)`
-      ]
-    }),
+    animate(
+      ".slogan-group",
+      {
+        transform: [
+          "translateX(0vw)",
+          `translateX(-${(count - 1) * 100}vw)`
+        ]
+      },
+      {
+        duration: count * 5,   // Zeit in Sekunden: 5s pro Slide (anpassen nach Geschmack)
+        easing: "linear",
+        repeat: false,         // kein Loop, wir scrollen ja nur einmal durch
+        fill: "forwards"
+      }
+    ),
     {
       target: document.querySelector(".slogan-group-container")
     }
