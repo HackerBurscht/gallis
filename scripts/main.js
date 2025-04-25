@@ -301,14 +301,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Testscript Slogan
 
-    const items = document.querySelectorAll(".slogan-group")
+    const items = document.querySelectorAll(".slogan-part")
 
     // Animate gallery horizontally during vertical scroll
     scroll(
-        animate(".slogan-group", {
+        animate(".slogan-part", {
             transform: ["none", `translateX(-${items.length - 1}00vw)`],
         }),
-        { target: document.querySelector(".slogan-group-container") }
+        { target: document.querySelector(".slogan-group") }
     )
 
 
