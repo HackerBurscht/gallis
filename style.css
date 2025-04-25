@@ -262,7 +262,7 @@ background-size: cover;
 	position: relative;
 }
 
-.offer_left, .offer_right {
+/*.offer_left, .offer_right {
 	opacity: 0;
   transform: translateY(30px);
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
@@ -271,7 +271,7 @@ background-size: cover;
 .offer_left.visible, .offer_right.visible{
 	opacity: 1;
   transform: translateY(0);
-}
+}*/
 
 .offer_right {
     margin: 0em 14em 12em 6em;
