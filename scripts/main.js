@@ -300,33 +300,15 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Testscript Slogan
-  document.addEventListener("DOMContentLoaded", () => {
-    // 1) Alle Slogan-Slides erfassen
-    const parts = document.querySelectorAll(".slogan-part");
-    const count = parts.length; // z.B. 3
 
-    // 2) Berechne die verschiebbare Distanz in vw:
-    //    Wir wollen von 0 bis -(count-1)*100 vw übersetzen
-    const distance = (count - 1) * 100; // 200 für 3 Teile
+    const items = document.querySelectorAll(".slogan-group")
 
-    // 3) Animation auf die ganze Gruppe legen
-    const groupSelector = ".slogan-group";
-    const containerSelector = ".slogan-group-container";
-
+    // Animate gallery horizontally during vertical scroll
     scroll(
-      animate(
-        groupSelector,
-        { transform: ["translateX(0vw)", `translateX(-${distance}vw)`] },
-        {
-          duration: count * 5,     // z.B. 15s für 3 Slides (anpassen nach Gefühl)
-          easing: "linear",
-          fill: "forwards"
-        }
-      ),
-      {
-        target: document.querySelector(containerSelector)
-      }
-    );
-  });
+        animate(".slogan-group", {
+            transform: ["none", `translateX(-${items.length - 1}00vw)`],
+        }),
+        { target: document.querySelector(".slogan-group-container") }
+    )
 
 
