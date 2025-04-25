@@ -820,56 +820,6 @@ body.modal-open {
   color: var(--p-color-light);
 	margin-right: 1em;
 }*/
-/* Wrapper-Hintergrund */
-.slogan-wrapper {
-  background-color: var(--bg-color-slogan);
-}
-
-/* 1) Sticky-Header: bleibt immer sichtbar (100vh hoch) */
-.slogan-sticky {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  background-color: var(--bg-color-slogan);
-  z-index: 2;
-}
-
-/* 2) Gesamt-Scrollbereich: 3 Slides à 100vh */
-.slogan-group-container {
-  height: 300vh;
-  position: relative;
-}
-
-/* 3) Innerer Sticky-Wrapper */
-.slogan-group-container > div {
-  position: sticky;
-  top: 0;
-  height: 100vh;
-  overflow: hidden;
-}
-
-/* 4) Liste horizontal anordnen */
-.slogan-group {
-  display: flex;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-/* 5) Jedes Listenelement ist viewport-breit und startet rechts außerhalb */
-.slogan-part {
-  flex: 0 0 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--fs-xxl);
-  transform: translateX(100%);
-  will-change: transform;
-}
 
 
 
