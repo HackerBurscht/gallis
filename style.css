@@ -820,69 +820,57 @@ body.modal-open {
   color: var(--p-color-light);
 	margin-right: 1em;
 }*/
+/* Wrapper-Hintergrund */
+.slogan-wrapper {
+  background-color: var(--bg-color-slogan);
+}
 
-   #gallery_2 {
-        width: 98vw;
-    }
+/* 1) Sticky-Header: bleibt immer sichtbar (100vh hoch) */
+.slogan-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  background-color: var(--bg-color-slogan);
+  z-index: 2;
+}
 
+/* 2) Gesamt-Scrollbereich: 3 Slides à 100vh */
+.slogan-group-container {
+  height: 300vh;
+  position: relative;
+}
 
-    #gallery_2 header {
-        height: 70vh;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+/* 3) Innerer Sticky-Wrapper */
+.slogan-group-container > div {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
 
-    .slogan-wrapper {
-        height: 500vh;
-        position: relative;
-    }
+/* 4) Liste horizontal anordnen */
+.slogan-group {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
 
-    .slogan-wrapper > div {
-        position: sticky;
-        top: 0;
-        overflow: hidden;
-        height: 100vh;
-    }
+/* 5) Jedes Listenelement ist viewport-breit und startet rechts außerhalb */
+.slogan-part {
+  flex: 0 0 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--fs-xxl);
+  transform: translateX(100%);
+  will-change: transform;
+}
 
-    .slogan-group {
-        display: flex;
-    }
-
-    .slogan-part {
-        display: flex;
-        width: 100vw;
-        height: 100vh;
-        flex: 0 0 auto;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-    }
-
-    #gallery_2 header h2 {
-        font-size: 56px;
-        font-weight: 700;
-        letter-spacing: -3px;
-        line-height: 1.2;
-        text-align: center;
-        margin: 0;
-    }
-
-    .slogan-part h3 {
-        margin: 0;
-        font-size: 50px;
-        font-weight: 700;
-        letter-spacing: -3px;
-        line-height: 1.2;
-        position: relative;
-        bottom: 30px;
-        display: inline-block;
-    }
-
-    .slogan-part img {
-        width: 300px;
-        height: 400px;
-    }
 
 
 
