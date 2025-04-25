@@ -1,4 +1,4 @@
-*document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
   const container = document.querySelector('.aboutus_img_container');
   const image = container ? container.querySelector('.aboutus_img') : null;
 
