@@ -821,12 +821,12 @@ body.modal-open {
 	margin-right: 1em;
 }*/
 
-   #gallery {
+   #gallery_2 {
         width: 98vw;
     }
 
 
-    #gallery header {
+    #gallery_2 header {
         height: 70vh;
         display: flex;
         justify-content: center;
@@ -859,7 +859,7 @@ body.modal-open {
         flex-direction: column;
     }
 
-    #gallery header h2 {
+    #gallery_2 header h2 {
         font-size: 56px;
         font-weight: 700;
         letter-spacing: -3px;
