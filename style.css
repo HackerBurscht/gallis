@@ -821,12 +821,13 @@ body.modal-open {
 	margin-right: 1em;
 }*/
 
-
+/* Wrapper mit Slogan-Hintergrund (ersetzt deine .slogan-Styles) */
 .slogan-wrapper {
-  width: 100vw;
+  position: relative;
+  background-color: var(--bg-color-slogan);
 }
 
-/* Header: bleibt 100vh hoch, sticky oben */
+/* Der Header bleibt sticky immer oben (100 vh hoch) */
 .slogan-sticky {
   position: sticky;
   top: 0;
@@ -835,17 +836,17 @@ body.modal-open {
   align-items: center;
   justify-content: center;
   margin: 0;
-  background: var(--bg-color-slogan);
-  font-size: var(--fs-xxl);
+  background-color: var(--bg-color-slogan);
+  z-index: 2;  /* über den Slides */
 }
 
-/* Container sorgt für 300vh Scroll-Länge (3 Slides) */
+/* Der Scroll-Bereich braucht 300vh (= 3 Slides á 100vh) */
 .slogan-group-container {
   height: 300vh;
   position: relative;
 }
 
-/* Innerer Wrapper sticky + overflow hidden */
+/* Innerer div-Wrapper sorgt für Sticky-Verhalten */
 .slogan-group-container > div {
   position: sticky;
   top: 0;
@@ -853,7 +854,7 @@ body.modal-open {
   overflow: hidden;
 }
 
-/* Gruppe gleich aufgebaut wie .img-group */
+/* Die Liste horizontal anordnen */
 .slogan-group {
   display: flex;
   list-style: none;
@@ -861,13 +862,17 @@ body.modal-open {
   margin: 0;
 }
 
-/* Einzel-Part je 100vw breit, zentriert */
+/* Jedes Item ist viewport-breit und startet rechts außerhalb */
 .slogan-part {
   flex: 0 0 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: var(--fs-xxl);
-  transform: translateX(100%); /* Start rechts außerhalb */
+  transform: translateX(100%);
+  will-change: transform;
 }
+
+/* Der erste Teil (Ein Ort für) bleibt ja im Header, daher keine .part1 hier nötig */
+
 
