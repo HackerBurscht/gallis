@@ -134,17 +134,17 @@ background-size: cover;
 .aboutus {
 	min-height: 80vh;
 	min-height: 80svh;
-	padding: 0 0 2em 0;
+	padding: 5em 0 2em 0;
 	background-color: var(--bg-color-aboutus);
 	color: var(--p-color-dark);
 	display: flex;
-	flex-direction: row;
+	flex-direction: column;
 	align-items: center;
 }
 
 .aboutus_img_container {
   height: 25em;
-  width: 100%;
+  width: 50em;
   overflow: hidden;
 }
 
@@ -155,8 +155,7 @@ background-size: cover;
 }
 
 .aboutus_texts{
-    margin-left: 6em;
-    margin-right: 12em;
+	width: 50em;
 }
 
 .aboutus_title{
