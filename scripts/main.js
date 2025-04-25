@@ -112,8 +112,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const mainImg = document.querySelector(".lightbox_main");
   const thumbsContainer = document.querySelector(".lightbox_thumbs");
   const closeBtn = document.querySelector(".lightbox_close");
-  const prevBtn = document.querySelector(".lightbox_prev");
-  const nextBtn = document.querySelector(".lightbox_next");
 
   let currentIndex = 0;
 
@@ -162,16 +160,6 @@ function closeLightbox() {
   // 4) Genaue Scroll-Position wiederherstellen
   window.scrollTo(0, savedScrollY);
 }
-  
-  function showPrev() {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    showImage(currentIndex);
-  }
-
-  function showNext() {
-    currentIndex = (currentIndex + 1) % images.length;
-    showImage(currentIndex);
-  }
 
   // Thumbnails erstellen
   images.forEach((img, index) => {
@@ -184,8 +172,6 @@ function closeLightbox() {
   // Events
   document.querySelector(".aboutus_button").addEventListener("click", openLightbox);
   closeBtn.addEventListener("click", closeLightbox);
-  prevBtn.addEventListener("click", showPrev);
-  nextBtn.addEventListener("click", showNext);
 });
 
 
