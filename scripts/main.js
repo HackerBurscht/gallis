@@ -246,7 +246,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 //Offer contents
-import { animate, scroll } from "https://unpkg.com/motion@latest/dist/motion.global.js";
 
 document.addEventListener("DOMContentLoaded", () => {
   // Selektiere beide Text-Container
