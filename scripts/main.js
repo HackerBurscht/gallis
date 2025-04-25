@@ -246,15 +246,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 //Offer contents
-document.addEventListener("DOMContentLoaded", () => {
-  const { animate, scroll } = Motion;
+import { animate, scroll } from "https://unpkg.com/motion@latest/dist/motion.global.js";
 
-  // 1) Selektiere beide Text-Container
+document.addEventListener("DOMContentLoaded", () => {
+  // Selektiere beide Text-Container
   const targets = Array.from(document.querySelectorAll(".offer_left, .offer_right"));
   if (!targets.length) return;
 
-  // 2) Für jedes Element eine eigene Scroll-Animation anlegen
   targets.forEach(el => {
+    // 1) Erstelle die Animation: 0→1 Opacity und von 30px unten nach oben
     const anim = animate(
       el,
       {
@@ -263,19 +263,22 @@ document.addEventListener("DOMContentLoaded", () => {
       },
       {
         duration: 0.8,
-        easing: "ease-out"
+        easing: "ease-out",
+        fill: "forwards"     // <-- wichtig: beendet in finalem Zustand
       }
     );
 
+    // 2) Bind das Ganze an den Scroll: sobald das TOP des Elements den BOTTOM des Viewports erreicht...
     scroll(
       anim,
       {
         target: el,
-        offset: ["end start", "center center"]
+        offset: ["start end", "center center"]  // <-- hier korrigiert
       }
     );
   });
 });
+
 
 
 //Footer
