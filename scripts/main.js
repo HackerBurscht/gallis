@@ -260,29 +260,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 //Offer contents
-  document.addEventListener("DOMContentLoaded", () => {
-    const { animate, scroll } = Motion;
+document.addEventListener("DOMContentLoaded", () => {
+  const { animate, scroll } = Motion;
 
-    // Definiere die Scroll-basierte Animation
-    const offerAnim = animate(
-      ".offer_left",".offer_right",                              // Ziel-Selector
-      { 
-        opacity: [0, 1],                          // von 0 → 1
-        transform: ["translateY(30px)", "translateY(0)"]  // von 30px unten → 0
-      },
-      { duration: 0.8, easing: "ease-out" }       // Timing
-    );
+  // 1) Alle Ziel-Elemente abrufen (NodeList)
+  const targets = document.querySelectorAll('.offer_left, .offer_right');
+  if (targets.length === 0) return;
 
-    // Binde die Animation an das Scroll-Event
-    scroll(
-      offerAnim,
-      {
-        target: ".offer_left","offer_right",                    // beobachte dieses Element
-        offset: ["end start", "center center"]    // wenn Ende unten im Viewport auf Start, bis Mitte auf Mitte
-      }
-    );
-  });
+  // 2) Animation definieren (Keyframes + Timing)
+  //    => animate() nimmt hier die NodeList direkt als erstes Argument
+  const offerAnim = animate(
+    targets,
+    {
+      opacity: [0, 1],
+      transform: ["translateY(30px)", "translateY(0)"]
+    },
+    {
+      duration: 0.8,
+      easing: "ease-out",
+      // Optional: einmalig abspielen
+      // repeat: 0 
+    }
+  );
 
+  // 3) Scroll-Trigger setzen
+  scroll(
+    offerAnim,
+    {
+      // target kann auch die gleiche NodeList sein
+      target: targets,
+      // Offset: von "end start" bis "center center"
+      offset: ["end start", "center center"]
+    }
+  );
+});
 
 
 
