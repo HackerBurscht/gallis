@@ -259,6 +259,33 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+//Offer contents
+  document.addEventListener("DOMContentLoaded", () => {
+    const { animate, scroll } = Motion;
+
+    // Definiere die Scroll-basierte Animation
+    const offerAnim = animate(
+      ".offer_left",".offer_right",                              // Ziel-Selector
+      { 
+        opacity: [0, 1],                          // von 0 → 1
+        transform: ["translateY(30px)", "translateY(0)"]  // von 30px unten → 0
+      },
+      { duration: 0.8, easing: "ease-out" }       // Timing
+    );
+
+    // Binde die Animation an das Scroll-Event
+    scroll(
+      offerAnim,
+      {
+        target: ".offer_left","offer_right",                    // beobachte dieses Element
+        offset: ["end start", "center center"]    // wenn Ende unten im Viewport auf Start, bis Mitte auf Mitte
+      }
+    );
+  });
+
+
+
+
 //Footer
 document.addEventListener('DOMContentLoaded', () => {
   // Beobachte sowohl das Logo-Container als auch die Footer-Links
