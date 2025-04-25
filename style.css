@@ -132,8 +132,8 @@ background-size: cover;
 }
 
 .aboutus {
-	min-height: 80vh;
-	min-height: 80svh;
+	min-height: 110vh;
+	min-height: 110svh;
 	padding: 5em 0 2em 0;
 	background-color: var(--bg-color-aboutus);
 	color: var(--p-color-dark);
@@ -152,6 +152,7 @@ background-size: cover;
   transition: transform 2s ease-in-out;
   transform: scale(1.2);
   transform-origin: 0 0;
+	witdh: 100%;
 }
 
 .aboutus_texts{
@@ -615,7 +616,7 @@ font-weight: bold;
 	}
 	.aboutus_img_container {
 	height: auto;
-		width: auto;
+	width: auto;
 	}
 	
 	.aboutus_img_container img {
@@ -623,7 +624,8 @@ font-weight: bold;
 	height: auto;
 	}
 	.aboutus_texts{
-		width: auto;
+	width: auto;
+	margin: 1em;
 
 	}
 	.aboutus_button{
