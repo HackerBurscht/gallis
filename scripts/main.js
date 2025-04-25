@@ -249,38 +249,33 @@ document.addEventListener('DOMContentLoaded', () => {
 document.addEventListener("DOMContentLoaded", () => {
   const { animate, scroll } = Motion;
 
-  // 1) Alle Ziel-Elemente abrufen (NodeList)
-  const targets = document.querySelectorAll('.offer_left, .offer_right');
-  if (targets.length === 0) return;
+  // 1) Selektiere beide Text-Container
+  const targets = Array.from(document.querySelectorAll(".offer_left, .offer_right"));
+  if (!targets.length) return;
 
-  // 2) Animation definieren (Keyframes + Timing)
-  //    => animate() nimmt hier die NodeList direkt als erstes Argument
-  const offerAnim = animate(
-    targets,
-    {
-      opacity: [0, 1],
-      transform: ["translateY(30px)", "translateY(0)"]
-    },
-    {
-      duration: 0.8,
-      easing: "ease-out",
-      // Optional: einmalig abspielen
-      // repeat: 0 
-    }
-  );
+  // 2) Für jedes Element eine eigene Scroll-Animation anlegen
+  targets.forEach(el => {
+    const anim = animate(
+      el,
+      {
+        opacity: [0, 1],
+        transform: ["translateY(30px)", "translateY(0)"]
+      },
+      {
+        duration: 0.8,
+        easing: "ease-out"
+      }
+    );
 
-  // 3) Scroll-Trigger setzen
-  scroll(
-    offerAnim,
-    {
-      // target kann auch die gleiche NodeList sein
-      target: targets,
-      // Offset: von "end start" bis "center center"
-      offset: ["end start", "center center"]
-    }
-  );
+    scroll(
+      anim,
+      {
+        target: el,
+        offset: ["end start", "center center"]
+      }
+    );
+  });
 });
-
 
 
 //Footer
