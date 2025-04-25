@@ -249,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   // Selektiere beide Text-Container
-  const targets = Array.from(document.querySelectorAll(".offer_left, .offer_right"));
+  const targets = Array.from(document.querySelectorAll(".offer_left, .offer_right, .aboutus_texts"));
   if (!targets.length) return;
 
   targets.forEach(el => {
