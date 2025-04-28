@@ -57,6 +57,38 @@ body, html {
 }
 
 /*Customizing index.html*/
+
+.news-badge {
+  position: relative;
+  top: 0;
+  left: 10vw;
+  background-color: var(--bg-color-slogan);
+  width: 6em;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 0 0 15px 15px;
+  filter: drop-shadow(0px 6px 10px #000000);
+  padding: 1em 0;
+  overflow: hidden; /* optional, damit nichts übersteht */
+}
+
+.news-badge::after {
+  content: "";
+  position: absolute;
+  top: 4px;   /* Abstand oben */
+  left: 4px;  /* Abstand links */
+  right: 4px; /* Abstand rechts */
+  bottom: 4px; /* Abstand unten */
+  border-left: 1px dashed var(--bg-color-intro);
+  border-right: 1px dashed var(--bg-color-intro);
+  border-bottom: 1px dashed var(--bg-color-intro);
+  border-top: none;
+  border-radius: 0 0 11px 11px; /* Radius leicht kleiner als außen */
+  pointer-events: none;
+  box-sizing: border-box;
+}
+
+
 .icon_group_header{
 	position: absolute;
 	top: 1em;
