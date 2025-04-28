@@ -107,6 +107,22 @@ body, html {
   transition: transform 0.7s ease, opacity 0.7s ease;
 }
 
+.news-badge .shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255,255,255,0.5) 50%,
+    transparent 100%
+  );
+  pointer-events: none;
+  transform: translateX(-100%);
+}
+
 .news-badge:hover::before {
   transform: rotate(30deg) translateX(100%);
   opacity: 1;
