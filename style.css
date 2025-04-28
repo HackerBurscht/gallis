@@ -199,6 +199,10 @@ background-size: cover;
 	text-wrap: balance;
 }
 
+.slogan_text p {
+	margin: 0;
+}
+
 .aboutus {
 	min-height: 110vh;
 	min-height: 110svh;
