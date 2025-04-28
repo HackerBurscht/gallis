@@ -1,19 +1,16 @@
 // News-badge
 document.addEventListener("DOMContentLoaded", () => {
-  timeline([
-    [
-      ".news-badge",
-      { 
-        transform: ["translateY(-100px)", "translateY(0px)"],
-        opacity: [0, 1]
-      },
-      { 
-        duration: 0.8,
-        delay: 1.2, // kleine Verzögerung (z.B. 1.2 Sekunden nach Page-Load)
-        easing: "ease-out"
-      }
-    ]
-  ]);
+  animate(".news-badge", 
+    { 
+      transform: ["translateY(-100px)", "translateY(0px)"],
+      opacity: [0, 1]
+    },
+    { 
+      duration: 0.8,
+      delay: 1.2, // kleine Verzögerung (1,2 Sekunden)
+      easing: "ease-out"
+    }
+  );
 });
 
 // Bild Pan-Effekt
