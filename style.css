@@ -190,30 +190,20 @@ background-size: cover;
     text-align: center;
 }
 
-.slogan {
-	min-height: 40vh;
-	min-height: 40svh;
+.slogan_text{
 	background-color: var(--bg-color-slogan);
 	color: var(--p-color-dark);
-	display: flex;
-	align-items: center;
-	position: relative;
-}
-
-.slogan_text{
+	min-height: 40vh;
+	min-height: 40svh;
 	margin: 0 2em 0 2em;
 	font-size: var(--fs-xxl);
-	position: absolute;
-	top: 35%;
-}
-.slogan_text a{
-
+	text-wrap: balance;
 }
 
 .aboutus {
 	min-height: 110vh;
 	min-height: 110svh;
-	padding: 5em 0 2em 0;
+	padding: 5em 25% 2em 25%;
 	background-color: var(--bg-color-aboutus);
 	color: var(--p-color-dark);
 	display: flex;
@@ -222,9 +212,9 @@ background-size: cover;
 }
 
 .aboutus_img_container {
-  height: 25em;
-  width: 50em;
-  overflow: hidden;
+	height: 25em;
+	width: 100%;
+	overflow: hidden;
 }
 
 .aboutus_img_container img {
@@ -235,7 +225,6 @@ background-size: cover;
 }
 
 .aboutus_texts{
-	width: 50em;
 }
 
 .aboutus_title{
