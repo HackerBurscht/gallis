@@ -1,25 +1,21 @@
 // News-badge
 document.addEventListener("DOMContentLoaded", () => {
-  // 1) Overshoot-Einflug
+  // 1) Gerader Einflug von oben, ohne Overshoot
   animate(
     ".news-badge",
     {
-      transform: [
-        "translateY(-150%)",  // weit oben starten
-        "translateY(10%)",    // Overshoot-Punkt
-        "translateY(0%)"      // Endposition
-      ],
-      opacity: [0, 1, 1]       // zeitgleich einblenden
+      transform: ["translateY(-100%)", "translateY(0%)"],
+      opacity: [0, 1]
     },
     {
-      delay: 0.5,             // 0.5s nach Page-Load
-      duration: 1.2,          // Gesamtzeit 1.2s
-      easing: ["ease-out", "ease-in-out", "ease-out"],
-      fill: "forwards"        // im Endzustand bleiben
+      delay: 0.5,       // Warte 0.5s nach Page-Load
+      duration: 0.8,    // Fahrt in 0.8s
+      easing: "ease-out",
+      fill: "forwards"
     }
   );
 
-  // 2) Shine-Effekt nach dem Einflug
+  // 2) Shine-Effekt
   animate(
     ".news-badge .shine",
     {
@@ -27,7 +23,7 @@ document.addEventListener("DOMContentLoaded", () => {
       opacity: [0, 0.6, 0]
     },
     {
-      delay: 1.8,            // startet kurz nach Einflug (0.5 + 1.2 + 0.1)
+      delay: 1.4,       // beginnt, nachdem das Badge drin ist (0.5 + 0.8 + 0.1)
       duration: 1.0,
       easing: "ease-in-out",
       fill: "forwards"
