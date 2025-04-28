@@ -57,6 +57,22 @@ body, html {
 }
 
 /*Customizing index.html*/
+.icon_group_header{
+	position: absolute;
+	top: 1em;
+	right: 1em;
+	display: flex;
+	gap: 0.5em;
+}
+
+.intro_icon {
+	transition: all .2s ease-in-out;
+}
+
+.intro_icon:hover {
+  transform: scale(1.2);
+}
+
 
 .intro {
     min-height: 100vh;
@@ -437,7 +453,6 @@ transform: scaleX(0);
 
 .footer_small_links {
 	position: relative;
-	/*border-top: 1px solid #1C0F14;*/
 	padding-top: 1em;
 	display: flex;
   justify-content: space-between;
