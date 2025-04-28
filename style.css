@@ -570,7 +570,7 @@ font-weight: bold;
 	display: flex;
 	  justify-content: space-between;
 	  flex-direction: row;
-	margin: 1em 15vw 15vw 1em;
+	margin: 1em 15vw 1em 15vw;
 }
 
 /*Mobile querries*/
@@ -578,8 +578,9 @@ font-weight: bold;
   .no_mobile {
     display: none !important;
   }
-	.navbar{
-		display: none;
+
+	.icon_group_header {
+	gap: 2em;
 	}
 	.logo_intro{
 		max-width: 60vw;
