@@ -59,7 +59,7 @@ body, html {
 /*Customizing index.html*/
 
 .news-badge {
-  position: relative;
+  position: absolute;
   top: 0;
   left: 10vw;
   background-color: var(--bg-color-slogan);
@@ -88,6 +88,18 @@ body, html {
   box-sizing: border-box;
 }
 
+.news-badge p{
+	color: var(--p-color-dark);
+	cursor: pointer;
+	width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	line-height: 1.5em;
+	
+}
+.news-badge p:hover{
+	color: red;
+}
 
 .icon_group_header{
 	position: absolute;
