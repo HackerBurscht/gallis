@@ -71,7 +71,7 @@ body, html {
   overflow: hidden;
 	cursor: pointer;
 }
-/*
+
 .news-badge::after {
   content: "";
   position: absolute;
@@ -86,7 +86,7 @@ body, html {
   border-radius: 0 0 11px 11px;
   pointer-events: none;
   box-sizing: border-box;
-}*/
+}
 
 .news-badge::before {
   content: "";
@@ -118,10 +118,6 @@ body, html {
 	margin-left: auto;
 	margin-right: auto;
 	line-height: 1.5em;
-}
-
-.news-badge p:hover{
-
 }
 
 .icon_group_header{
