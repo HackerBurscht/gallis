@@ -1,3 +1,22 @@
+// News-badge
+document.addEventListener("DOMContentLoaded", () => {
+  timeline([
+    [
+      ".news-badge",
+      { 
+        transform: ["translateY(-100px)", "translateY(0px)"],
+        opacity: [0, 1]
+      },
+      { 
+        duration: 0.8,
+        delay: 1.2, // kleine Verzögerung (z.B. 1.2 Sekunden nach Page-Load)
+        easing: "ease-out"
+      }
+    ]
+  ]);
+});
+
+// Bild Pan-Effekt
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.querySelector('.aboutus_img_container');
   const image = container ? container.querySelector('.aboutus_img') : null;
