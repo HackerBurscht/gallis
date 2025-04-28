@@ -1,14 +1,36 @@
 // News-badge
 document.addEventListener("DOMContentLoaded", () => {
-  animate(".news-badge", 
-    { 
-      transform: ["translateY(-100px)", "translateY(0px)"],
-      opacity: [0, 1]
+  // 1) Overshoot-Einflug
+  animate(
+    ".news-badge",
+    {
+      transform: [
+        "translateY(-150%)",  // weit oben starten
+        "translateY(10%)",    // Overshoot-Punkt
+        "translateY(0%)"      // Endposition
+      ],
+      opacity: [0, 1, 1]       // zeitgleich einblenden
     },
-    { 
-      duration: 0.8,
-      delay: 1.2, // kleine Verzögerung (1,2 Sekunden)
-      easing: "ease-out"
+    {
+      delay: 0.5,             // 0.5s nach Page-Load
+      duration: 1.2,          // Gesamtzeit 1.2s
+      easing: ["ease-out", "ease-in-out", "ease-out"],
+      fill: "forwards"        // im Endzustand bleiben
+    }
+  );
+
+  // 2) Shine-Effekt nach dem Einflug
+  animate(
+    ".news-badge .shine",
+    {
+      transform: ["translateX(-100%)", "translateX(100%)"],
+      opacity: [0, 0.6, 0]
+    },
+    {
+      delay: 1.8,            // startet kurz nach Einflug (0.5 + 1.2 + 0.1)
+      duration: 1.0,
+      easing: "ease-in-out",
+      fill: "forwards"
     }
   );
 });
