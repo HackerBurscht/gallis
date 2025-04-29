@@ -34,37 +34,48 @@ document.addEventListener("DOMContentLoaded", () => {
 //news-overlay animation
 
 document.addEventListener("DOMContentLoaded", () => {
-  const badge    = document.querySelector(".news-badge");
-  const overlay  = document.getElementById("newsOverlay");
-  const content  = overlay.querySelector(".overlay-content");
-  const closeBtn = overlay.querySelector(".overlay-close");
-  const backdrop = overlay.querySelector(".overlay-backdrop");
+  const badge        = document.querySelector(".news-badge");
+  const overlay      = document.getElementById("newsOverlay");
+  const content      = overlay.querySelector(".overlay-content");
+  const closeBtn     = overlay.querySelector(".overlay-close");
+  const backdrop     = overlay.querySelector(".overlay-backdrop");
   const leftCurtain  = document.querySelector(".curtain-left");
   const rightCurtain = document.querySelector(".curtain-right");
 
   function openOverlay() {
-    // 1) Vorhänge schließen (jeweils auf 50% Breite)
+    // 1) Vorhänge fahren zu 50% Breite
     animate(
       [leftCurtain, rightCurtain],
       { width: ["0%", "50%"] },
-      { duration: 0.6, easing: "ease-in" }
-    ).finished.then(() => {
-      // 2) Overlay einblenden
-      overlay.style.pointerEvents = "all";
-      animate(overlay, { opacity: [0, 1] }, { duration: 0.4, easing: "ease-in" });
-      animate(
-        content,
-        {
-          opacity: [0, 1],
-          transform: ["translate(-50%, -60%) scale(0.8)", "translate(-50%, -50%) scale(1)"]
-        },
-        { delay: 0.2, duration: 0.6, easing: "ease-out" }
-      );
-    });
+      {
+        duration: 0.6,
+        easing: "ease-in",
+        onComplete: () => {
+          // 2) Jetzt das Overlay einblenden
+          overlay.style.pointerEvents = "all";
+          animate(
+            overlay,
+            { opacity: [0, 1] },
+            { duration: 0.4, easing: "ease-in", fill: "forwards" }
+          );
+          animate(
+            content,
+            {
+              opacity: [0, 1],
+              transform: [
+                "translate(-50%, -60%) scale(0.8)",
+                "translate(-50%, -50%) scale(1)"
+              ]
+            },
+            { delay: 0.2, duration: 0.6, easing: "ease-out", fill: "forwards" }
+          );
+        }
+      }
+    );
   }
 
   function closeOverlay() {
-    // 1) Modal schließen
+    // 1) Modal-Content ausblenden & schrumpfen
     animate(
       content,
       {
@@ -74,20 +85,34 @@ document.addEventListener("DOMContentLoaded", () => {
           "translate(-50%, -60%) scale(0.8)"
         ]
       },
-      { duration: 0.4, easing: "ease-in", fill: "forwards" }
-    ).finished.then(() => {
-      animate(overlay, { opacity: [1, 0] }, { duration: 0.3, fill: "forwards" })
-        .finished.then(() => {
-          overlay.style.pointerEvents = "none";
-
-          // 2) Vorhänge öffnen (wieder auf 0%)
+      {
+        duration: 0.4,
+        easing: "ease-in",
+        fill: "forwards",
+        onComplete: () => {
+          // 2) Overlay ausblenden
           animate(
-            [leftCurtain, rightCurtain],
-            { width: ["50%", "0%"] },
-            { duration: 0.6, easing: "ease-out" }
+            overlay,
+            { opacity: [1, 0] },
+            {
+              duration: 0.3,
+              easing: "ease-in",
+              fill: "forwards",
+              onComplete: () => {
+                overlay.style.pointerEvents = "none";
+
+                // 3) Vorhänge wieder öffnen
+                animate(
+                  [leftCurtain, rightCurtain],
+                  { width: ["50%", "0%"] },
+                  { duration: 0.6, easing: "ease-out", fill: "forwards" }
+                );
+              }
+            }
           );
-        });
-    });
+        }
+      }
+    );
   }
 
   badge.addEventListener("click", openOverlay);
