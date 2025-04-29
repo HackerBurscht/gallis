@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //news-overlay animation
 
+
 document.addEventListener("DOMContentLoaded", () => {
   const badge        = document.querySelector(".news-badge");
   const overlay      = document.getElementById("newsOverlay");
@@ -43,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const rightCurtain = document.querySelector(".curtain-right");
 
   function openOverlay() {
-    // 1) Vorhänge fahren zu 50% Breite
+    // 1) Curtains zu
     animate(
       [leftCurtain, rightCurtain],
       { width: ["0%", "50%"] },
@@ -51,7 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
         duration: 0.6,
         easing: "ease-in",
         onComplete: () => {
-          // 2) Jetzt das Overlay einblenden
+          // 2) Modal sichtbar machen
           overlay.style.pointerEvents = "all";
           animate(
             overlay,
@@ -75,7 +76,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function closeOverlay() {
-    // 1) Modal-Content ausblenden & schrumpfen
+    // 1) Content ausblenden
     animate(
       content,
       {
@@ -100,7 +101,6 @@ document.addEventListener("DOMContentLoaded", () => {
               fill: "forwards",
               onComplete: () => {
                 overlay.style.pointerEvents = "none";
-
                 // 3) Vorhänge wieder öffnen
                 animate(
                   [leftCurtain, rightCurtain],
