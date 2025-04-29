@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
         duration: 0.6,
         easing: "ease-in",
         onComplete: () => {
-          // 2) Overlay einblenden mit Energie‐Curve
+          // 2) Overlay einblenden
           overlay.style.pointerEvents = "all";
           animate(
             overlay,
@@ -62,24 +62,24 @@ document.addEventListener("DOMContentLoaded", () => {
               fill: "forwards"
             }
           );
-          // 3) Content einfaden mit Bounce
+          // 3) Content mit Bounce einfahren
           animate(
             content,
             {
               opacity: [0, 1],
               transform: [
-                "translate(-50%, -60%) scale(0.8)",   // Start
-                "translate(-50%, -50%) scale(1.05)",  // Overshoot
-                "translate(-50%, -50%) scale(1)"      // End
+                "translate(-50%, -60%) scale(0.8)",
+                "translate(-50%, -50%) scale(1.05)",
+                "translate(-50%, -50%) scale(1)"
               ]
             },
             {
               delay: 0.2,
               duration: 0.7,
               easing: [
-                "ease-out",                            // Phase 1
-                "cubic-bezier(0.25,1.5,0.5,1)",         // Bounce
-                "ease-out"                             // Cleanup
+                "ease-out",
+                "cubic-bezier(0.25,1.5,0.5,1)",
+                "ease-out"
               ],
               fill: "forwards"
             }
@@ -90,7 +90,43 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function closeOverlay() {
-    // … dein bestehender closeOverlay-Code …
+    // 1) Content ausblenden und schrumpfen
+    animate(
+      content,
+      {
+        opacity: [1, 0],
+        transform: [
+          "translate(-50%, -50%) scale(1)",
+          "translate(-50%, -60%) scale(0.8)"
+        ]
+      },
+      {
+        duration: 0.4,
+        easing: "ease-in",
+        fill: "forwards",
+        onComplete: () => {
+          // 2) Overlay ausblenden
+          animate(
+            overlay,
+            { opacity: [1, 0] },
+            {
+              duration: 0.3,
+              easing: "ease-in",
+              fill: "forwards",
+              onComplete: () => {
+                overlay.style.pointerEvents = "none";
+                // 3) Vorhänge wieder öffnen
+                animate(
+                  [leftCurtain, rightCurtain],
+                  { width: ["50%", "0%"] },
+                  { duration: 0.6, easing: "ease-out", fill: "forwards" }
+                );
+              }
+            }
+          );
+        }
+      }
+    );
   }
 
   badge.addEventListener("click", openOverlay);
