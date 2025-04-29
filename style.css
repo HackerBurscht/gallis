@@ -779,6 +779,21 @@ font-weight: bold;
 
 
 /* news-overlay*/
+
+.curtain {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background-color: var(--bg-color-intro);
+  z-index: 10000; /* oberhalb aller Inhalte, aber unter Modal, das wir später auf 10001 setzen */
+}
+
+/* Linke Hälfte klebt links, rechte klebt rechts */
+.curtain-left { left: 0; }
+.curtain-right { right: 0; }
+
+
 /* Grundzustand: versteckt */
 
 #newsOverlay {
