@@ -861,6 +861,10 @@ font-weight: bold;
   border-radius: 8px;
 }
 
+.modal-subtitle{
+	font-weight: bold;
+}
+
 /* Lightbox base styles ------------------------------------------------------------------------*/
 
 body.modal-open {
