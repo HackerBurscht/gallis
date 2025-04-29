@@ -58,27 +58,32 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   }
 
-  function closeOverlay() {
-    // 1) Content ausblenden und leicht schrumfen
+function closeOverlay() {
+  // 1) Content ausblenden + runter skalieren
+  animate(
+    content,
+    {
+      opacity: [1, 0],
+      transform: [
+        "translate(-50%, -50%) scale(1)",
+        "translate(-50%, -50%) scale(0.8)"
+      ]
+    },
+    { duration: 0.4, easing: "ease-in" }
+  ).finished.then(() => {
+    // 2) Dann das gesamte Overlay (Backdrop + Content) ausblenden
     animate(
-      content,
-      {
-        opacity: [1, 0],
-        transform: ["translate(-50%, -50%) scale(1)", "translate(-50%, -50%) scale(0.8)"]
-      },
-      { duration: 0.4, easing: "ease-in" }
+      overlay,
+      { opacity: [1, 0] },
+      { duration: 0.3, easing: "ease-in" }
     ).finished.then(() => {
-      // 2) Overlay ausblenden
-      animate(overlay, { opacity: [1, 0] }, { duration: 0.3 }).finished.then(() => {
-        overlay.style.pointerEvents = "none";
-      });
+      // 3) Am Ende komplett unsichtbar & nicht mehr klickbar
+      overlay.style.pointerEvents = "none";
+      overlay.style.opacity = "0";      // auf 0 setzen
     });
-  }
+  });
+}
 
-  badge.addEventListener("click", openOverlay);
-  closeBtn.addEventListener("click", closeOverlay);
-  backdrop.addEventListener("click", closeOverlay);
-});
 
 // Bild Pan-Effekt
 document.addEventListener('DOMContentLoaded', () => {
