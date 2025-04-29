@@ -32,19 +32,22 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //news-overlay animation
+
 document.addEventListener("DOMContentLoaded", () => {
-  const badge      = document.querySelector(".news-badge");
-  const overlay    = document.getElementById("newsOverlay");
-  const content    = overlay.querySelector(".overlay-content");
-  const closeBtn   = overlay.querySelector(".overlay-close");
-  const backdrop   = overlay.querySelector(".overlay-backdrop");
+  const badge    = document.querySelector(".news-badge");
+  const overlay  = document.getElementById("newsOverlay");
+  const content  = overlay.querySelector(".overlay-content");
+  const closeBtn = overlay.querySelector(".overlay-close");
+  const backdrop = overlay.querySelector(".overlay-backdrop");
 
   function openOverlay() {
-    // 1) Overlay sichtbar machen (pointer-events)
+    // Overlay sichtbar und klickbar machen
     overlay.style.pointerEvents = "all";
 
-    // 2) Fade-in & slight scale-up
+    // 1) Fade-in des gesamten Overlay
     animate(overlay, { opacity: [0, 1] }, { duration: 0.4, easing: "ease-in" });
+
+    // 2) Content kommt mit leichtem Scale-In
     animate(
       content,
       {
@@ -56,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function closeOverlay() {
-    // 1) Content runter skalieren + ausblenden
+    // 1) Content ausblenden und leicht schrumfen
     animate(
       content,
       {
