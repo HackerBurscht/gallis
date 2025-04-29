@@ -33,8 +33,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //news-overlay animation
 
-
-
 document.addEventListener("DOMContentLoaded", () => {
   const badge        = document.querySelector(".news-badge");
   const overlay      = document.getElementById("newsOverlay");
@@ -49,51 +47,50 @@ document.addEventListener("DOMContentLoaded", () => {
     animate(
       [leftCurtain, rightCurtain],
       { width: ["0%", "50%"] },
-      { duration: 0.6, easing: "ease-in" }
-    , {
-      onComplete: () => {
-        // 2) Overlay einblenden mit energiegeladener Kurve
-        overlay.style.pointerEvents = "all";
-        animate(
-          overlay,
-          { opacity: [0, 1] },
-          {
-            duration: 0.5,
-            easing: "cubic-bezier(0.25, 1.5, 0.5, 1)",
-            fill: "forwards"
-          }
-        );
-
-        // 3) Content einfaden mit feinem Bounce
-        animate(
-          content,
-          {
-            opacity: [0, 1],
-            transform: [
-              "translate(-50%, -60%) scale(0.8)",   // Start
-              "translate(-50%, -50%) scale(1.05)",  // Overshoot (Bounce)
-              "translate(-50%, -50%) scale(1)"      // End
-            ]
-          },
-          {
-            delay: 0.2,
-            duration: 0.7,
-            easing: [
-              "ease-out",                            // 0.8→1.05
-              "cubic-bezier(0.25,1.5,0.5,1)",        // 1.05→1 (Bounce)
-              "ease-out"                             // cleanup
-            ],
-            fill: "forwards"
-          }
-        );
+      {
+        duration: 0.6,
+        easing: "ease-in",
+        onComplete: () => {
+          // 2) Overlay einblenden mit Energie‐Curve
+          overlay.style.pointerEvents = "all";
+          animate(
+            overlay,
+            { opacity: [0, 1] },
+            {
+              duration: 0.5,
+              easing: "cubic-bezier(0.25, 1.5, 0.5, 1)",
+              fill: "forwards"
+            }
+          );
+          // 3) Content einfaden mit Bounce
+          animate(
+            content,
+            {
+              opacity: [0, 1],
+              transform: [
+                "translate(-50%, -60%) scale(0.8)",   // Start
+                "translate(-50%, -50%) scale(1.05)",  // Overshoot
+                "translate(-50%, -50%) scale(1)"      // End
+              ]
+            },
+            {
+              delay: 0.2,
+              duration: 0.7,
+              easing: [
+                "ease-out",                            // Phase 1
+                "cubic-bezier(0.25,1.5,0.5,1)",         // Bounce
+                "ease-out"                             // Cleanup
+              ],
+              fill: "forwards"
+            }
+          );
+        }
       }
     );
   }
 
   function closeOverlay() {
-    // Unverändert – schließt Modal und öffnet Vorhänge rückwärts
-    animate(content, { /* … */ }, { /* … */ });
-    /* …Rest wie gehabt… */
+    // … dein bestehender closeOverlay-Code …
   }
 
   badge.addEventListener("click", openOverlay);
