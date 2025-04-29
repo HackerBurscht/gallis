@@ -31,6 +31,52 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 });
 
+//news-overlay animation
+document.addEventListener("DOMContentLoaded", () => {
+  const badge      = document.querySelector(".news-badge");
+  const overlay    = document.getElementById("newsOverlay");
+  const content    = overlay.querySelector(".overlay-content");
+  const closeBtn   = overlay.querySelector(".overlay-close");
+  const backdrop   = overlay.querySelector(".overlay-backdrop");
+
+  function openOverlay() {
+    // 1) Overlay sichtbar machen (pointer-events)
+    overlay.style.pointerEvents = "all";
+
+    // 2) Fade-in & slight scale-up
+    animate(overlay, { opacity: [0, 1] }, { duration: 0.4, easing: "ease-in" });
+    animate(
+      content,
+      {
+        opacity: [0, 1],
+        transform: ["translate(-50%, -50%) scale(0.8)", "translate(-50%, -50%) scale(1)"]
+      },
+      { delay: 0.2, duration: 0.6, easing: "ease-out" }
+    );
+  }
+
+  function closeOverlay() {
+    // 1) Content runter skalieren + ausblenden
+    animate(
+      content,
+      {
+        opacity: [1, 0],
+        transform: ["translate(-50%, -50%) scale(1)", "translate(-50%, -50%) scale(0.8)"]
+      },
+      { duration: 0.4, easing: "ease-in" }
+    ).finished.then(() => {
+      // 2) Overlay ausblenden
+      animate(overlay, { opacity: [1, 0] }, { duration: 0.3 }).finished.then(() => {
+        overlay.style.pointerEvents = "none";
+      });
+    });
+  }
+
+  badge.addEventListener("click", openOverlay);
+  closeBtn.addEventListener("click", closeOverlay);
+  backdrop.addEventListener("click", closeOverlay);
+});
+
 // Bild Pan-Effekt
 document.addEventListener('DOMContentLoaded', () => {
   const container = document.querySelector('.aboutus_img_container');
