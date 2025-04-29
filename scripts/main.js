@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //news-overlay animation
 
+
 document.addEventListener("DOMContentLoaded", () => {
   const badge    = document.querySelector(".news-badge");
   const overlay  = document.getElementById("newsOverlay");
@@ -40,29 +41,43 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeBtn = overlay.querySelector(".overlay-close");
   const backdrop = overlay.querySelector(".overlay-backdrop");
 
-  // Open-Funktion
   function openOverlay() {
-    // damit es geklickt werden kann
     overlay.style.pointerEvents = "all";
-    // Fade-in für Backdrop+Container
-    animate(overlay,
+
+    // 1) Fade-in Overlay
+    animate(
+      overlay,
       { opacity: [0, 1] },
-      { duration: 0.4, easing: "ease-in", fill: "forwards" }
+      {
+        duration: 0.4,
+        easing: "ease-in",
+        fill: "forwards"
+      }
     );
-    // Content skaliert und blended ein
-    animate(content,
+
+    // 2) Content einfahren
+    animate(
+      content,
       {
         opacity: [0, 1],
-        transform: ["translate(-50%, -50%) scale(0.8)", "translate(-50%, -50%) scale(1)"]
+        transform: [
+          "translate(-50%, -50%) scale(0.8)",
+          "translate(-50%, -50%) scale(1)"
+        ]
       },
-      { delay: 0.2, duration: 0.6, easing: "ease-out", fill: "forwards" }
+      {
+        delay: 0.2,
+        duration: 0.6,
+        easing: "ease-out",
+        fill: "forwards"
+      }
     );
   }
 
-  // Close-Funktion
   function closeOverlay() {
-    // Content rausblend-+schrumpf
-    animate(content,
+    // 1) Content ausblenden und schrumpfen
+    animate(
+      content,
       {
         opacity: [1, 0],
         transform: [
@@ -70,19 +85,29 @@ document.addEventListener("DOMContentLoaded", () => {
           "translate(-50%, -50%) scale(0.8)"
         ]
       },
-      { duration: 0.4, easing: "ease-in", fill: "forwards" }
-    ).finished.then(() => {
-      // Overlay fade-out
-      animate(overlay,
-        { opacity: [1, 0] },
-        { duration: 0.3, easing: "ease-in", fill: "forwards" }
-      ).finished.then(() => {
-        overlay.style.pointerEvents = "none";
-      });
-    });
+      {
+        duration: 0.4,
+        easing: "ease-in",
+        fill: "forwards",
+        onComplete: () => {
+          // 2) Overlay selbst ausblenden
+          animate(
+            overlay,
+            { opacity: [1, 0] },
+            {
+              duration: 0.3,
+              easing: "ease-in",
+              fill: "forwards",
+              onComplete: () => {
+                overlay.style.pointerEvents = "none";
+              }
+            }
+          );
+        }
+      }
+    );
   }
 
-  // *** Wichtig: Event-Listener ***
   badge.addEventListener("click", openOverlay);
   closeBtn.addEventListener("click", closeOverlay);
   backdrop.addEventListener("click", closeOverlay);
