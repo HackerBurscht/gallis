@@ -777,13 +777,76 @@ font-weight: bold;
 	}
 }
 
-/* Lightbox base styles */
+
+/* news-overlay*/
+/* Grundzustand: versteckt */
+.overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* Hintergrund-Dunkelheit */
+.overlay-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(11,19,43, 0.85); /* dein dunkles Navy mit Deckkraft */
+  pointer-events: all;
+}
+
+/* Modal-Content */
+.overlay-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: clamp(300px, 80%, 600px);
+  background: var(--bg-color); /* beige/weiß für den Inhalt */
+  padding: 2em;
+  border-radius: 15px;
+  transform: translate(-50%, -50%) scale(0.8);
+  opacity: 0;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+  pointer-events: all;
+}
+
+/* Close-Button */
+.overlay-close {
+  position: absolute;
+  top: 0.5em;
+  right: 0.5em;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: var(--p-color-dark);
+  cursor: pointer;
+}
+
+/* Titel */
+.overlay-title {
+  margin-top: 0;
+  font-size: var(--fs-xl);
+  color: var(--p-color-dark);
+}
+
+/* Text & Bild */
+.overlay-body {
+  margin-top: 1em;
+  color: var(--p-color-dark);
+  line-height: 1.5;
+}
+.overlay-image {
+  display: block;
+  max-width: 100%;
+  margin: 1em auto;
+  border-radius: 8px;
+}
+
+/* Lightbox base styles ------------------------------------------------------------------------*/
 
 body.modal-open {
   position: fixed;
   width: 100%;
 }
-
 
 .lightbox {
   position: fixed;
@@ -813,10 +876,6 @@ body.modal-open {
 	height: 60svh;
   object-fit: contain;
   object-position: center;
-}
-
-.lightbox_nav {
-  /*display: none; /* nicht mehr benötigt */*/
 }
 
 .lightbox_nav button {
@@ -879,34 +938,6 @@ body.modal-open {
 .lightbox_thumbs img:hover {
   filter: brightness(1);
 }
-
-/* Linker Pfeil */
-/*.lightbox_prev {
-  position: absolute;
-  left: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 2rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--p-color-light);
-	margin-left: 1em;
-}*/
-
-/* Rechter Pfeil */
-/*.lightbox_next {
-  position: absolute;
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 2rem;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: var(--p-color-light);
-	margin-right: 1em;
-}*/
 
 
 
