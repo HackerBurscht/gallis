@@ -40,50 +40,53 @@ document.addEventListener("DOMContentLoaded", () => {
   const closeBtn = overlay.querySelector(".overlay-close");
   const backdrop = overlay.querySelector(".overlay-backdrop");
 
+  // Open-Funktion
   function openOverlay() {
-    // Overlay sichtbar und klickbar machen
+    // damit es geklickt werden kann
     overlay.style.pointerEvents = "all";
-
-    // 1) Fade-in des gesamten Overlay
-    animate(overlay, { opacity: [0, 1] }, { duration: 0.4, easing: "ease-in" });
-
-    // 2) Content kommt mit leichtem Scale-In
-    animate(
-      content,
+    // Fade-in für Backdrop+Container
+    animate(overlay,
+      { opacity: [0, 1] },
+      { duration: 0.4, easing: "ease-in", fill: "forwards" }
+    );
+    // Content skaliert und blended ein
+    animate(content,
       {
         opacity: [0, 1],
         transform: ["translate(-50%, -50%) scale(0.8)", "translate(-50%, -50%) scale(1)"]
       },
-      { delay: 0.2, duration: 0.6, easing: "ease-out" }
+      { delay: 0.2, duration: 0.6, easing: "ease-out", fill: "forwards" }
     );
   }
 
-function closeOverlay() {
-  // 1) Content ausblenden + runter skalieren
-  animate(
-    content,
-    {
-      opacity: [1, 0],
-      transform: [
-        "translate(-50%, -50%) scale(1)",
-        "translate(-50%, -50%) scale(0.8)"
-      ]
-    },
-    { duration: 0.4, easing: "ease-in" }
-  ).finished.then(() => {
-    // 2) Dann das gesamte Overlay (Backdrop + Content) ausblenden
-    animate(
-      overlay,
-      { opacity: [1, 0] },
-      { duration: 0.3, easing: "ease-in" }
+  // Close-Funktion
+  function closeOverlay() {
+    // Content rausblend-+schrumpf
+    animate(content,
+      {
+        opacity: [1, 0],
+        transform: [
+          "translate(-50%, -50%) scale(1)",
+          "translate(-50%, -50%) scale(0.8)"
+        ]
+      },
+      { duration: 0.4, easing: "ease-in", fill: "forwards" }
     ).finished.then(() => {
-      // 3) Am Ende komplett unsichtbar & nicht mehr klickbar
-      overlay.style.pointerEvents = "none";
-      overlay.style.opacity = "0";      // auf 0 setzen
+      // Overlay fade-out
+      animate(overlay,
+        { opacity: [1, 0] },
+        { duration: 0.3, easing: "ease-in", fill: "forwards" }
+      ).finished.then(() => {
+        overlay.style.pointerEvents = "none";
+      });
     });
-  });
-}
+  }
 
+  // *** Wichtig: Event-Listener ***
+  badge.addEventListener("click", openOverlay);
+  closeBtn.addEventListener("click", closeOverlay);
+  backdrop.addEventListener("click", closeOverlay);
+});
 
 // Bild Pan-Effekt
 document.addEventListener('DOMContentLoaded', () => {
