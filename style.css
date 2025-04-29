@@ -780,6 +780,14 @@ font-weight: bold;
 
 /* news-overlay*/
 /* Grundzustand: versteckt */
+
+#newsOverlay {
+  position: fixed;
+  inset: 0;
+  opacity: 0;              /* unsichtbar von Anfang an */
+  pointer-events: none;    /* keine Klicks durchlassen */
+}
+
 .overlay {
   position: fixed;
   inset: 0;
@@ -790,8 +798,8 @@ font-weight: bold;
 .overlay-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(11,19,43, 0.85); /* dein dunkles Navy mit Deckkraft */
-  pointer-events: all;
+  background: rgba(11,19,43, 0.85);
+  /* pointer-events: all;   -- hier lassen wir es beim Container regeln */
 }
 
 /* Modal-Content */
