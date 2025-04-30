@@ -190,8 +190,9 @@ background-size: cover;
 	position: relative;
     display: flex;
     flex-wrap: wrap;
-    gap: 8em;
+    gap: 3em;
     margin: 3em 0 3em 0;
+	max-width: 500px;
 }
 
 .intro_adjectives::after {
@@ -212,7 +213,8 @@ background-size: cover;
 
 
 .adress_intro{
-    text-align: center;
+	text-align: center;
+	margin-top: 1em;
 }
 
 .slogan_text{
