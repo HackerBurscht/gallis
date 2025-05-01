@@ -134,6 +134,28 @@ document.addEventListener("DOMContentLoaded", () => {
   backdrop.addEventListener("click", closeOverlay);
 });
 
+// Slogan-text-effect
+document.addEventListener("DOMContentLoaded", () => {
+  const sloganElement = document.getElementById("slogan");
+  const text = sloganElement.textContent;
+  const words = text.split(" ");
+
+  sloganElement.textContent = ""; // Clear original text
+
+  words.forEach((word, i) => {
+    const span = document.createElement("span");
+    span.textContent = word + " ";
+    span.classList.add("slogan_word");
+    sloganElement.appendChild(span);
+
+    setTimeout(() => {
+      span.classList.add("visible");
+    }, i * 100); // delay = 100ms pro Wort
+  });
+});
+
+
+
 // Bild Pan-Effekt
 
 
