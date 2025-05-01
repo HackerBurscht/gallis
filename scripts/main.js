@@ -136,23 +136,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Slogan-text-effect
 document.addEventListener("DOMContentLoaded", () => {
-  const sloganElement = document.getElementById("slogan");
-  const text = sloganElement.textContent;
-  const words = text.split(" ");
+  const slogan = document.getElementById("slogan");
+  // Originaltext holen und in Wörter splitten (ohne überflüssige Leerzeilen)
+  const words = slogan.textContent.trim().split(/\s+/);
 
-  sloganElement.textContent = ""; // Clear original text
+  // 1) Erzeuge daraus HTML mit <span>Word</span>␣ 
+  slogan.innerHTML = words
+    .map(w => `<span class="slogan_word">${w}</span>`)
+    .join(" "); // das Join bewahrt zwischen jedem Wort genau eine Leerstelle
 
-  words.forEach((word, i) => {
-    const span = document.createElement("span");
-    span.textContent = word + " ";
-    span.classList.add("slogan_word");
-    sloganElement.appendChild(span);
+  // 2) Wähle alle so erzeugten Spans aus
+  const spans = slogan.querySelectorAll(".slogan_word");
 
+  // 3) Füge nach und nach die Klasse "visible" hinzu, mit Delay pro Wort
+  spans.forEach((span, i) => {
+    // Kleiner Initial-Delay, damit Transition nicht nullschnell beginnt
     setTimeout(() => {
       span.classList.add("visible");
-    }, i * 100); // delay = 100ms pro Wort
+    }, 100 + i * 150); // z.B. erstes Wort nach 100 ms, dann jede 150 ms das nächste
   });
 });
+
 
 
 
