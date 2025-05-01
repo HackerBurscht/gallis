@@ -230,9 +230,13 @@ background-size: cover;
  	align-items: center;
 }
 
-.slogan_text p {
-	margin: 0;
-	
+.slogan_word {
+  opacity: 0;
+  display: inline-block;
+  transition: opacity 0.4s ease;
+}
+.slogan_word.visible {
+  opacity: 1;
 }
 
 .aboutus {
