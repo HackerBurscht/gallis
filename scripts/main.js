@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (entry.isIntersecting) {
         // Animation einmal auslösen
         spans.forEach((span, i) => {
-          setTimeout(() => span.classList.add("visible"), 100 + i * 150);
+          setTimeout(() => span.classList.add("visible"), 100 + i * 200);
         });
         observer.unobserve(slogan);
       }
