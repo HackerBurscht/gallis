@@ -137,25 +137,37 @@ document.addEventListener("DOMContentLoaded", () => {
 // Slogan-text-effect
 document.addEventListener("DOMContentLoaded", () => {
   const slogan = document.getElementById("slogan");
-  // Originaltext holen und in Wörter splitten (ohne überflüssige Leerzeilen)
   const words = slogan.textContent.trim().split(/\s+/);
 
-  // 1) Erzeuge daraus HTML mit <span>Word</span>␣ 
+  // Erzeuge die Span-Elemente schon jetzt, aber ohne .visible
   slogan.innerHTML = words
     .map(w => `<span class="slogan_word">${w}</span>`)
-    .join(" "); // das Join bewahrt zwischen jedem Wort genau eine Leerstelle
+    .join(" ");
 
-  // 2) Wähle alle so erzeugten Spans aus
   const spans = slogan.querySelectorAll(".slogan_word");
 
-  // 3) Füge nach und nach die Klasse "visible" hinzu, mit Delay pro Wort
-  spans.forEach((span, i) => {
-    // Kleiner Initial-Delay, damit Transition nicht nullschnell beginnt
-    setTimeout(() => {
-      span.classList.add("visible");
-    }, 100 + i * 150); // z.B. erstes Wort nach 100 ms, dann jede 150 ms das nächste
+  // Callback, der ausgelöst wird, sobald der Slogan ins Blickfeld kommt
+  const onIntersection = (entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        // Animation einmal auslösen
+        spans.forEach((span, i) => {
+          setTimeout(() => span.classList.add("visible"), 100 + i * 150);
+        });
+        observer.unobserve(slogan);
+      }
+    });
+  };
+
+  // IntersectionObserver einrichten
+  const observer = new IntersectionObserver(onIntersection, {
+    root: null,           // Viewport
+    threshold: 0.5        // 50 % des Elements müssen sichtbar sein
   });
+
+  observer.observe(slogan);
 });
+
 
 
 
