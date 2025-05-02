@@ -336,8 +336,8 @@ background-size: cover;
 }
 
 .gallery {
-	min-height: 85vh;
-	min-height: 85svh;
+	min-height: 100vh;
+	min-height: 100svh;
 	display: flex;
 	will-change: transform;
 }
@@ -346,7 +346,8 @@ background-size: cover;
 	object-fit: cover;
 	flex-shrink: 0;
 	width: 750px;
-	height: 85svh;
+	height: 100vh;
+	height: 100svh;
 }
 .gallery_ellipse {
   position: absolute;
@@ -369,17 +370,6 @@ background-size: cover;
     display: flex;
 	position: relative;
 }
-
-/*.offer_left, .offer_right {
-	opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-}
-
-.offer_left.visible, .offer_right.visible{
-	opacity: 1;
-  transform: translateY(0);
-}*/
 
 .offer_right {
     margin: 0em 14em 12em 6em;
