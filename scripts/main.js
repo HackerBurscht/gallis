@@ -172,15 +172,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // Scrollsnap
   document.addEventListener("DOMContentLoaded", () => {
-    // 1) Bild kommt von unten herein
+    // Bild‑Container von unten
     scroll(
       animate(
         ".aboutus_img_container",
         {
           opacity: [0, 1],
-          transform: ["translateY(200px)", "translateY(0)"]
+          y: [200, 0]             // y statt x → von unten
         },
-        { duration: 0.6, easing: "ease-out", fill: "forwards" }
+        {
+          duration: 0.6,
+          easing: "ease-out",
+          fill: "forwards"
+        }
       ),
       {
         target: document.querySelector(".aboutus_img_container"),
@@ -188,15 +192,20 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     );
 
-    // 2) Text kommt ebenfalls von unten, leicht verzögert
+    // Text‑Container von unten, mit kleinem Delay
     scroll(
       animate(
         ".aboutus_texts",
         {
           opacity: [0, 1],
-          transform: ["translateY(200px)", "translateY(0)"]
+          y: [200, 0]
         },
-        { delay: 0.2, duration: 0.6, easing: "ease-out", fill: "forwards" }
+        {
+          delay: 0.2,
+          duration: 0.6,
+          easing: "ease-out",
+          fill: "forwards"
+        }
       ),
       {
         target: document.querySelector(".aboutus_texts"),
