@@ -734,6 +734,7 @@ font-weight: bold;
 	.aboutus_texts{
 	width: auto;
 	margin: 1em;
+		height: auto;
 
 	}
 	.aboutus_button{
