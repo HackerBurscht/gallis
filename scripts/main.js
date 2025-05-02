@@ -170,6 +170,35 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+// Scrollsnap
+document.addEventListener("DOMContentLoaded", () => {
+  // 1) Bildcontainer von rechts herein‑fliegen lassen
+  scroll(
+    animate(
+      ".aboutus_img_container",
+      { opacity: [0, 1], transform: ["translateX(200px)", "translateX(0)"] },
+      { duration: 0.6, easing: "ease-out" }
+    ),
+    {
+      target: ".aboutus_img_container",
+      offset: ["start end", "center center"]
+    }
+  );
+
+  // 2) Textcontainer von links herein‑fliegen lassen
+  scroll(
+    animate(
+      ".aboutus_texts",
+      { opacity: [0, 1], transform: ["translateX(-200px)", "translateX(0)"] },
+      { delay: 0.2, duration: 0.6, easing: "ease-out" }
+    ),
+    {
+      target: ".aboutus_texts",
+      offset: ["start end", "center center"]
+    }
+  );
+});
+
 
 
 // Bild Pan-Effekt
