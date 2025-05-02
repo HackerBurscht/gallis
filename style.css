@@ -263,6 +263,8 @@ background-size: cover;
 
 .aboutus_texts{
 	height: 100svh;
+	align-items: center;
+  	display: flex;
 }
 
 .aboutus_title{
