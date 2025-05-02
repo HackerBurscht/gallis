@@ -713,6 +713,11 @@ font-weight: bold;
 		padding: 0 0 2em 0;
 		position: relative;
 	}
+	
+	.aboutus_section {
+	height: auto;
+	}
+	
 	.aboutus_img{
 		max-width: 100%;
 		height: auto;
@@ -727,7 +732,6 @@ font-weight: bold;
 	height: auto;
 	}
 	.aboutus_texts{
-		height: auto;
 	width: auto;
 	margin: 1em;
 
