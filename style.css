@@ -33,10 +33,6 @@ body, html {
 	 	 padding: 0; 
     }
 
-html {
-  scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-}
 
 /*font-fams*/    
 /* Define regular font style */
@@ -231,11 +227,15 @@ background-size: cover;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	 
+
+	  height: 100vh;                /* füllt immer den Viewport */
+  overflow-y: scroll;           /* macht es scrollbar */
+  scroll-snap-type: y mandatory;/* aktiviert vertikales Snap */
 }
 
 .aboutus_section{
-	  scroll-snap-align: start;
+  height: 100vh;               /* füllt den Container‑Viewport */
+  scroll-snap-align: start;    /* ihr Start „rastet“ ein */
 }
 
 .slogan_text{
