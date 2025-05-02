@@ -170,51 +170,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-// Scrollsnap
-  document.addEventListener("DOMContentLoaded", () => {
-    // Bild‑Container von unten
-    scroll(
-      animate(
-        ".aboutus_img_container",
-        {
-          opacity: [0, 1],
-          y: [200, 0]             // y statt x → von unten
-        },
-        {
-          duration: 0.6,
-          easing: "ease-out",
-          fill: "forwards"
-        }
-      ),
-      {
-        target: document.querySelector(".aboutus_img_container"),
-        offset: ["start end", "center center"]
-      }
-    );
-
-    // Text‑Container von unten, mit kleinem Delay
-    scroll(
-      animate(
-        ".aboutus_texts",
-        {
-          opacity: [0, 1],
-          y: [200, 0]
-        },
-        {
-          delay: 0.2,
-          duration: 0.6,
-          easing: "ease-out",
-          fill: "forwards"
-        }
-      ),
-      {
-        target: document.querySelector(".aboutus_texts"),
-        offset: ["start end", "center center"]
-      }
-    );
-  });
-
-
 
 // Bild Pan-Effekt
 
