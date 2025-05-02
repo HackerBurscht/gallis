@@ -35,6 +35,7 @@ body, html {
 
 html {
   scroll-snap-type: y mandatory;
+  overflow-y: scroll;
 }
 
 /*font-fams*/    
@@ -234,7 +235,7 @@ background-size: cover;
 }
 
 .aboutus_section{
-	scroll-snap-align: start;
+	  scroll-snap-align: start;
 }
 
 .slogan_text{
