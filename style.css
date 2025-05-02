@@ -252,20 +252,17 @@ background-size: cover;
 }
 
 .aboutus_img_container {
-	height: 80svh;
+	height: 100svh;
 	width: 100%;
 	overflow: hidden;
 }
 
 .aboutus_img_container img {
-transition: transform 2s ease-in-out;
   transform: scale(1.2);
-  transform-origin: 0 0;
 }
 
 .aboutus_texts{
-	margin-bottom: 10svh;
-	margin-bottom: 10vh;
+	height: 100svh;
 }
 
 .aboutus_title{
