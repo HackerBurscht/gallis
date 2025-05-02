@@ -28,9 +28,9 @@ body, html {
 	    scroll-behavior: smooth;
 	    font-family: "Quattrocento";
 			font-size: var(--fs-base);
-		  width: 100%;
-	 		margin: 0 auto;
-	 	 padding: 0; 
+			width: 100%;
+			margin: 0 auto;
+			padding: 0; 
     }
 
 
@@ -227,15 +227,10 @@ background-size: cover;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-
-	  height: 100vh;                /* füllt immer den Viewport */
-  overflow-y: scroll;           /* macht es scrollbar */
-  scroll-snap-type: y mandatory;/* aktiviert vertikales Snap */
 }
 
 .aboutus_section{
-  height: 100vh;               /* füllt den Container‑Viewport */
-  scroll-snap-align: start;    /* ihr Start „rastet“ ein */
+  height: 100vh;
 }
 
 .slogan_text{
