@@ -171,33 +171,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 // Scrollsnap
-document.addEventListener("DOMContentLoaded", () => {
-  // 1) Bildcontainer von rechts herein‑fliegen lassen
-  scroll(
-    animate(
-      ".aboutus_img_container",
-      { opacity: [0, 1], transform: ["translateX(200px)", "translateX(0)"] },
-      { duration: 0.6, easing: "ease-out" }
-    ),
-    {
-      target: ".aboutus_img_container",
-      offset: ["start end", "center center"]
-    }
-  );
+  document.addEventListener("DOMContentLoaded", () => {
+    // 1) Bild kommt von unten herein
+    scroll(
+      animate(
+        ".aboutus_img_container",
+        {
+          opacity: [0, 1],
+          transform: ["translateY(200px)", "translateY(0)"]
+        },
+        { duration: 0.6, easing: "ease-out", fill: "forwards" }
+      ),
+      {
+        target: document.querySelector(".aboutus_img_container"),
+        offset: ["start end", "center center"]
+      }
+    );
 
-  // 2) Textcontainer von links herein‑fliegen lassen
-  scroll(
-    animate(
-      ".aboutus_texts",
-      { opacity: [0, 1], transform: ["translateX(-200px)", "translateX(0)"] },
-      { delay: 0.2, duration: 0.6, easing: "ease-out" }
-    ),
-    {
-      target: ".aboutus_texts",
-      offset: ["start end", "center center"]
-    }
-  );
-});
+    // 2) Text kommt ebenfalls von unten, leicht verzögert
+    scroll(
+      animate(
+        ".aboutus_texts",
+        {
+          opacity: [0, 1],
+          transform: ["translateY(200px)", "translateY(0)"]
+        },
+        { delay: 0.2, duration: 0.6, easing: "ease-out", fill: "forwards" }
+      ),
+      {
+        target: document.querySelector(".aboutus_texts"),
+        offset: ["start end", "center center"]
+      }
+    );
+  });
 
 
 
