@@ -33,6 +33,10 @@ body, html {
 	 	 padding: 0; 
     }
 
+html {
+  scroll-snap-type: y mandatory;
+}
+
 /*font-fams*/    
 /* Define regular font style */
 @font-face {
@@ -217,6 +221,18 @@ background-size: cover;
 	margin-top: 1em;
 }
 
+.aboutus {
+	min-height: 100vh;
+	min-height: 100svh;
+	padding: 0 25% 0 25%;
+	background-color: var(--bg-color-aboutus);
+	color: var(--p-color-dark);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	 scroll-snap-align: start;
+}
+
 .slogan_text{
 	background-color: var(--bg-color-slogan);
 	color: var(--p-color-dark);
@@ -238,17 +254,6 @@ background-size: cover;
 
 .slogan_word.visible {
   opacity: 1;
-}
-
-.aboutus {
-	min-height: 100vh;
-	min-height: 100svh;
-	padding: 0 25% 0 25%;
-	background-color: var(--bg-color-aboutus);
-	color: var(--p-color-dark);
-	display: flex;
-	flex-direction: column;
-	align-items: center;
 }
 
 .aboutus_img_container {
