@@ -159,23 +159,25 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   );
 
-  // 3) IntersectionObserver: Verstecke den Text, sobald der Indikator
-  //    die Intro-Sektion verlässt. Wir beobachten den INDICATOR,
-  //    benutzen aber die INTRO als root.
-  const io = new IntersectionObserver(
-    ([entry]) => {
-      if ( entry.isIntersecting ) {
+  // 3) IntersectionObserver auf die Intro-Section
+  const introObserver = new IntersectionObserver(
+    (entries) => {
+      const entry = entries[0];
+      if (entry.isIntersecting) {
+        // Intro ist noch im Viewport → Text anzeigen
         scrollText.classList.remove("hidden");
       } else {
+        // Intro ist komplett raus → Text verstecken
         scrollText.classList.add("hidden");
       }
     },
     {
-      root: intro,      // wir vergleichen Sichtbarkeit relativ zu .intro
-      threshold: 0.1    // ab 10% im Intro → sichtbar
+      root: null,       // das Browser-Fenster
+      threshold: 0.1    // ab 10% Sichtbarkeit gilt als "eingetreten"
     }
   );
-  io.observe(indicator);
+
+  introObserver.observe(intro);
 });
 
 // Slogan-text-effect
