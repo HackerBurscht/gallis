@@ -332,6 +332,13 @@ color: var(--p-color-light);
   margin-right: 10vw;
 }
 
+.aboutus_text {
+    font-family: "Lato";
+    font-size: var(--fs-base);
+	/*margin: 2em 0 2em 0;*/
+    line-height: 180%;
+}
+
 .aboutus_title{
     font-size: var(--fs-xl);
 	text-wrap: nowrap
@@ -354,10 +361,14 @@ color: var(--p-color-light);
 	height: 100%;
 }
 
-.aboutus_text {
+.aboutus_title-light{
+    font-size: var(--fs-xl);
+	text-wrap: nowrap
+}
+
+.aboutus_text-light {
     font-family: "Lato";
     font-size: var(--fs-base);
-	/*margin: 2em 0 2em 0;*/
     line-height: 180%;
 }
 
