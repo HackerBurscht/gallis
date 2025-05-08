@@ -810,20 +810,21 @@ font-weight: bold;
 	}
 
 	#section-dark p {
-	color: color: var(--p-color-dark);
+	color: var(--p-color-dark);
+	line-height: 180%;
 	}
 
 	.aboutus_textcontainer-light {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
 	align-items: baseline;
 	width: auto;
 	margin: 1em 1em 1em 1em;
 	text-align: left;
-}
+	}
 
-	.about_text-light{
+	.aboutus_text-light{
 		font-size: var(--fs-md);
 	}
 
