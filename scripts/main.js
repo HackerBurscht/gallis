@@ -135,19 +135,34 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //Scroll-indicator
-  scroll(
-    animate(".scroll-thumb", { top: ["0%", "80%"] }, {
-      duration: 1,
-      easing: "linear"
-    }),
+  const scrollText = document.querySelector('.scroll-text');
+  const scrollIndicator = document.querySelector('.scroll-indicator');
+  const introSection = document.querySelector('.intro-section');
+
+  // 🎯 1. Fokus durch kurze Animation auf Text
+  Motion.animate(
+    scrollText,
+    { opacity: [0, 1, 0, 1], y: [0, -5, 0] },
+    { duration: 1.2, easing: "ease-in-out" }
+  );
+
+  // 👁️ 2. Text ausblenden, wenn Indikator nicht mehr in Intro sichtbar ist
+  const observer = new IntersectionObserver(
+    ([entry]) => {
+      if (!entry.isIntersecting) {
+        scrollText.classList.add('hidden');
+      } else {
+        scrollText.classList.remove('hidden');
+      }
+    },
     {
-      // Ganze Seite als Scrollfläche
-      source: document.scrollingElement,
-      axis: "y", // vertikaler Scroll
-      target: document.body, // oder spezifischer Bereich
-      offset: ["start start", "end end"] // Scrollbar bewegt sich von Anfang bis Ende
+      root: null, // viewport
+      threshold: 0.1, // sobald weniger als 10% sichtbar
+      rootMargin: "0px"
     }
   );
+
+  observer.observe(introSection);
 
 // Slogan-text-effect
 document.addEventListener("DOMContentLoaded", () => {
