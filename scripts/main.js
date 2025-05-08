@@ -134,18 +134,18 @@ document.addEventListener("DOMContentLoaded", () => {
   backdrop.addEventListener("click", closeOverlay);
 });
 
-//SCroll-indicator
+//Scroll-indicator
   scroll(
-    animate(".scroll-thumb", {
-      top: ["0%", "80%"]     // von ganz oben bis 80% (da thumb 20% Höhe hat)
-    }, {
-      ease: "linear",        // gleichmäßiges Tempo
-      fill: "both"           // hält Start- und Endzustand
+    animate(".scroll-thumb", { top: ["0%", "80%"] }, {
+      duration: 1,
+      easing: "linear"
     }),
     {
-      target: document,      // auf das gesamte Dokument achten
-      offset: ["start end", "end start"]  
-      // sobald page-top unten am Viewport ist bis page-bottom oben am Viewport
+      // Ganze Seite als Scrollfläche
+      source: document.scrollingElement,
+      axis: "y", // vertikaler Scroll
+      target: document.body, // oder spezifischer Bereich
+      offset: ["start start", "end end"] // Scrollbar bewegt sich von Anfang bis Ende
     }
   );
 
