@@ -817,8 +817,15 @@ font-weight: bold;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  margin: 1em 1em 1em 1em;
+	align-items: baseline;
+	width: auto;
+	margin: 1em 1em 1em 1em;
+	text-align: left;
 }
+
+	.about_text-light{
+		font-size: var(--fs-md);
+	}
 
 	
 	.aboutus_img{
