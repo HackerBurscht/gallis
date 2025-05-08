@@ -269,7 +269,7 @@ background-size: cover;
 .aboutus {
 	min-height: 100vh;
 	min-height: 100svh;
-	padding: 0 25% 0 25%;
+	/*padding: 0 25% 0 25%;*/
 	background-color: var(--bg-color-aboutus);
 	color: var(--p-color-dark);
 	display: flex;
@@ -304,18 +304,30 @@ background-size: cover;
   opacity: 1;
 }
 
-.aboutus_img_container {
-	height: 100svh;
-	width: 100%;
-	overflow: hidden;
+.section-dark {
 	display: flex;
 	align-items: center;
+	background-color: var(--bg-color-intro);
+}
+
+.section-dark p {
+color: var(--p-color-light);
+}
+
+.aboutus_img_container {
+	/*height: 100svh;*/
+	/*width: 100%;
+	overflow: hidden;
+	display: flex;
+	align-items: center;*/
 }
 
 .aboutus_texts{
-	height: 100svh;
+	/*height: 100svh;
 	align-items: center;
-  	display: flex;
+  	display: flex;*/
+	margin-left: 10vw;
+  margin-right: 10vw;
 }
 
 .aboutus_title{
