@@ -304,13 +304,13 @@ background-size: cover;
   opacity: 1;
 }
 
-.section-dark {
+#section-dark {
 	display: flex;
 	align-items: center;
 	background-color: var(--bg-color-intro);
 }
 
-.section-dark p {
+#section-dark p {
 color: var(--p-color-light);
 }
 
