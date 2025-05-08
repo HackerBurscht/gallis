@@ -135,32 +135,48 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //Scroll-indicator
-  const scrollText = document.querySelector('.scroll-text');
-  const scrollIndicator = document.querySelector('.scroll-indicator');
-  const introSection = document.querySelector('.intro-section');
+  document.addEventListener("DOMContentLoaded", () => {
+    const { animate, scroll } = Motion;
+    const indicator = document.querySelector(".scroll-indicator");
+    const thumb     = document.querySelector(".scroll-thumb");
+    const scrollText = document.querySelector(".scroll-text");
+    const introSection = document.querySelector(".intro");
 
-  // 🎯 1. Fokus durch kurze Animation auf Text
-  Motion.animate(
-    scrollText,
-    { opacity: [0, 1, 0, 1], y: [0, -5, 0] },
-    { duration: 1.2, easing: "ease-in-out" }
-  );
+    // 1) Sanftes Einblenden des Indicators beim Laden
+    animate(
+      indicator,
+      { opacity: [0, 1], y: [20, 0] },
+      { delay: 0.5, duration: 1.2, easing: "ease-out" }
+    );
 
-  // 👁️ 2. Text ausblenden, wenn Indikator nicht mehr in Intro sichtbar ist
-  const observer = new IntersectionObserver(
-    ([entry]) => {
-      if (!entry.isIntersecting) {
-        scrollText.classList.add('hidden');
-      } else {
-        scrollText.classList.remove('hidden');
+    // 2) Scroll-getriggerte Bewegung des Thumbs
+    scroll(
+      animate(thumb, { top: ["0%", "80%"] }, {
+        ease: "linear",
+        fill: "both"
+      }),
+      {
+        source: document.scrollingElement,
+        axis: "y",
+        offset: ["start start", "end end"]
       }
-    },
-    {
-      root: null, // viewport
-      threshold: 0.1, // sobald weniger als 10% sichtbar
-      rootMargin: "0px"
-    }
-  );
+    );
+
+    // 3) Ausblenden des Textes, sobald wir aus der Intro-Section scrollen
+    new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) {
+          scrollText.classList.add("hidden");
+        } else {
+          scrollText.classList.remove("hidden");
+        }
+      },
+      {
+        root: null,
+        threshold: 0.1
+      }
+    ).observe(indicator);
+  });
 
   observer.observe(introSection);
 
