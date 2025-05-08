@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     {
       root: null,       // das Browser-Fenster
-      threshold: 0.1    // ab 10% Sichtbarkeit gilt als "eingetreten"
+      threshold: 0.75    // ab 10% Sichtbarkeit gilt als "eingetreten"
     }
   );
 
