@@ -63,7 +63,7 @@ body, html {
 	position: fixed;
 	left: 50px;
 	height: 250px;
-	width: 3px
+	width: 3px;
 	background: red;
 	bottom: 50px;
 	transform: scaleX(0);
