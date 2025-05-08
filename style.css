@@ -68,6 +68,10 @@ body, html {
   align-items: center;
   pointer-events: none;
   z-index: 1000;
+
+  /* Start-Zustand für das Fade-In */
+  opacity: 0;
+  transform: translateY(20px);
 }
 
 .scroll-text {
@@ -76,6 +80,11 @@ body, html {
   color: #ccc;
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
+  transition: opacity 0.4s ease;
+}
+
+.scroll-text.hidden {
+  opacity: 0;
 }
 
 .scroll-track {
@@ -94,8 +103,9 @@ body, html {
   width: 100%;
   height: 20%;
   background-color: #6A6A6A;
-  border-radius: 2px;
+  border-radius: 3px;
 }
+
 
 .news-badge {
   position: absolute;
