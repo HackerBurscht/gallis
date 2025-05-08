@@ -308,6 +308,7 @@ background-size: cover;
 	display: flex;
 	align-items: center;
 	background-color: var(--bg-color-intro);
+	height: 100%;
 }
 
 #section-dark p {
@@ -320,6 +321,7 @@ color: var(--p-color-light);
 	overflow: hidden;
 	display: flex;
 	align-items: center;*/
+	display: flex;
 }
 
 .aboutus_texts{
@@ -342,17 +344,27 @@ color: var(--p-color-light);
     margin-top: 2em;
 }
 
+.aboutus_textcontainer{
+	display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 25vw;
+	text-align: center;
+	height: 100%;
+}
+
 .aboutus_text {
     font-family: "Lato";
     font-size: var(--fs-base);
-	margin: 2em 0 2em 0;
+	/*margin: 2em 0 2em 0;*/
     line-height: 180%;
 }
 
 .aboutus_button {
   position: relative;
   display: block;
-  margin: 4em 0 0 0;
+  margin-top: 2em;
   border: 2px solid var(--bg-color-intro);
   padding: 0.5em 1em 0.5em 1em;
   overflow: hidden;
