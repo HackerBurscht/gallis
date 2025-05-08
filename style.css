@@ -59,6 +59,16 @@ body, html {
 
 /*Customizing index.html*/
 
+.scroll-indicator{
+	position: fixed;
+	left: 50px;
+	height: 250px;
+	width: 3px
+	background: red;
+	bottom: 50px;
+	transform: scaleX(0);
+}
+
 .news-badge {
   position: absolute;
   top: 0;
