@@ -800,6 +800,26 @@ font-weight: bold;
 	.aboutus_section {
 	height: auto;
 	}
+
+	#section-dark {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  flex-direction: column-reverse;
+  background-color: var(--bg-color-aboutus);
+	}
+
+	#section-dark p {
+	color: color: var(--p-color-dark);
+	}
+
+	.aboutus_textcontainer-light {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 1em 1em 1em 1em;
+}
+
 	
 	.aboutus_img{
 		max-width: 100%;
