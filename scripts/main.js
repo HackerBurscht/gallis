@@ -135,50 +135,48 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 //Scroll-indicator
-  document.addEventListener("DOMContentLoaded", () => {
-    const { animate, scroll } = Motion;
-    const indicator = document.querySelector(".scroll-indicator");
-    const thumb     = document.querySelector(".scroll-thumb");
-    const scrollText = document.querySelector(".scroll-text");
-    const introSection = document.querySelector(".intro");
+document.addEventListener("DOMContentLoaded", () => {
+  const { animate, scroll } = Motion;
+  const indicator  = document.querySelector(".scroll-indicator");
+  const thumb      = document.querySelector(".scroll-thumb");
+  const scrollText = document.querySelector(".scroll-text");
+  const intro      = document.querySelector(".intro");
 
-    // 1) Sanftes Einblenden des Indicators beim Laden
-    animate(
-      indicator,
-      { opacity: [0, 1], y: [20, 0] },
-      { delay: 0.5, duration: 1.2, easing: "ease-out" }
-    );
+  // 1) Sanftes Einblenden
+  animate(
+    indicator,
+    { opacity: [0, 1], y: [20, 0] },
+    { delay: 0.5, duration: 1.2, easing: "ease-out" }
+  );
 
-    // 2) Scroll-getriggerte Bewegung des Thumbs
-    scroll(
-      animate(thumb, { top: ["0%", "80%"] }, {
-        ease: "linear",
-        fill: "both"
-      }),
-      {
-        source: document.scrollingElement,
-        axis: "y",
-        offset: ["start start", "end end"]
+  // 2) Daumen-Leiste bewegt sich beim Scrollen
+  scroll(
+    animate(thumb, { top: ["0%", "80%"] }, { ease: "linear", fill: "both" }),
+    {
+      source: document.scrollingElement,
+      axis: "y",
+      offset: ["start start", "end end"]
+    }
+  );
+
+  // 3) IntersectionObserver: Verstecke den Text, sobald der Indikator
+  //    die Intro-Sektion verlässt. Wir beobachten den INDICATOR,
+  //    benutzen aber die INTRO als root.
+  const io = new IntersectionObserver(
+    ([entry]) => {
+      if ( entry.isIntersecting ) {
+        scrollText.classList.remove("hidden");
+      } else {
+        scrollText.classList.add("hidden");
       }
-    );
-
-    // 3) Ausblenden des Textes, sobald wir aus der Intro-Section scrollen
-    new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) {
-          scrollText.classList.add("hidden");
-        } else {
-          scrollText.classList.remove("hidden");
-        }
-      },
-      {
-        root: null,
-        threshold: 0.1
-      }
-    ).observe(indicator);
-  });
-
-  observer.observe(introSection);
+    },
+    {
+      root: intro,      // wir vergleichen Sichtbarkeit relativ zu .intro
+      threshold: 0.1    // ab 10% im Intro → sichtbar
+    }
+  );
+  io.observe(indicator);
+});
 
 // Slogan-text-effect
 document.addEventListener("DOMContentLoaded", () => {
