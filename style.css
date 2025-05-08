@@ -344,7 +344,7 @@ color: var(--p-color-light);
     margin-top: 2em;
 }
 
-.aboutus_textcontainer{
+.aboutus_textcontainer-light{
 	display: flex;
   justify-content: center;
   align-items: center;
