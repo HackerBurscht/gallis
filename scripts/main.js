@@ -134,6 +134,21 @@ document.addEventListener("DOMContentLoaded", () => {
   backdrop.addEventListener("click", closeOverlay);
 });
 
+//SCroll-indicator
+  scroll(
+    animate(".scroll-thumb", {
+      top: ["0%", "80%"]     // von ganz oben bis 80% (da thumb 20% Höhe hat)
+    }, {
+      ease: "linear",        // gleichmäßiges Tempo
+      fill: "both"           // hält Start- und Endzustand
+    }),
+    {
+      target: document,      // auf das gesamte Dokument achten
+      offset: ["start end", "end start"]  
+      // sobald page-top unten am Viewport ist bis page-bottom oben am Viewport
+    }
+  );
+
 // Slogan-text-effect
 document.addEventListener("DOMContentLoaded", () => {
   const slogan = document.getElementById("slogan");
