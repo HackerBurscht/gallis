@@ -42,10 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const rightCurtain = document.querySelector(".curtain-right");
 
   function openOverlay() {
-    // 0) sichtbar machen (display: flex via CSS .visible)
-    overlay.classList.add("visible");
-
-    // 1) Vorhänge fahren
+    // 1) Vorhänge schließen
     animate(
       [leftCurtain, rightCurtain],
       { width: ["0%", "50%"] },
@@ -53,9 +50,10 @@ document.addEventListener("DOMContentLoaded", () => {
         duration: 0.6,
         easing: "ease-in",
         onComplete: () => {
-          // 2) Overlay Fade-in
-          animate(overlay, { opacity: [0, 1] }, { duration: 0.4, fill: "forwards" });
-          // 3) Content Overshoot
+          // 2) Overlay sichtbar machen
+          overlay.classList.add("visible");
+
+          // 3) Content mit Overshoot einfahren
           animate(
             content,
             {
@@ -69,11 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
             {
               delay: 0.2,
               duration: 0.7,
-              easing: [
-                "ease-out",
-                "cubic-bezier(0.25,1.5,0.5,1)",
-                "ease-out"
-              ],
+              easing: ["ease-out","cubic-bezier(0.25,1.5,0.5,1)","ease-out"],
               fill: "forwards"
             }
           );
@@ -83,7 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function closeOverlay() {
-    // 1) Content raus animieren
+    // 1) Content ausblenden & schrumpfen
     animate(
       content,
       {
@@ -98,36 +92,24 @@ document.addEventListener("DOMContentLoaded", () => {
         easing: "ease-in",
         fill: "forwards",
         onComplete: () => {
-          // 2) Overlay ausblenden
+          // 2) Overlay unsichtbar machen
+          overlay.classList.remove("visible");
+          // 3) Vorhänge wieder öffnen
           animate(
-            overlay,
-            { opacity: [1, 0] },
-            {
-              duration: 0.3,
-              easing: "ease-in",
-              fill: "forwards",
-              onComplete: () => {
-                // 3) display:none zurück
-                overlay.classList.remove("visible");
-                overlay.style.opacity = "";
-                // 4) Vorhänge öffnen
-                animate(
-                  [leftCurtain, rightCurtain],
-                  { width: ["50%", "0%"] },
-                  { duration: 0.6, easing: "ease-out", fill: "forwards" }
-                );
-              }
-            }
+            [leftCurtain, rightCurtain],
+            { width: ["50%", "0%"] },
+            { duration: 0.6, easing: "ease-out", fill: "forwards" }
           );
         }
       }
     );
   }
 
-  badge.addEventListener("click",  openOverlay);
+  badge.addEventListener("click", openOverlay);
   closeBtn.addEventListener("click", closeOverlay);
   backdrop.addEventListener("click", closeOverlay);
 });
+
 
 
 //Scroll-indicator
