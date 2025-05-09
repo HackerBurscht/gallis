@@ -280,6 +280,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // lightbox gallery
+// lightbox gallery
 document.addEventListener("DOMContentLoaded", function () {
   const images = [
     "gallis_drone.png",
@@ -290,16 +291,10 @@ document.addEventListener("DOMContentLoaded", function () {
   ];
   const basePath = "images/modal_gallery/";
 
-  const lightbox       = document.getElementById("lightbox");
-  const mainImg        = document.querySelector(".lightbox_main");
-  const thumbsContainer= document.querySelector(".lightbox_thumbs");
-  const closeBtn       = document.querySelector(".lightbox_close");
-
-  // NEU: Swipe-Hinweis-Element anlegen
-  const swipeHint = document.createElement("div");
-  swipeHint.className = "swipe-indicator";
-  swipeHint.textContent = "← Swipe →";
-  document.querySelector(".lightbox_content").appendChild(swipeHint);
+  const lightbox = document.getElementById("lightbox");
+  const mainImg = document.querySelector(".lightbox_main");
+  const thumbsContainer = document.querySelector(".lightbox_thumbs");
+  const closeBtn = document.querySelector(".lightbox_close");
 
   let currentIndex = 0;
 
@@ -310,51 +305,44 @@ document.addEventListener("DOMContentLoaded", function () {
       thumb.classList.toggle("active", i === index);
     });
   }
+// Helfer zum Verhindern von Scroll‑ und Touch‑Events
+function preventScroll(e) {
+  e.preventDefault();
+}
 
-  // Helfer zum Verhindern von Scroll- und Touch-Events
-  function preventScroll(e) {
-    e.preventDefault();
-  }
+let savedScrollY = 0;
 
-  let savedScrollY = 0;
+function openLightbox() {
+  // 1) Scroll-Position merken
+  savedScrollY = window.pageYOffset || document.documentElement.scrollTop;
+  // 2) Body fixieren und top setzen
+  document.body.classList.add('modal-open');
+  document.body.style.top = -${savedScrollY}px;
 
-  function openLightbox() {
-    // Scroll-Position merken
-    savedScrollY = window.pageYOffset || document.documentElement.scrollTop;
-    document.body.classList.add('modal-open');
-    document.body.style.top = `-${savedScrollY}px`;
+  // 3) Scroll- und Touch-Events blockieren
+  window.addEventListener('wheel', preventScroll, { passive: false });
+  window.addEventListener('touchmove', preventScroll, { passive: false });
 
-    window.addEventListener('wheel', preventScroll, { passive: false });
-    window.addEventListener('touchmove', preventScroll, { passive: false });
+  // 4) Lightbox anzeigen
+  lightbox.classList.remove('hidden');
+  showImage(currentIndex);
+}
 
-    // Lightbox öffnen
-    lightbox.classList.remove('hidden');
-    showImage(currentIndex);
+function closeLightbox() {
+  // 1) Lightbox verstecken
+  lightbox.classList.add('hidden');
 
-    // Swipe-Hinweis zurücksetzen und kurz sichtbar machen
-    swipeHint.style.display = "block";
-    swipeHint.style.opacity = "1";
-    swipeHint.animate(
-      [
-        { opacity: 0 },
-        { opacity: 1, offset: 0.2 },
-        { opacity: 1, offset: 0.8 },
-        { opacity: 0 }
-      ],
-      { duration: 2000, easing: "ease-out" }
-    );
-  }
+  // 2) Scroll- und Touch-Events wieder zulassen
+  window.removeEventListener('wheel', preventScroll, { passive: false });
+  window.removeEventListener('touchmove', preventScroll, { passive: false });
 
-  function closeLightbox() {
-    lightbox.classList.add('hidden');
+  // 3) Body-Positionierung zurücksetzen
+  document.body.classList.remove('modal-open');
+  document.body.style.top = '';
 
-    window.removeEventListener('wheel', preventScroll, { passive: false });
-    window.removeEventListener('touchmove', preventScroll, { passive: false });
-
-    document.body.classList.remove('modal-open');
-    document.body.style.top = '';
-    window.scrollTo(0, savedScrollY);
-  }
+  // 4) Genaue Scroll-Position wiederherstellen
+  window.scrollTo(0, savedScrollY);
+}
 
   // Thumbnails erstellen
   images.forEach((img, index) => {
@@ -364,33 +352,10 @@ document.addEventListener("DOMContentLoaded", function () {
     thumbsContainer.appendChild(thumb);
   });
 
-  // Klick-Events
+  // Events
   document.querySelector(".aboutus_button").addEventListener("click", openLightbox);
   closeBtn.addEventListener("click", closeLightbox);
-
-  // NEU: Swipe-Geste auf dem Hauptbild
-  let touchStartX = 0;
-  const threshold = 40; // Mindestabstand in px
-
-  mainImg.addEventListener("touchstart", e => {
-    touchStartX = e.changedTouches[0].clientX;
-  }, { passive: true });
-
-  mainImg.addEventListener("touchend", e => {
-    const touchEndX = e.changedTouches[0].clientX;
-    const dx = touchStartX - touchEndX;
-    if (dx > threshold) {
-      // nach links gewischt
-      showImage((currentIndex + 1) % images.length);
-    } else if (dx < -threshold) {
-      // nach rechts gewischt
-      showImage((currentIndex - 1 + images.length) % images.length);
-    }
-    // nach erstem Wischen Hinweis ausblenden
-    swipeHint.style.display = "none";
-  }, { passive: true });
 });
-
 
 
 // Elipse
