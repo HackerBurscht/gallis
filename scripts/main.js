@@ -31,17 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 });
 
-//news-overlay animation
-
-document.addEventListener("DOMContentLoaded", () => {
-  const badge        = document.querySelector(".news-badge");
-  const overlay      = document.getElementById("newsOverlay");
-  const content      = overlay.querySelector(".overlay-content");
-  const closeBtn     = overlay.querySelector(".overlay-close");
-  const backdrop     = overlay.querySelector(".overlay-backdrop");
-  const leftCurtain  = document.querySelector(".curtain-left");
-  const rightCurtain = document.querySelector(".curtain-right");
-
+// news-overlay animation
 document.addEventListener("DOMContentLoaded", () => {
   const badge        = document.querySelector(".news-badge");
   const overlay      = document.getElementById("newsOverlay");
@@ -52,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const rightCurtain = document.querySelector(".curtain-right");
 
   function openOverlay() {
-    // 0) sichtbar machen (display: flex)
+    // 0) sichtbar machen (display: flex via CSS .visible)
     overlay.classList.add("visible");
 
     // 1) Vorhänge fahren
@@ -65,7 +55,6 @@ document.addEventListener("DOMContentLoaded", () => {
         onComplete: () => {
           // 2) Overlay Fade-in
           animate(overlay, { opacity: [0, 1] }, { duration: 0.4, fill: "forwards" });
-
           // 3) Content Overshoot
           animate(
             content,
@@ -77,7 +66,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 "translate(-50%, -50%) scale(1)"
               ]
             },
-            { delay: 0.2, duration: 0.7, easing: ["ease-out","cubic-bezier(0.25,1.5,0.5,1)","ease-out"], fill: "forwards" }
+            {
+              delay: 0.2,
+              duration: 0.7,
+              easing: [
+                "ease-out",
+                "cubic-bezier(0.25,1.5,0.5,1)",
+                "ease-out"
+              ],
+              fill: "forwards"
+            }
           );
         }
       }
@@ -85,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function closeOverlay() {
-    // 1) Content raus
+    // 1) Content raus animieren
     animate(
       content,
       {
@@ -100,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
         easing: "ease-in",
         fill: "forwards",
         onComplete: () => {
-          // 2) Overlay raus
+          // 2) Overlay ausblenden
           animate(
             overlay,
             { opacity: [1, 0] },
