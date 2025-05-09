@@ -132,11 +132,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-  badge.addEventListener("click", openOverlay);
-  closeBtn.addEventListener("click", closeOverlay);
-  backdrop.addEventListener("click", closeOverlay);
-});
-
 //Scroll-indicator
 document.addEventListener("DOMContentLoaded", () => {
   const { animate, scroll } = Motion;
