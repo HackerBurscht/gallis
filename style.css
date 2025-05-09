@@ -933,12 +933,25 @@ font-weight: bold;
 
 /* Grundzustand: versteckt */
 
-#newsOverlay {
+/*#newsOverlay {
   position: fixed;
   inset: 0;
   opacity: 0;
   pointer-events: none;
  z-index: 10001; 
+}*/
+
+#newsOverlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  justify-content: center;
+  align-items: center;
+  z-index: 10001;
+}
+
+#newsOverlay.visible {
+  display: flex;
 }
 
 /* Hintergrund-Dunkelheit */
@@ -946,24 +959,22 @@ font-weight: bold;
   position: absolute;
   inset: 0;
   background: rgba(11,19,43, 0.85);
-  /* pointer-events: all;   -- hier lassen wir es beim Container regeln */
 }
 
 /* Modal-Content */
 .overlay-content {
-  /*position: absolute;*/
   top: 50%;
   left: 50%;
   width: clamp(300px, 80%, 600px);
-  background: var(--bg-color); /* beige/weiß für den Inhalt */
+  background: var(--bg-color);
   padding: 2em;
   border-radius: 15px;
   transform: translate(-50%, -50%) scale(0.8);
   opacity: 0;
   box-shadow: 0 10px 25px rgba(0,0,0,0.3);
   pointer-events: all;
-	z-index: 10002;        /* über dem Backdrop */
-  position: relative;    /* für den z-Index wirksam sein */
+	z-index: 10002; 
+  position: relative; 
 }
 
 /* Close-Button */
