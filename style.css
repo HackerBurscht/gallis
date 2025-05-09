@@ -882,6 +882,10 @@ font-weight: bold;
 	.footer_links_text{
 		gap: 1em;
 	}
+
+	.lightbox_thumbs{
+		display: none;
+	}
 }
 @media (min-width:851px) and (max-width:1500px) {
 	  .no_tablet {
