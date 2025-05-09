@@ -357,7 +357,6 @@ function closeLightbox() {
   closeBtn.addEventListener("click", closeLightbox);
 });
 
-
 // Elipse
 document.addEventListener('DOMContentLoaded', () => {
   const wrapper = document.querySelector('.gallery_wrapper');
