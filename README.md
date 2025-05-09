@@ -3,3 +3,4 @@ TODO:
 - Mobile-NR
 - Bilder
 - Speisekarte (PDF)
+- Rezessionen
