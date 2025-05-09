@@ -42,8 +42,20 @@ document.addEventListener("DOMContentLoaded", () => {
   const leftCurtain  = document.querySelector(".curtain-left");
   const rightCurtain = document.querySelector(".curtain-right");
 
+document.addEventListener("DOMContentLoaded", () => {
+  const badge        = document.querySelector(".news-badge");
+  const overlay      = document.getElementById("newsOverlay");
+  const content      = overlay.querySelector(".overlay-content");
+  const closeBtn     = overlay.querySelector(".overlay-close");
+  const backdrop     = overlay.querySelector(".overlay-backdrop");
+  const leftCurtain  = document.querySelector(".curtain-left");
+  const rightCurtain = document.querySelector(".curtain-right");
+
   function openOverlay() {
-    // 1) Vorhänge schließen
+    // 0) sichtbar machen (display: flex)
+    overlay.classList.add("visible");
+
+    // 1) Vorhänge fahren
     animate(
       [leftCurtain, rightCurtain],
       { width: ["0%", "50%"] },
@@ -51,18 +63,10 @@ document.addEventListener("DOMContentLoaded", () => {
         duration: 0.6,
         easing: "ease-in",
         onComplete: () => {
-          // 2) Overlay einblenden
-          overlay.style.pointerEvents = "all";
-          animate(
-            overlay,
-            { opacity: [0, 1] },
-            {
-              duration: 0.5,
-              easing: "cubic-bezier(0.25, 1.5, 0.5, 1)",
-              fill: "forwards"
-            }
-          );
-          // 3) Content mit Bounce einfahren
+          // 2) Overlay Fade-in
+          animate(overlay, { opacity: [0, 1] }, { duration: 0.4, fill: "forwards" });
+
+          // 3) Content Overshoot
           animate(
             content,
             {
@@ -73,16 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "translate(-50%, -50%) scale(1)"
               ]
             },
-            {
-              delay: 0.2,
-              duration: 0.7,
-              easing: [
-                "ease-out",
-                "cubic-bezier(0.25,1.5,0.5,1)",
-                "ease-out"
-              ],
-              fill: "forwards"
-            }
+            { delay: 0.2, duration: 0.7, easing: ["ease-out","cubic-bezier(0.25,1.5,0.5,1)","ease-out"], fill: "forwards" }
           );
         }
       }
@@ -90,7 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function closeOverlay() {
-    // 1) Content ausblenden und schrumpfen
+    // 1) Content raus
     animate(
       content,
       {
@@ -105,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
         easing: "ease-in",
         fill: "forwards",
         onComplete: () => {
-          // 2) Overlay ausblenden
+          // 2) Overlay raus
           animate(
             overlay,
             { opacity: [1, 0] },
@@ -114,8 +109,10 @@ document.addEventListener("DOMContentLoaded", () => {
               easing: "ease-in",
               fill: "forwards",
               onComplete: () => {
-                overlay.style.pointerEvents = "none";
-                // 3) Vorhänge wieder öffnen
+                // 3) display:none zurück
+                overlay.classList.remove("visible");
+                overlay.style.opacity = "";
+                // 4) Vorhänge öffnen
                 animate(
                   [leftCurtain, rightCurtain],
                   { width: ["50%", "0%"] },
@@ -128,6 +125,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     );
   }
+
+  badge.addEventListener("click",  openOverlay);
+  closeBtn.addEventListener("click", closeOverlay);
+  backdrop.addEventListener("click", closeOverlay);
+});
+
 
   badge.addEventListener("click", openOverlay);
   closeBtn.addEventListener("click", closeOverlay);
