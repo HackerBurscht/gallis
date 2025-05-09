@@ -1035,13 +1035,13 @@ body.modal-open {
   object-position: center;
 }
 
-.lightbox_nav button {
+/*.lightbox_nav button {
   font-size: 2rem;
   background: none;
   border: none;
   cursor: pointer;
   color: var(--p-color-light);
-}
+}*/
 
 .lightbox_nav button,
 .lightbox_close {
@@ -1049,7 +1049,7 @@ body.modal-open {
 	padding: 1em;
 }
 
-.lightbox_nav button:hover,
+/*.lightbox_nav button:hover,*/
 .lightbox_close:hover {
   color: var(--bg-color-slogan);
 }
