@@ -951,7 +951,11 @@ font-weight: bold;
 }
 
 #newsOverlay.visible {
-  display: flex;
+  display: flex;               /* macht es zum Flex-Container */
+  justify-content: center;     /* horizontal zentrieren */
+  align-items: center;         /* vertikal zentrieren */
+  opacity: 1;                  /* direkt sichtbar (Animate füllt ja auf) */
+  pointer-events: all;         /* Klicks zulassen */
 }
 
 /* Hintergrund-Dunkelheit */
