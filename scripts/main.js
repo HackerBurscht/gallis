@@ -280,7 +280,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 // lightbox gallery
-// lightbox gallery
 document.addEventListener("DOMContentLoaded", function () {
   const images = [
     "gallis_drone.png",
@@ -317,7 +316,7 @@ function openLightbox() {
   savedScrollY = window.pageYOffset || document.documentElement.scrollTop;
   // 2) Body fixieren und top setzen
   document.body.classList.add('modal-open');
-  document.body.style.top = -${savedScrollY}px;
+  document.body.style.top = `-${savedScrollY}px`;
 
   // 3) Scroll- und Touch-Events blockieren
   window.addEventListener('wheel', preventScroll, { passive: false });
@@ -356,6 +355,7 @@ function closeLightbox() {
   document.querySelector(".aboutus_button").addEventListener("click", openLightbox);
   closeBtn.addEventListener("click", closeLightbox);
 });
+
 
 // Elipse
 document.addEventListener('DOMContentLoaded', () => {
@@ -480,6 +480,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
   targets.forEach(el => observer.observe(el));
 });
-
 
 
