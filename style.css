@@ -941,6 +941,7 @@ font-weight: bold;
  z-index: 10001; 
 }*/
 
+/* News-Overlay selbst */
 #newsOverlay {
   display: none;
   position: fixed;
@@ -950,12 +951,12 @@ font-weight: bold;
   z-index: 10001;
 }
 
+/* wenn sichtbar: Flex-Container */
 #newsOverlay.visible {
-  display: flex;               /* macht es zum Flex-Container */
-  justify-content: center;     /* horizontal zentrieren */
-  align-items: center;         /* vertikal zentrieren */
-  opacity: 1;                  /* direkt sichtbar (Animate füllt ja auf) */
-  pointer-events: all;         /* Klicks zulassen */
+  display: flex;
+  /* justify-content + align-items schon hier */
+  opacity: 1;
+  pointer-events: all;
 }
 
 /* Hintergrund-Dunkelheit */
@@ -967,19 +968,23 @@ font-weight: bold;
 
 /* Modal-Content */
 .overlay-content {
+  /* statt position: relative: */
+  position: absolute;      /* <-- hier ändern! */
   top: 50%;
   left: 50%;
+  transform: translate(-50%, -50%) scale(0.8);
+
   width: clamp(300px, 80%, 600px);
   background: var(--bg-color);
   padding: 2em;
   border-radius: 15px;
-  transform: translate(-50%, -50%) scale(0.8);
-  opacity: 0;
+  opacity: 0;              /* startet unsichtbar */
   box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+
   pointer-events: all;
-	z-index: 10002; 
-  position: relative; 
+  z-index: 10002;          /* über Backdrop */
 }
+
 
 /* Close-Button */
 .overlay-close {
