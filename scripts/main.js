@@ -1,4 +1,4 @@
-// News-badge
+// News-badge ***************************************************************************************
 document.addEventListener("DOMContentLoaded", () => {
   // 1) Gerader Einflug von oben, ohne Overshoot
   animate(
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 });
 
-// news-overlay animation
+// news-overlay animation ***************************************************************************************
 document.addEventListener("DOMContentLoaded", () => {
   const badge        = document.querySelector(".news-badge");
   const overlay      = document.getElementById("newsOverlay");
@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-//Scroll-indicator
+//Scroll-indicator ***************************************************************************************
 document.addEventListener("DOMContentLoaded", () => {
   const { animate, scroll } = Motion;
   const indicator  = document.querySelector(".scroll-indicator");
@@ -154,16 +154,15 @@ document.addEventListener("DOMContentLoaded", () => {
       threshold: 0.75    // ab 10% Sichtbarkeit gilt als "eingetreten"
     }
   );
-
   introObserver.observe(intro);
 });
 
-// Slogan-text-effect
+// Slogan-text-effect ***************************************************************************************
 document.addEventListener("DOMContentLoaded", () => {
   const slogan = document.getElementById("slogan");
   const words = slogan.textContent.trim().split(/\s+/);
 
-  // Erzeuge die Span-Elemente schon jetzt, aber ohne .visible
+  // Erzeuge die Span-Elemente
   slogan.innerHTML = words
     .map(w => `<span class="slogan_word">${w}</span>`)
     .join(" ");
@@ -188,18 +187,10 @@ document.addEventListener("DOMContentLoaded", () => {
     root: null,           // Viewport
     threshold: 0.5        // 50 % des Elements müssen sichtbar sein
   });
-
   observer.observe(slogan);
 });
 
-
-
-
-// Bild Pan-Effekt
-
-
-
-// Infinity Slider Gallery
+// Infinity Slider Gallery ***************************************************************************************
 document.addEventListener("DOMContentLoaded", () => {
   const gallery = document.querySelector("#gallery");
   const images = Array.from(gallery.children);
@@ -230,13 +221,7 @@ document.addEventListener("DOMContentLoaded", () => {
   animate();
 });
 
-
-
-
-
-
-
-// intro animation
+// intro animation ***************************************************************************************
 document.addEventListener('DOMContentLoaded', () => {
   // Elemente, die animiert werden sollen:
   const targets = document.querySelectorAll('.intro_adjectives');
@@ -254,10 +239,7 @@ document.addEventListener('DOMContentLoaded', () => {
   targets.forEach(target => observer.observe(target));
 });
 
-
-
-
-// lightbox gallery
+// lightbox gallery ***************************************************************************************
 document.addEventListener("DOMContentLoaded", function () {
   const images = [
     "gallis_drone.png",
@@ -334,8 +316,7 @@ function closeLightbox() {
   closeBtn.addEventListener("click", closeLightbox);
 });
 
-
-// Elipse
+// Elipse ***************************************************************************************
 document.addEventListener('DOMContentLoaded', () => {
   const wrapper = document.querySelector('.gallery_wrapper');
   const ellipse = document.querySelector('.gallery_ellipse');
@@ -369,7 +350,7 @@ document.addEventListener('DOMContentLoaded', () => {
   updateEllipse();
 });
 
-// Eplise mobile
+// Eplise mobile ***************************************************************************************
 document.addEventListener('DOMContentLoaded', () => {
   const mobContainer = document.querySelector('.half_cirlce_container');
   const mobEllipse   = mobContainer?.querySelector('.half_circle');
@@ -404,12 +385,11 @@ document.addEventListener('DOMContentLoaded', () => {
   updateMobileEllipse(); // einmal initial aufrufen
 });
 
-
-//Offer contents
+//Offer contents ***************************************************************************************
 
 document.addEventListener("DOMContentLoaded", () => {
   // Selektiere beide Text-Container
-  const targets = Array.from(document.querySelectorAll(".offer_left, .offer_right, .aboutus_texts"));
+  const targets = Array.from(document.querySelectorAll(".offer_left, .offer_right, .aboutus_texts, .aboutus_textcontainer-light"));
   if (!targets.length) return;
 
   targets.forEach(el => {
@@ -438,9 +418,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-
-
-//Footer
+//Footer ***************************************************************************************
 document.addEventListener('DOMContentLoaded', () => {
   // Beobachte sowohl das Logo-Container als auch die Footer-Links
   const targets = document.querySelectorAll('.footer_logo_container, .footer_small_links');
@@ -458,5 +436,3 @@ document.addEventListener('DOMContentLoaded', () => {
 
   targets.forEach(el => observer.observe(el));
 });
-
-
