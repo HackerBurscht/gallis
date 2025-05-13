@@ -385,8 +385,8 @@ cursor: pointer;
 .aboutus_button:hover p {color: var(--p-color-light); }
 
 .gallery_wrapper {
---ellipse-rx: 95%;
---ellipse-ry: 100%;
+/*--ellipse-rx: 95%;
+--ellipse-ry: 100%;*/
 overflow: hidden;
 position: relative;
 }
@@ -405,7 +405,7 @@ width: 750px;
 height: 100vh;
 height: 100svh;
 }
-
+/*
 .gallery_ellipse {
 position: absolute;
 bottom: -5em;
@@ -417,6 +417,24 @@ border-top-left-radius: var(--ellipse-rx) var(--ellipse-ry);
 border-top-right-radius: var(--ellipse-rx) var(--ellipse-ry);
 transition: border-radius 0.1s linear;
 z-index: 2;
+}*/
+
+
+.gallery_ellipse {
+  --ellipse-rx: 95%;
+  --ellipse-ry: 100%;
+
+  position: absolute;
+  bottom: -5em;
+  left: -10%;
+  width: 120%;
+  height: 30vh;
+  background-color: var(--bg-color-offer);
+  border-top-left-radius: var(--ellipse-rx) var(--ellipse-ry);
+  border-top-right-radius: var(--ellipse-rx) var(--ellipse-ry);
+  z-index: 2;
+  transition: border-radius 0.2s ease-out;
+  will-change: border-radius;
 }
 
 .offer {
@@ -699,7 +717,7 @@ font-size: var(--fs-lg);
 min-height: 25svh;
 min-height: 25svh;
 }
-.half_cirlce_container {
+/*.half_cirlce_container {
 background-color: var(--bg-color-slogan);
 height: 3em;
 position: relative;
@@ -719,7 +737,7 @@ border-top-left-radius: var(--ellipse-rx) var(--ellipse-ry);
 border-top-right-radius: var(--ellipse-rx) var(--ellipse-ry);
 transition: border-radius 0.3s ease-out;
 will-change: border-radius;
-}
+}*/
 
 .aboutus{
 flex-direction: column;
