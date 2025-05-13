@@ -319,52 +319,28 @@ function closeLightbox() {
 
 //Elipse Motion ***************************************************************************************
 document.addEventListener('DOMContentLoaded', () => {
-  const ellipse = document.querySelector('.gallery_ellipse');
-  if (!ellipse) return;
+  const wrapper = document.querySelector('.gallery_wrapper');
+  if (!wrapper) return;
 
-  const ryStart = 1000;
-  const ryEnd   = 30;
-
-  const yStart = 0;
-  const yEnd   = -100; // in px: wie stark die Ellipse nach oben verschoben wird
-
-  let ticking = false;
-
-  function updateEllipse() {
-    const rect = ellipse.getBoundingClientRect();
-    const winH = window.innerHeight;
-
-    // Scroll-Fortschritt berechnen
-    let progress = 1 - (rect.top / winH);
-    progress = Math.min(Math.max(progress, 0), 1);
-
-    // Neue Werte berechnen
-    const ry = ryStart - (ryStart - ryEnd) * progress;
-    const y  = yStart + (yEnd - yStart) * progress;
-
-    // Mit Motion setzen
-    motion.animate(ellipse, {
-      transform: `translateY(${y}px)`
+  scroll(
+    animate('.gallery_ellipse', {
+      // fährt von 100px unterhalb → in Position
+      y: [100, 0],
+      // von vollem Radius → abgeflacht
+      borderTopLeftRadius: ['95% 100%', '95% 20%'],
+      borderTopRightRadius: ['95% 100%', '95% 20%']
     }, {
-      duration: 0.3,
-      easing: "ease-out",
-      fill: "forwards"
-    });
-
-    ellipse.style.setProperty('--ellipse-ry', ry + '%');
-    ticking = false;
-  }
-
-  function onScroll() {
-    if (!ticking) {
-      window.requestAnimationFrame(updateEllipse);
-      ticking = true;
+      duration: 0.8,
+      easing: 'cubic-bezier(0.25, 1, 0.5, 1)'
+    }),
+    {
+      target: wrapper,
+      // Animation startet, wenn wrapper oben in den Viewport fährt
+      offset: ['start end', 'end start']
     }
-  }
-
-  window.addEventListener('scroll', onScroll);
-  updateEllipse();
+  );
 });
+
 
 
 /*
