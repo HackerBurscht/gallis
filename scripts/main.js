@@ -318,8 +318,6 @@ function closeLightbox() {
 
 
 //Elipse Motion ***************************************************************************************
-import { scroll, spring } from "https://unpkg.com/@motionone/dom/dist/motion.min.js";
-
 document.addEventListener("DOMContentLoaded", () => {
   const wrapper = document.querySelector(".gallery_wrapper");
   const ellipse = document.querySelector(".gallery_ellipse");
