@@ -318,29 +318,54 @@ function closeLightbox() {
 
 
 //Elipse Motion ***************************************************************************************
-document.addEventListener("DOMContentLoaded", () => {
-  const wrapper = document.querySelector(".gallery_wrapper");
-  const ellipse = document.querySelector(".gallery_ellipse");
-  if (!wrapper || !ellipse) return;
+document.addEventListener('DOMContentLoaded', () => {
+  const ellipse = document.querySelector('.gallery_ellipse');
+  if (!ellipse) return;
 
   const ryStart = 1000;
-  const ryEnd = 35;
+  const ryEnd   = 30;
 
-  scroll(
-    ({ y }) => {
-      const rect = wrapper.getBoundingClientRect();
-      const winH = window.innerHeight;
+  const yStart = 0;
+  const yEnd   = -100; // in px: wie stark die Ellipse nach oben verschoben wird
 
-      let progress = 1 - rect.top / winH;
-      progress = Math.min(Math.max(progress, 0), 1);
+  let ticking = false;
 
-      const ry = ryStart - (ryStart - ryEnd) * progress;
+  function updateEllipse() {
+    const rect = ellipse.getBoundingClientRect();
+    const winH = window.innerHeight;
 
-      ellipse.style.setProperty("--ellipse-ry", `${ry}%`);
-    },
-    { target: wrapper, axis: "y" }
-  );
+    // Scroll-Fortschritt berechnen
+    let progress = 1 - (rect.top / winH);
+    progress = Math.min(Math.max(progress, 0), 1);
+
+    // Neue Werte berechnen
+    const ry = ryStart - (ryStart - ryEnd) * progress;
+    const y  = yStart + (yEnd - yStart) * progress;
+
+    // Mit Motion setzen
+    motion.animate(ellipse, {
+      transform: `translateY(${y}px)`
+    }, {
+      duration: 0.3,
+      easing: "ease-out",
+      fill: "forwards"
+    });
+
+    ellipse.style.setProperty('--ellipse-ry', ry + '%');
+    ticking = false;
+  }
+
+  function onScroll() {
+    if (!ticking) {
+      window.requestAnimationFrame(updateEllipse);
+      ticking = true;
+    }
+  }
+
+  window.addEventListener('scroll', onScroll);
+  updateEllipse();
 });
+
 
 /*
 // Elipse ***************************************************************************************
