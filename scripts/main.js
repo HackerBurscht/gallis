@@ -316,6 +316,35 @@ function closeLightbox() {
   closeBtn.addEventListener("click", closeLightbox);
 });
 
+
+//Elipse Motion ***************************************************************************************
+import { scroll, spring } from "https://unpkg.com/@motionone/dom/dist/motion.min.js";
+
+document.addEventListener("DOMContentLoaded", () => {
+  const wrapper = document.querySelector(".gallery_wrapper");
+  const ellipse = document.querySelector(".gallery_ellipse");
+  if (!wrapper || !ellipse) return;
+
+  const ryStart = 1000;
+  const ryEnd = 35;
+
+  scroll(
+    ({ y }) => {
+      const rect = wrapper.getBoundingClientRect();
+      const winH = window.innerHeight;
+
+      let progress = 1 - rect.top / winH;
+      progress = Math.min(Math.max(progress, 0), 1);
+
+      const ry = ryStart - (ryStart - ryEnd) * progress;
+
+      ellipse.style.setProperty("--ellipse-ry", `${ry}%`);
+    },
+    { target: wrapper, axis: "y" }
+  );
+});
+
+/*
 // Elipse ***************************************************************************************
 document.addEventListener('DOMContentLoaded', () => {
   const wrapper = document.querySelector('.gallery_wrapper');
@@ -384,6 +413,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.addEventListener('scroll', onScroll);
   updateMobileEllipse(); // einmal initial aufrufen
 });
+*/
 
 //Offer contents ***************************************************************************************
 
