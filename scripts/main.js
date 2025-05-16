@@ -325,7 +325,7 @@ document.addEventListener('DOMContentLoaded', () => {
   scroll(
     animate('.gallery_ellipse', {
       // fährt von 100px unterhalb → in Position
-      y: [300, 0],
+      y: [600, 0],
       // von vollem Radius → abgeflacht
       borderTopLeftRadius: ['95% 100%', '95% 20%'],
       borderTopRightRadius: ['95% 100%', '95% 20%']
