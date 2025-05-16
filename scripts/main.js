@@ -325,7 +325,7 @@ document.addEventListener('DOMContentLoaded', () => {
   scroll(
     animate('.gallery_ellipse', {
       // fährt von 100px unterhalb → in Position
-      y: [600, 0],
+      y: [200, 0],
       // von vollem Radius → abgeflacht
       borderTopLeftRadius: ['95% 100%', '95% 20%'],
       borderTopRightRadius: ['95% 100%', '95% 20%']
@@ -340,79 +340,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   );
 });
-
-
-
-/*
-// Elipse ***************************************************************************************
-document.addEventListener('DOMContentLoaded', () => {
-  const wrapper = document.querySelector('.gallery_wrapper');
-  const ellipse = document.querySelector('.gallery_ellipse');
-  if (!wrapper || !ellipse) return;
-
-  const ryStart = 1000;
-  const ryEnd   = 20;
-
-  let ticking = false;
-  function updateEllipse() {
-    const rect = wrapper.getBoundingClientRect();
-    const winH = window.innerHeight;
-
-    let progress = 1 - (rect.top / winH);
-    progress = Math.min(Math.max(progress, 0), 1);
-
-    const ry = ryStart - (ryStart - ryEnd) * progress;
-    ellipse.style.setProperty('--ellipse-ry', ry + '%');
-
-    ticking = false;
-  }
-
-  function onScroll() {
-    if (!ticking) {
-      window.requestAnimationFrame(updateEllipse);
-      ticking = true;
-    }
-  }
-
-  window.addEventListener('scroll', onScroll);
-  updateEllipse();
-});
-
-// Eplise mobile ***************************************************************************************
-document.addEventListener('DOMContentLoaded', () => {
-  const mobContainer = document.querySelector('.half_cirlce_container');
-  const mobEllipse   = mobContainer?.querySelector('.half_circle');
-  if (!mobContainer || !mobEllipse) return;
-
-  const ryStart = 1000; // Start‑Ry in Prozent
-  const ryEnd   = 35;  // End‑Ry in Prozent (stark abgeflacht)
-
-  let ticking = false;
-  function updateMobileEllipse() {
-    const rect = mobContainer.getBoundingClientRect();
-    const winH = window.innerHeight;
-
-    // progress: 0 (unten) → 1 (oben)
-    let progress = 1 - (rect.top / winH);
-    progress = Math.min(Math.max(progress, 0), 1);
-
-    const ry = ryStart - (ryStart - ryEnd) * progress;
-    mobEllipse.style.setProperty('--ellipse-ry', ry + '%');
-
-    ticking = false;
-  }
-
-  function onScroll() {
-    if (!ticking) {
-      window.requestAnimationFrame(updateMobileEllipse);
-      ticking = true;
-    }
-  }
-
-  window.addEventListener('scroll', onScroll);
-  updateMobileEllipse(); // einmal initial aufrufen
-});
-*/
 
 //Offer contents ***************************************************************************************
 
