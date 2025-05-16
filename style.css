@@ -730,17 +730,14 @@ margin: 1em;
 text-wrap: balance;
 font-size: var(--fs-lg);
 min-height: 25svh;
-min-height: 25svh;
 }
 
 .gallery_wrapper{
 height: 33svh;
-height: 33sh;
 }
 	
 .gallery_img{
 height: 33svh;
-height: 33sh;
 }
 	
 .gallery_ellipse{
