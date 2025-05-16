@@ -732,28 +732,21 @@ font-size: var(--fs-lg);
 min-height: 25svh;
 min-height: 25svh;
 }
-/*.half_cirlce_container {
-background-color: var(--bg-color-slogan);
-height: 3em;
-position: relative;
-overflow: hidden;
+
+.gallery_wrapper{
+height: 33svh;
+height: 33sh;
 }
-
-.half_circle {
---ellipse-rx: 95%;
---ellipse-ry: 100%;
-
-position: relative;
-left: -10%;
-width: 120%;
-height: 100%;
-background-color: var(--bg-color-offer);
-border-top-left-radius: var(--ellipse-rx) var(--ellipse-ry);
-border-top-right-radius: var(--ellipse-rx) var(--ellipse-ry);
-transition: border-radius 0.3s ease-out;
-will-change: border-radius;
-}*/
-
+	
+.gallery_img{
+height: 33svh;
+height: 33sh;
+}
+	
+.gallery_ellipse{
+height: 10em;
+}
+	
 .aboutus{
 flex-direction: column;
 padding: 0 0 2em 0;
