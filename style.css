@@ -825,7 +825,21 @@ margin: 2em
 	
 .footer_links_text{gap: 1em;}
 
-.lightbox_thumbs{display: none;}
+.lightbox_content{max-width: 90%;}
+	
+.lightbox_main{
+width: 100%;
+height: 80svh;
+object-fit: contain;
+object-position: center;
+}	
+
+.lightbox_thumbs{
+overflow-x: auto;
+-webkit-overflow-scrolling: touch;
+margin-top: 0;
+flex-wrap: no-wrap;
+}
 }
 
 @media (min-width:851px) and (max-width:1500px) {
