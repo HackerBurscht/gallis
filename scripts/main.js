@@ -106,13 +106,10 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     );
   }
-
   badge.addEventListener("click", openOverlay);
   closeBtn.addEventListener("click", closeOverlay);
   backdrop.addEventListener("click", closeOverlay);
 });
-
-
 
 //Scroll-indicator ***************************************************************************************
 document.addEventListener("DOMContentLoaded", () => {
@@ -120,14 +117,12 @@ document.addEventListener("DOMContentLoaded", () => {
   const thumb      = document.querySelector(".scroll-thumb");
   const scrollText = document.querySelector(".scroll-text");
   const intro      = document.querySelector(".intro");
-
   // 1) Sanftes Einblenden
   animate(
     indicator,
     { opacity: [0, 1], y: [20, 0] },
     { delay: 0.5, duration: 1.2, easing: "ease-out" }
   );
-
   // 2) Daumen-Leiste bewegt sich beim Scrollen
   scroll(
     animate(thumb, { top: ["0%", "80%"] }, { ease: "linear", fill: "both" }),
@@ -137,22 +132,19 @@ document.addEventListener("DOMContentLoaded", () => {
       offset: ["start start", "end end"]
     }
   );
-
   // 3) IntersectionObserver auf die Intro-Section
   const introObserver = new IntersectionObserver(
     (entries) => {
       const entry = entries[0];
       if (entry.isIntersecting) {
-        // Intro ist noch im Viewport → Text anzeigen
         scrollText.classList.remove("hidden");
       } else {
-        // Intro ist komplett raus → Text verstecken
         scrollText.classList.add("hidden");
       }
     },
     {
-      root: null,       // das Browser-Fenster
-      threshold: 0.75    // ab 10% Sichtbarkeit gilt als "eingetreten"
+      root: null,
+      threshold: 0.75    
     }
   );
   introObserver.observe(intro);
@@ -162,24 +154,19 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
   const slogan = document.getElementById("slogan");
   const words  = slogan.textContent.trim().split(/\s+/);
-
   // 1) Markdown → einzelne <span class="slogan_word">
   slogan.innerHTML = words.map(w => `<span class="slogan_word">${w}</span>`).join(" ");
   const spans = slogan.querySelectorAll(".slogan_word");
-
   // 2) Sterne selektieren
   const stars = document.querySelectorAll(".ratings .starburst");
-
   // 3) IntersectionObserver
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-
       // a) Wort-Animation
       spans.forEach((span, i) => {
         setTimeout(() => span.classList.add("visible"), 100 + i * 175);
       });
-
       // b) Sterne **nach** der Wort-Animation
       const maxWordDelay = 100 + (spans.length - 1) * 180;
       setTimeout(() => {
@@ -189,7 +176,6 @@ document.addEventListener("DOMContentLoaded", () => {
           { delay: stagger(0.1), duration: 0.8, easing: "ease-out" }
         );
       }, maxWordDelay + 50); // +50 ms Puffer
-
       obs.unobserve(slogan);
     });
   }, { threshold: 0.5 });
@@ -198,7 +184,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // stars hover
-
 document.addEventListener('DOMContentLoaded', () => {
   const stars = document.querySelectorAll('.starburst');
   stars.forEach(star => {
@@ -212,43 +197,33 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-
 // Infinity Slider Gallery ***************************************************************************************
 document.addEventListener("DOMContentLoaded", () => {
   const gallery = document.querySelector("#gallery");
   const images = Array.from(gallery.children);
-
   // Dupliziere alle Bilder für den Loop-Effekt
   images.forEach(img => {
     const clone = img.cloneNode(true);
     gallery.appendChild(clone);
   });
-
   let position = 0;
   const speed = 2; // px pro Frame
-
   // Gesamte Breite der Originalbilder berechnen (ohne Gap)
   const totalWidth = images.reduce((sum, img) => sum + img.offsetWidth, 0);
-
   function animate() {
     position -= speed;
-
     if (Math.abs(position) >= totalWidth) {
       position = 0;
     }
-
     gallery.style.transform = `translateX(${position}px)`;
     requestAnimationFrame(animate);
   }
-
   animate();
 });
 
 // intro animation ***************************************************************************************
 document.addEventListener('DOMContentLoaded', () => {
-  // Elemente, die animiert werden sollen:
   const targets = document.querySelectorAll('.intro_adjectives');
-
   const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -258,7 +233,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }, { threshold: 0.8 }); // 80% Sichtbarkeit als Trigger
-
   targets.forEach(target => observer.observe(target));
 });
 
@@ -272,14 +246,11 @@ document.addEventListener("DOMContentLoaded", function () {
     "gallis_winter.jpeg"
   ];
   const basePath = "images/modal_gallery/";
-
   const lightbox = document.getElementById("lightbox");
   const mainImg = document.querySelector(".lightbox_main");
   const thumbsContainer = document.querySelector(".lightbox_thumbs");
   const closeBtn = document.querySelector(".lightbox_close");
-
   let currentIndex = 0;
-
   function showImage(index) {
     currentIndex = index;
     mainImg.src = basePath + images[index];
@@ -291,20 +262,16 @@ document.addEventListener("DOMContentLoaded", function () {
 function preventScroll(e) {
   e.preventDefault();
 }
-
 let savedScrollY = 0;
-
 function openLightbox() {
   // 1) Scroll-Position merken
   savedScrollY = window.pageYOffset || document.documentElement.scrollTop;
   // 2) Body fixieren und top setzen
   document.body.classList.add('modal-open');
   document.body.style.top = `-${savedScrollY}px`;
-
   // 3) Scroll- und Touch-Events blockieren
   window.addEventListener('wheel', preventScroll, { passive: false });
   window.addEventListener('touchmove', preventScroll, { passive: false });
-
   // 4) Lightbox anzeigen
   lightbox.classList.remove('hidden');
   showImage(currentIndex);
@@ -313,19 +280,15 @@ function openLightbox() {
 function closeLightbox() {
   // 1) Lightbox verstecken
   lightbox.classList.add('hidden');
-
   // 2) Scroll- und Touch-Events wieder zulassen
   window.removeEventListener('wheel', preventScroll, { passive: false });
   window.removeEventListener('touchmove', preventScroll, { passive: false });
-
   // 3) Body-Positionierung zurücksetzen
   document.body.classList.remove('modal-open');
   document.body.style.top = '';
-
   // 4) Genaue Scroll-Position wiederherstellen
   window.scrollTo(0, savedScrollY);
 }
-
   // Thumbnails erstellen
   images.forEach((img, index) => {
     const thumb = document.createElement("img");
@@ -333,23 +296,18 @@ function closeLightbox() {
     thumb.addEventListener("click", () => showImage(index));
     thumbsContainer.appendChild(thumb);
   });
-
   // Events
   document.querySelector(".aboutus_button").addEventListener("click", openLightbox);
   closeBtn.addEventListener("click", closeLightbox);
 });
 
-
 //Elipse Motion ***************************************************************************************
 document.addEventListener('DOMContentLoaded', () => {
   const wrapper = document.querySelector('.gallery_wrapper');
   if (!wrapper) return;
-
   scroll(
     animate('.gallery_ellipse', {
-      // fährt von 100px unterhalb → in Position
       y: [200, 0],
-      // von vollem Radius → abgeflacht
       borderTopLeftRadius: ['95% 100%', '95% 20%'],
       borderTopRightRadius: ['95% 100%', '95% 20%']
     }, {
@@ -358,21 +316,18 @@ document.addEventListener('DOMContentLoaded', () => {
     }),
     {
       target: wrapper,
-      // Animation startet, wenn wrapper oben in den Viewport fährt
       offset: ['start end', 'end start']
     }
   );
 });
 
 //Offer contents ***************************************************************************************
-
 document.addEventListener("DOMContentLoaded", () => {
   // Selektiere beide Text-Container
-  const targets = Array.from(document.querySelectorAll(".offer_left, .offer_right, .aboutus_texts, .aboutus_textcontainer-light"));
+  const targets = Array.from(document.querySelectorAll(".offer_left, .offer_right, .aboutus_texts, .aboutus_textcontainer-light, .ratings-text"));
   if (!targets.length) return;
 
   targets.forEach(el => {
-    // 1) Erstelle die Animation: 0→1 Opacity und von 30px unten nach oben
     const anim = animate(
       el,
       {
@@ -385,8 +340,6 @@ document.addEventListener("DOMContentLoaded", () => {
         fill: "forwards"     // <-- wichtig: beendet in finalem Zustand
       }
     );
-
-    // 2) Bind das Ganze an den Scroll: sobald das TOP des Elements den BOTTOM des Viewports erreicht...
     scroll(
       anim,
       {
@@ -399,9 +352,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //Footer ***************************************************************************************
 document.addEventListener('DOMContentLoaded', () => {
-  // Beobachte sowohl das Logo-Container als auch die Footer-Links
   const targets = document.querySelectorAll('.footer_logo_container, .footer_small_links');
-
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -412,6 +363,5 @@ document.addEventListener('DOMContentLoaded', () => {
   }, {
     threshold: 0.2  // startet, sobald 20% des Elements sichtbar sind
   });
-
   targets.forEach(el => observer.observe(el));
 });
