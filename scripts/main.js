@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //Scroll-indicator ***************************************************************************************
 document.addEventListener("DOMContentLoaded", () => {
-  const { animate, scroll } = Motion;
+
   const indicator  = document.querySelector(".scroll-indicator");
   const thumb      = document.querySelector(".scroll-thumb");
   const scrollText = document.querySelector(".scroll-text");
