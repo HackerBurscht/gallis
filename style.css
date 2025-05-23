@@ -290,14 +290,12 @@ transition: opacity 0.4s ease;
 .slogan_word.visible {opacity: 1;}
 
 .starburst {
-  width: 60px; /* adjust to control the size */
+  width: 60px;
   aspect-ratio: 1;
   clip-path: polygon(100% 50%,70.23% 64.69%,65.45% 97.55%,42.27% 73.78%,9.55% 79.39%,25% 50%,9.55% 20.61%,42.27% 26.22%,65.45% 2.45%,70.23% 35.31%);
-  width: 200px;
-  aspect-ratio:1;
   display: inline-block;
   margin: 10px;
-  background: linear-gradient(red,blue);
+  background: linear-gradient(#3A3E4B,#0B132B);
 }
 
 #section-dark {
