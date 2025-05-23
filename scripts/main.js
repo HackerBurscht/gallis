@@ -196,15 +196,10 @@ document.addEventListener("DOMContentLoaded", () => {
   observer.observe(slogan);
 });
 
-// stars hoverr
-
-hover(
-  ".starburst",
-  { rotate: [0, 360] },
-  { duration: 1, easing: "ease-in-out" }
-);
-
-
+// stars hover
+document.addEventListener("DOMContentLoaded", () => {
+  const stars = document.querySelectorAll(".starburst");
+  hover(".starburst", { rotate: [0, 360] }, { duration: 1, easing: "ease-in-out" });
 
 // Infinity Slider Gallery ***************************************************************************************
 document.addEventListener("DOMContentLoaded", () => {
