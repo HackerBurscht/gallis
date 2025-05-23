@@ -198,16 +198,14 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // stars hover
-document.addEventListener("DOMContentLoaded", () => {
-  const stars = document.querySelectorAll(".starburst");
-  // für jedes Stern-Element einmal registeren:
-  stars.forEach(el => {
-    hover(
-      el,                              // <-- ein DOM-Element
-      { rotate: [0, 360] },            // Keyframes
-      { duration: 1, easing: "ease-in-out" }
-    );
-  });
+document.addEventListener('DOMContentLoaded', () => {
+  // 2) Alle Sterne selektieren
+  const stars = Array.from(document.querySelectorAll('.starburst'));
+  hover(
+    stars,                 
+    { rotate: [0, 360] },  
+    { duration: 1, easing: 'ease-in-out' }
+  );
 });
 
 
