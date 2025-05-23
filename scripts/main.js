@@ -116,7 +116,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //Scroll-indicator ***************************************************************************************
 document.addEventListener("DOMContentLoaded", () => {
-
   const indicator  = document.querySelector(".scroll-indicator");
   const thumb      = document.querySelector(".scroll-thumb");
   const scrollText = document.querySelector(".scroll-text");
@@ -200,9 +199,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // stars hover
 document.addEventListener("DOMContentLoaded", () => {
-  const stars = document.querySelectorAll(".starburst");
-  hover(".starburst", { rotate: [0, 360] }, { duration: 1, easing: "ease-in-out" });
-  });
+  const stars = Array.from(document.querySelectorAll(".starburst"));
+  hover(
+    stars,                             // <-- Array von Elementen, nicht ein String
+    { rotate: [0, 360] },              // Keyframes
+    { duration: 1, easing: "ease-in-out" }
+  );
+});
 
 // Infinity Slider Gallery ***************************************************************************************
 document.addEventListener("DOMContentLoaded", () => {
