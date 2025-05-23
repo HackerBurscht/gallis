@@ -1,4 +1,4 @@
-import { animate, scroll, hover, stagger, spring } from 'https://cdn.jsdelivr.net/npm/motion@12.12.1/+esm'
+import { animate, scroll, stagger, spring } from 'https://cdn.jsdelivr.net/npm/motion@12.12.1/+esm'
 
 // News-badge ***************************************************************************************
 document.addEventListener("DOMContentLoaded", () => {
@@ -198,14 +198,18 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 // stars hover
+
 document.addEventListener('DOMContentLoaded', () => {
-  // 2) Alle Sterne selektieren
-  const stars = Array.from(document.querySelectorAll('.starburst'));
-  hover(
-    stars,                 
-    { rotate: [0, 360] },  
-    { duration: 1, easing: 'ease-in-out' }
-  );
+  const stars = document.querySelectorAll('.starburst');
+  stars.forEach(star => {
+    star.addEventListener('mouseenter', () => {
+      animate(
+        star,
+        { rotate: [0, 360] },
+        { duration: 1, easing: 'ease-in-out' }
+      );
+    });
+  });
 });
 
 
