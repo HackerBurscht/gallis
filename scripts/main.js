@@ -180,12 +180,12 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       // b) Sterne **nach** der Wort-Animation
-      const maxWordDelay = 100 + (spans.length - 1) * 175;
+      const maxWordDelay = 100 + (spans.length - 1) * 180;
       setTimeout(() => {
         animate(
           stars,
           { opacity: [0, 1], y: [20, 0] },
-          { delay: stagger(0.1), duration: 0.6, easing: "ease-out" }
+          { delay: stagger(0.1), duration: 0.8, easing: "ease-out" }
         );
       }, maxWordDelay + 50); // +50 ms Puffer
 
