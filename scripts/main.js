@@ -157,36 +157,37 @@ document.addEventListener("DOMContentLoaded", () => {
   introObserver.observe(intro);
 });
 
-// Slogan-text-effect ***************************************************************************************
+// Slogan-text-effect and rating stars ***************************************************************************************
 document.addEventListener("DOMContentLoaded", () => {
   const slogan = document.getElementById("slogan");
   const words  = slogan.textContent.trim().split(/\s+/);
 
-  // 1) Slogan in einzelne spans splitten
-  slogan.innerHTML = words
-    .map(w => `<span class="slogan_word">${w}</span>`)
-    .join(" ");
+  // 1) Markdown → einzelne <span class="slogan_word">
+  slogan.innerHTML = words.map(w => `<span class="slogan_word">${w}</span>`).join(" ");
   const spans = slogan.querySelectorAll(".slogan_word");
 
-  // 2) Sterne erst HIER selektieren, wenn DOM ready ist
+  // 2) Sterne selektieren
   const stars = document.querySelectorAll(".ratings .starburst");
 
-  // 3) Intersection Observer
+  // 3) IntersectionObserver
   const observer = new IntersectionObserver((entries, obs) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
 
-      // a) Slogan-Wörter sichtbar machen
+      // a) Wort-Animation
       spans.forEach((span, i) => {
         setTimeout(() => span.classList.add("visible"), 100 + i * 175);
       });
 
-      // b) Sterne animieren
-      animate(
-        stars,
-        { opacity: [0, 1], y: [20, 0] },
-        { delay: stagger(0.1), duration: 0.6, easing: "ease-out" }
-      );
+      // b) Sterne **nach** der Wort-Animation
+      const maxWordDelay = 100 + (spans.length - 1) * 175;
+      setTimeout(() => {
+        animate(
+          stars,
+          { opacity: [0, 1], y: [20, 0] },
+          { delay: stagger(0.1), duration: 0.6, easing: "ease-out" }
+        );
+      }, maxWordDelay + 50); // +50 ms Puffer
 
       obs.unobserve(slogan);
     });
@@ -194,6 +195,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   observer.observe(slogan);
 });
+
 
 
 
