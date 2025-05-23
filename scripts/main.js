@@ -170,17 +170,22 @@ document.addEventListener("DOMContentLoaded", () => {
   const spans = slogan.querySelectorAll(".slogan_word");
 
   // Callback, der ausgelöst wird, sobald der Slogan ins Blickfeld kommt
-  const onIntersection = (entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        // Animation einmal auslösen
-        spans.forEach((span, i) => {
-          setTimeout(() => span.classList.add("visible"), 100 + i * 175);
-        });
-        observer.unobserve(slogan);
-      }
-    });
-  };
+const onIntersection = (entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      // Slogan animieren
+      spans.forEach((span, i) => {
+        setTimeout(() => span.classList.add("visible"), 100 + i * 175);
+      });
+
+      // Sterne animieren
+      animateStars();
+
+      observer.unobserve(slogan);
+    }
+  });
+};
+
 
   // IntersectionObserver einrichten
   const observer = new IntersectionObserver(onIntersection, {
@@ -189,6 +194,19 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   observer.observe(slogan);
 });
+
+// Erweiterung: animiere Sterne nach Slogan
+const stars = document.querySelectorAll('.ratings .starburst');
+
+const animateStars = () => {
+  if (!window.motionAnimate || !window.motionStagger) return;
+
+  window.motionAnimate(stars, 
+    { opacity: [0, 1], y: [20, 0] }, 
+    { delay: window.motionStagger(0.1), duration: 0.6, easing: "ease-out" }
+  );
+};
+
 
 // Infinity Slider Gallery ***************************************************************************************
 document.addEventListener("DOMContentLoaded", () => {
