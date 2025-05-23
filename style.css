@@ -291,6 +291,11 @@ transition: opacity 0.4s ease;
 
 .slogan_word.visible {opacity: 1;}
 
+.ratings {
+text-decoration: none;
+margin-top: 1em;
+}
+
 .starburst {
   width: 1em;
   aspect-ratio: 1;
