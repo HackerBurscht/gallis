@@ -160,52 +160,41 @@ document.addEventListener("DOMContentLoaded", () => {
 // Slogan-text-effect ***************************************************************************************
 document.addEventListener("DOMContentLoaded", () => {
   const slogan = document.getElementById("slogan");
-  const words = slogan.textContent.trim().split(/\s+/);
+  const words  = slogan.textContent.trim().split(/\s+/);
 
-  // Erzeuge die Span-Elemente
+  // 1) Slogan in einzelne spans splitten
   slogan.innerHTML = words
     .map(w => `<span class="slogan_word">${w}</span>`)
     .join(" ");
-
   const spans = slogan.querySelectorAll(".slogan_word");
 
-  // Callback, der ausgelöst wird, sobald der Slogan ins Blickfeld kommt
-const onIntersection = (entries, observer) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      // Slogan animieren
+  // 2) Sterne erst HIER selektieren, wenn DOM ready ist
+  const stars = document.querySelectorAll(".ratings .starburst");
+
+  // 3) Intersection Observer
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+
+      // a) Slogan-Wörter sichtbar machen
       spans.forEach((span, i) => {
         setTimeout(() => span.classList.add("visible"), 100 + i * 175);
       });
 
-      // Sterne animieren
-      animateStars();
+      // b) Sterne animieren
+      animate(
+        stars,
+        { opacity: [0, 1], y: [20, 0] },
+        { delay: stagger(0.1), duration: 0.6, easing: "ease-out" }
+      );
 
-      observer.unobserve(slogan);
-    }
-  });
-};
+      obs.unobserve(slogan);
+    });
+  }, { threshold: 0.5 });
 
-
-  // IntersectionObserver einrichten
-  const observer = new IntersectionObserver(onIntersection, {
-    root: null,           // Viewport
-    threshold: 0.5        // 50 % des Elements müssen sichtbar sein
-  });
   observer.observe(slogan);
 });
 
-// Erweiterung: animiere Sterne nach Slogan
-const stars = document.querySelectorAll('.ratings .starburst');
-
-const animateStars = () => {
-  if (!window.motionAnimate || !window.motionStagger) return;
-
-  window.motionAnimate(stars, 
-    { opacity: [0, 1], y: [20, 0] }, 
-    { delay: window.motionStagger(0.1), duration: 0.6, easing: "ease-out" }
-  );
-};
 
 
 // Infinity Slider Gallery ***************************************************************************************
