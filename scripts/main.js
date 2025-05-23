@@ -1,3 +1,5 @@
+import { animate, scroll, hover, stagger, spring } from 'https://cdn.jsdelivr.net/npm/motion@12.12.1/+esm'
+
 // News-badge ***************************************************************************************
 document.addEventListener("DOMContentLoaded", () => {
   // 1) Gerader Einflug von oben, ohne Overshoot
