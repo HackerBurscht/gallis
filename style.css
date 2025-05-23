@@ -302,8 +302,8 @@ clip-path: polygon(100% 50%,70.23% 64.69%,65.45% 97.55%,42.27% 73.78%,9.55% 79.3
 display: inline-block;
 margin: 10px;
 background: linear-gradient(#3A3E4B,#0B132B);
-    position: relative;
-  overflow: hidden;
+position: relative;
+overflow: hidden;
 }
 
 .starburst.partial::after {
@@ -311,9 +311,9 @@ content: '';
 position: absolute;
 top: 0;
 right: 0;
-width: 30%; /* Nicht sichtbarer Teil = 100 % – 70 % */
+width: 30%;
 height: 100%;
-background: white; /* Hintergrundfarbe deiner Seite */
+background: var(--bg-color-slogan);
 z-index: 1;
 }
 
