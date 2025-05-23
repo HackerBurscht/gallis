@@ -835,10 +835,10 @@ object-position: center;
 }	
 
 .lightbox_thumbs{
+justify-content: flex-start;
 overflow-x: auto;
 -webkit-overflow-scrolling: touch;
-margin-top: 0;
-flex-wrap: no-wrap;
+flex-wrap: nowrap;
 }
 }
 
