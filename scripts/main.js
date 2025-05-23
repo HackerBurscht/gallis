@@ -196,7 +196,14 @@ document.addEventListener("DOMContentLoaded", () => {
   observer.observe(slogan);
 });
 
+// stars hover
 
+
+
+hover(".starburst", (element) => {
+    animate(".box", { rotate: 360 }, { duration: 1 })
+
+})
 
 
 // Infinity Slider Gallery ***************************************************************************************
