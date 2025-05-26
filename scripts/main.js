@@ -276,9 +276,11 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 // Helfer zum Verhindern von Scroll‑ und Touch‑Events
-function preventScroll(e) {
-  e.preventDefault();
-}
+  function preventScroll(e) {
+    // wenn der Touch in der Thumbnail-Leiste stattfindet, nicht verhindern:
+    if (e.target.closest(".lightbox_thumbs")) return;
+    e.preventDefault();
+  }
 let savedScrollY = 0;
 function openLightbox() {
   // 1) Scroll-Position merken
