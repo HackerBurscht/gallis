@@ -150,9 +150,7 @@ document.addEventListener("DOMContentLoaded", () => {
   introObserver.observe(intro);
 });
 
-// Slogan-text-effect, Ratings-Text und Sterne
-import { animate, stagger } from 'https://cdn.jsdelivr.net/npm/motion@12.12.1/+esm';
-
+// Slogan-text-effect, Ratings-Text und Sterne ***************************************************************************************
 document.addEventListener("DOMContentLoaded", () => {
   const slogan       = document.getElementById("slogan");
   const words        = slogan.textContent.trim().split(/\s+/);
@@ -178,7 +176,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // b) Ratings-Text einblenden (kurze Verzögerung nach Slogan)
     setTimeout(() => {
-      // per CSS-Klasse sichtbar machen oder per Motion:
       animate(
         ratingText,
         { opacity: [0, 1], y: [20, 0] },
