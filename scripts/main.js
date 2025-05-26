@@ -150,38 +150,58 @@ document.addEventListener("DOMContentLoaded", () => {
   introObserver.observe(intro);
 });
 
-// Slogan-text-effect and rating stars ***************************************************************************************
+// Slogan-text-effect, Ratings-Text und Sterne
+import { animate, stagger } from 'https://cdn.jsdelivr.net/npm/motion@12.12.1/+esm';
+
 document.addEventListener("DOMContentLoaded", () => {
-  const slogan = document.getElementById("slogan");
-  const words  = slogan.textContent.trim().split(/\s+/);
-  // 1) Markdown → einzelne <span class="slogan_word">
+  const slogan       = document.getElementById("slogan");
+  const words        = slogan.textContent.trim().split(/\s+/);
+  const ratingText   = document.querySelector(".ratings-text");
+  const stars        = document.querySelectorAll(".ratings .starburst");
+
+  // 1) Slogan in einzelne Spans aufsplitten
   slogan.innerHTML = words.map(w => `<span class="slogan_word">${w}</span>`).join(" ");
   const spans = slogan.querySelectorAll(".slogan_word");
-  // 2) Sterne selektieren
-  const stars = document.querySelectorAll(".ratings .starburst");
-  // 3) IntersectionObserver
+
+  // 2) IntersectionObserver auf den Slogan
   const observer = new IntersectionObserver((entries, obs) => {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      // a) Wort-Animation
-      spans.forEach((span, i) => {
-        setTimeout(() => span.classList.add("visible"), 100 + i * 175);
-      });
-      // b) Sterne **nach** der Wort-Animation
-      const maxWordDelay = 100 + (spans.length - 1) * 180;
-      setTimeout(() => {
-        animate(
-          stars,
-          { opacity: [0, 1], y: [20, 0] },
-          { delay: stagger(0.1), duration: 0.8, easing: "ease-out" }
-        );
-      }, maxWordDelay + 50); // +50 ms Puffer
-      obs.unobserve(slogan);
+    const entry = entries[0];
+    if (!entry.isIntersecting) return;
+
+    // a) Wort-für-Wort einblenden
+    spans.forEach((span, i) => {
+      setTimeout(() => span.classList.add("visible"), 100 + i * 175);
     });
+
+    // Zeit, bis das letzte Wort sichtbar ist
+    const maxWordDelay = 100 + (spans.length - 1) * 175;
+
+    // b) Ratings-Text einblenden (kurze Verzögerung nach Slogan)
+    setTimeout(() => {
+      // per CSS-Klasse sichtbar machen oder per Motion:
+      animate(
+        ratingText,
+        { opacity: [0, 1], y: [20, 0] },
+        { duration: 0.5, easing: "ease-out", fill: "forwards" }
+      );
+    }, maxWordDelay + 50);
+
+    // c) Sterne einblenden (erst nachdem Rating-Text steht)
+    const starsDelay = maxWordDelay + 50 + 500; // 500ms nachdem Rating-Text startete
+    setTimeout(() => {
+      animate(
+        stars,
+        { opacity: [0, 1], y: [20, 0] },
+        { delay: stagger(0.1), duration: 0.8, easing: "ease-out" }
+      );
+    }, starsDelay);
+
+    obs.unobserve(slogan);
   }, { threshold: 0.5 });
 
   observer.observe(slogan);
 });
+
 
 // stars hover
 document.addEventListener('DOMContentLoaded', () => {
@@ -324,7 +344,7 @@ document.addEventListener('DOMContentLoaded', () => {
 //Offer contents ***************************************************************************************
 document.addEventListener("DOMContentLoaded", () => {
   // Selektiere beide Text-Container
-  const targets = Array.from(document.querySelectorAll(".offer_left, .offer_right, .aboutus_texts, .aboutus_textcontainer-light, .ratings-text"));
+  const targets = Array.from(document.querySelectorAll(".offer_left, .offer_right, .aboutus_texts, .aboutus_textcontainer-light"));
   if (!targets.length) return;
 
   targets.forEach(el => {
