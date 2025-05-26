@@ -44,7 +44,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const rightCurtain = document.querySelector(".curtain-right");
 
   function openOverlay() {
-    // 1) Vorhänge schließen
     animate(
       [leftCurtain, rightCurtain],
       { width: ["0%", "50%"] },
