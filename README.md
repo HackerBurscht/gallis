@@ -1,6 +1,7 @@
 TODO:
 - Newsbadge -> Overlay-Styling
-- Mobile-NR
+
 - Bilder
 - Speisekarte (PDF)
-- Rezessionen
+- Gallery-sslideshow-Bug mobile
+- ultrawide monitors
