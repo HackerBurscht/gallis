@@ -9,6 +9,7 @@
 --bg-color-footer: #FFFFFF;
 --p-color-light:  #EBEAE8;
 --p-color-dark:  #0B132B;
+--p-color-dark-hover:  #717172;
 --p-color-footer:  #000000;
 --fs-sm: clamp(0.8rem, 0.17vi + 0.76rem, 0.89rem);
 --fs-base: clamp(1rem, 0.34vi + 0.91rem, 1.19rem);
@@ -669,6 +670,9 @@ line-height: 180%;
 text-decoration-color: --bg-color-offer;
 }
 
+.footer_contacts a:hover {
+font-weight: bold;
+}
 
 /*impressum ************************************************************************************* */
 .impressum{
@@ -751,6 +755,7 @@ height: 33svh;
 
 .gallery_img{
 height: 33svh;
+width: 100svw;
 }
 
 .gallery_ellipse{
@@ -940,6 +945,9 @@ border: none;
 font-size: 2rem;
 color: var(--p-color-dark);
 cursor: pointer;
+}
+.overlay-close:hover {
+color: var(--p-color-dark-hover);
 }
 
 .overlay-title {
