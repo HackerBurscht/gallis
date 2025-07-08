@@ -1,5 +1,47 @@
 import { animate, scroll, stagger, spring } from 'https://cdn.jsdelivr.net/npm/motion@12.12.1/+esm'
 
+// Lazy Loading Fallback for older browsers ***************************************************************************************
+document.addEventListener("DOMContentLoaded", () => {
+  // Check if native lazy loading is supported
+  if ('loading' in HTMLImageElement.prototype) {
+    // Native lazy loading is supported, no need for fallback
+    return;
+  }
+
+  // Fallback for older browsers using Intersection Observer
+  const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+  
+  if (lazyImages.length === 0) return;
+
+  const imageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        img.src = img.dataset.src || img.src;
+        img.classList.add('lazy-fallback'); // Add class for CSS styling
+        
+        // Add loaded class when image is actually loaded
+        img.addEventListener('load', () => {
+          img.classList.add('loaded');
+        });
+        
+        observer.unobserve(img);
+      }
+    });
+  }, {
+    rootMargin: '50px 0px', // Start loading 50px before the image comes into view
+    threshold: 0.01
+  });
+
+  lazyImages.forEach(img => {
+    // Store the original src in data-src if not already set
+    if (!img.dataset.src) {
+      img.dataset.src = img.src;
+    }
+    imageObserver.observe(img);
+  });
+});
+
 // News-badge ***************************************************************************************
 document.addEventListener("DOMContentLoaded", () => {
   // 1) Gerader Einflug von oben, ohne Overshoot
